@@ -1,0 +1,13 @@
+{
+  "name": "find",
+  "version": "0.0.1",
+  "description": "Find",
+  "main": "index.js",
+  "repository": "https://github.com/find-labs/find.git",
+  "author": "Khalil Omer <k.omer@pivot.so>",
+  "license": "AGPL-3.0-only",
+  "dependencies": {},
+  "devDependencies": {
+    "dbdocs": "^0.6.1"
+  }
+}
