@@ -1,13 +1,26 @@
 {
   "name": "find",
-  "version": "0.0.1",
-  "description": "Find",
-  "main": "index.js",
-  "repository": "https://github.com/find-labs/find.git",
-  "author": "Khalil Omer <k.omer@pivot.so>",
+  "version": "0.0.0",
   "license": "AGPL-3.0-only",
-  "dependencies": {},
+  "author": "Khalil Omer <k.omer@findlabs.org>",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
   "devDependencies": {
-    "dbdocs": "^0.6.1"
-  }
+    "prettier": "latest",
+    "turbo": "latest"
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  },
+  "packageManager": "yarn@1.22.15"
 }
