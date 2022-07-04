@@ -1,10 +1,7 @@
-import { Button } from "ui";
-
 export default function Web() {
   return (
     <div>
-      <h1>Find website</h1>
-      <Button />
+      <h1>Find Labs website</h1>
     </div>
   );
 }
