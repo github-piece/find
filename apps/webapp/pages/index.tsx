@@ -4,7 +4,7 @@ export default function Web() {
   return (
     <div>
       <h1>Find</h1>
-      <Button />
+      <Button name="Search" />
     </div>
   );
 }
