@@ -2,7 +2,7 @@
   "name": "supabase",
   "version": "1.0.0",
   "description": "Find Supabase config",
-  "main": null,
+  "main": "null",
   "author": "Find Labs Inc.",
   "license": "AGPL-3.0-only",
   "private": true,
