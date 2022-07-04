@@ -31,3 +31,10 @@ yarn-error.log*
 
 # turbo
 .turbo
+build/**
+dist/**
+.next/**
+
+# Supabase
+**/supabase/.branches
+**/supabase/.temp
