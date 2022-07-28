@@ -12,7 +12,8 @@ const MyApp: AppType = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      {/* <Component {...pageProps} />  */}
+      {/* TO DO: Fix typescript error */}
     </SessionProvider>
   );
 };
