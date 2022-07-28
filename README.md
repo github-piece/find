@@ -33,25 +33,9 @@ yarn run build
 
 ### Develop
 
-To develop all apps and packages, run the following command once you've read the [Running Supabase](#running-supabase) section:
+To develop all apps and packages, run the following command:
 
 ```
 cd find
 yarn run dev
 ```
-
-### Running Supabase
-
-The Supabase CLI is used to run Supabase locally.
-
-**Pre-reqs include:**
-
-- run `yarn install` in the root of the monorepo
-- make sure you have the Supabase CLI installed on your macheine
-- make sure you have docker installed and the daemon running
-
-At that point, when you run `yarn run dev`, Turborepo will run the `dev` command in the /apps/supabase directory, which will then run the `supabase` command in the /apps directory. This is important, because the Supabase CLI expects to run above the `supabase` directory.
-
-It is recommended that you open a terminal specifically for running supabase cli commands, as you will need to `cd apps` in order to use the supabase cli.
-
-
