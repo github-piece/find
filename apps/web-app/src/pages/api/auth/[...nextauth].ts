@@ -5,6 +5,10 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "../../../server/db/client";
 import { env } from "../../../env/server.mjs";
 
+// Providers
+import GoogleProvider from "next-auth/providers/google";
+import GitHubProvider from "next-auth/providers/github";
+
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
   callbacks: {
@@ -21,7 +25,14 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
   },
   providers: [
-    // ...add more providers here
+    GoogleProvider({
+      clientId: "process.env.GOOGLE_CLIENT_ID",
+      clientSecret: "process.env.GOOGLE_CLIENT_SECRET",
+    }),
+    GitHubProvider({
+      clientId: "process.env.GITHUB_CLIENT_ID",
+      clientSecret: "process.env.GITHUB_CLIENT_SECRET",
+    }),
   ],
 };
 
