@@ -8,8 +8,8 @@ This turborepo uses [Yarn](https://classic.yarnpkg.com/lang/en/) as a package ma
 
 ### Apps and Packages
 
-- `findwebsite`: a [Next.js](https://nextjs.org) website accessible at https://findlabs.org.
-- `webapp`: a [Next.js](https://nextjs.org) app accessible at https://find.new.
+- `find-labs-org`: a [Next.js](https://nextjs.org) website accessible at https://findlabs.org.
+- `web-app`: a [Next.js](https://nextjs.org) app accessible at https://find.new.
 - `ui`: a stub React component library
 - `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
