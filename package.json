@@ -19,6 +19,9 @@
     "prettier": "latest",
     "turbo": "latest"
   },
+  "prisma": {
+    "schema": "web-app/prisma/schema.prisma"
+  },
   "engines": {
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
