@@ -24,7 +24,6 @@ const Register = () => {
   }
 
   useEffect(() => {
-    console.log(data)
     if (status === 'authenticated' && data.user?.email) {
       if (data.user.hasPassword) {
         router.push('/auth/enter-password')
