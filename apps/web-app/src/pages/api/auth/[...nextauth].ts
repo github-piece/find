@@ -10,19 +10,6 @@ import { prisma } from "../../../server/db/client";
 import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
 import EmailProvider from 'next-auth/providers/email';
-import CredentialsProvider from 'next-auth/providers/credentials';
-
-const ses = new aws.SES({
-  region: process.env.AWS_REGION,
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-  },
-});
-
-const transport = createTransport({
-  SES: { ses, aws },
-});
 
 function html(params: { url: string; host: string }) {
   const { url, host } = params
@@ -76,6 +63,59 @@ function text({ url, host }: { url: string; host: string }) {
   return `Sign in to ${host}\n${url}\n\n`
 }
 
+let providers = []
+if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
+  providers.push(
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    })
+  )
+}
+
+if (process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET) {
+  providers.push(
+    GitHubProvider({
+      clientId: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    })
+  )
+}
+
+if (process.env.AWS_REGION && process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY) {
+  const ses = new aws.SES({
+    region: process.env.AWS_REGION,
+    credentials: {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+    },
+  });
+  
+  const transport = createTransport({
+    SES: { ses, aws },
+  });
+
+  providers.push(
+    EmailProvider({
+      async sendVerificationRequest(params) {
+        const { identifier, url } = params
+        const { host } = new URL(url)
+        const result = await transport.sendMail({
+          to: identifier,
+          from : process.env.EMAIL_FROM,
+          subject: 'Welcome to Findlabs',
+          text: text({ url, host }),
+          html: html({ url, host })
+        })
+        const failed = result.rejected?.concat(result.pending).filter(Boolean)
+        if (failed && failed.length) {
+          throw new Error(`Email(s) (${failed.join(", ")}) could not be sent`)
+        }
+      },
+    })
+  )
+}
+
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
   callbacks: {
@@ -105,33 +145,7 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
   },
   secret: process.env.NEXTAUTH_SECRET,
-  providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    }),
-    GitHubProvider({
-      clientId: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    }),
-    EmailProvider({
-      async sendVerificationRequest(params) {
-        const { identifier, url } = params
-        const { host } = new URL(url)
-        const result = await transport.sendMail({
-          to: identifier,
-          from : process.env.EMAIL_FROM,
-          subject: 'Welcome to Findlabs',
-          text: text({ url, host }),
-          html: html({ url, host })
-        })
-        const failed = result.rejected?.concat(result.pending).filter(Boolean)
-        if (failed && failed.length) {
-          throw new Error(`Email(s) (${failed.join(", ")}) could not be sent`)
-        }
-      },
-    })
-  ],
+  providers,
   pages: {
     verifyRequest: '/auth/verify'
   }
