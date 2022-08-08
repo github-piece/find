@@ -8,7 +8,6 @@ import { useEffect } from "react";
 
 const SocialLogin = () => {
   const { data } = useSession()
-  console.log('data', data)
   const socialLogin = (type: string) => {
     signIn(type)
   };

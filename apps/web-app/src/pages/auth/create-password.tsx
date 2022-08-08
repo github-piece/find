@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
-import { signIn, useSession } from "next-auth/react"
+import { useSession } from "next-auth/react"
 
 import Button from "../../components/Button"
 import EyeIcon from "../../assets/icon/eye.svg"
 import InfoIcon from "../../assets/icon/info.svg"
-import { trpc } from "../../utils/trpc"
 
 const CreatePassword = () => {
   const { data, status } = useSession()
   const user = data?.user
-  console.log(user)
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [type, setType] = useState('password')
@@ -18,7 +16,6 @@ const CreatePassword = () => {
     password: '',
     confirm: ''
   })
-  const mutation = trpc.useMutation<any>('authregister')
 
   const handleType = () => setType(type === 'text' ? 'password' : 'text')
   const handleSubmit = () => {
@@ -27,21 +24,9 @@ const CreatePassword = () => {
         password: password ? '' : 'Password is required',
         confirm: password !== confirmPassword ? 'Password doesn\'t match' : ''
       })
+      return
     }
-    const data = mutation.mutate({ email: user?.email, password })
-    console.log('data', data)
   }
-
-  useEffect(() => {
-    if (mutation.data) {
-      signIn('credentials', {
-        email: user?.email,
-        password: password,
-        user,
-        hasPassword: true
-      })
-    }
-  }, [mutation.data])
 
   if (status === 'loading') return <></>
   
@@ -107,7 +92,7 @@ const CreatePassword = () => {
         solid
         full
         className="mx-0"
-        loading={mutation.isLoading}
+        loading={false}
         onClick={handleSubmit}
       />
       <div className="bg-gray-200 text-gray-500 py-3 px-4 text-center rounded text-sm flex mt-3">

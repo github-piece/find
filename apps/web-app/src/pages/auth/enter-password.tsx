@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 
 const EnterPassword = () => {
   const { data, status } = useSession()
-  console.log(data, status)
   const router = useRouter()
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);

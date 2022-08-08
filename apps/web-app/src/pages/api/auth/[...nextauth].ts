@@ -89,17 +89,13 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
     jwt({ token, user, account, profile, isNewUser }) {
-      console.log('jwt', {user, account, profile, isNewUser})
       if (user) {
-        user.hasPassword = !!user.password
-        delete user.password
         const image = user.image || profile?.avatar_url
         token.user = {
           ...user,
           image
         }
       }
-      console.log('token', token)
       return token
     }
   },
@@ -134,23 +130,6 @@ export const authOptions: NextAuthOptions = {
           throw new Error(`Email(s) (${failed.join(", ")}) could not be sent`)
         }
       },
-    }),
-    CredentialsProvider({
-      name: "Credentials",
-      credentials: {
-        username: { label: "Username", type: "text", placeholder: "jsmith" },
-        password: {  label: "Password", type: "password" }
-      },
-      async authorize(credentials, req) {
-        console.log(credentials, req)
-        // if (req.body?.hasPassword) {
-        //   return {
-        //     ...req.body.user,
-        //     hasPassword: req.body.hasPassword
-        //   }
-        // }
-        return null
-      }
     })
   ],
   pages: {
