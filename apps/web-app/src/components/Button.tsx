@@ -50,7 +50,7 @@ const Button: React.FC<ButtonProps> = ({
     >
       {!!icon && (
         <div className={cls("w-6 h-6 ml-auto", text ? 'mr-3' : 'mr-auto')}>
-          <Image src={icon} />
+          <Image src={icon} alt="button icon" />
         </div>
       )}
       {!!text && <div className={cls("mr-auto", !icon && "ml-auto")}>

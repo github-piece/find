@@ -31,6 +31,7 @@ const Register = () => {
         router.push('/auth/create-password')
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status])
 
   return (

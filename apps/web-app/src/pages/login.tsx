@@ -45,6 +45,7 @@ const Login = () => {
         router.push('/auth/create-password')
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status])
 
   return (
@@ -85,9 +86,9 @@ const Login = () => {
       />
       <div className="bg-gray-200 text-gray-500 py-3 px-4 text-center rounded text-sm flex mt-3">
         <div className="w-6 h-6 mr-3 ml-auto">
-          <Image src={KeyIcon} />
+          <Image src={KeyIcon} alt="secret" />
         </div>
-        <div className="mr-auto">We'll email you a magic link for log in.</div>
+        <div className="mr-auto">We&apos;ll email you a magic link for log in.</div>
       </div>
     </>
   )

@@ -52,7 +52,7 @@ const CreatePassword = () => {
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             />
             <div className="absolute top-3 right-3 cursor-pointer" onClick={handleType}>
-              <Image src={EyeIcon} width={16} height={16} />
+              <Image src={EyeIcon} width={16} height={16} alt="eye" />
             </div>
           </div>
           <div className="text-red-500 text-sm font-medium">
@@ -79,7 +79,7 @@ const CreatePassword = () => {
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             />
             <div className="absolute top-3 right-3 cursor-pointer" onClick={handleType}>
-              <Image src={EyeIcon} width={16} height={16} />
+              <Image src={EyeIcon} width={16} height={16} alt="eye" />
             </div>
           </div>
           <div className="text-red-500 text-sm font-medium">
@@ -97,10 +97,10 @@ const CreatePassword = () => {
       />
       <div className="bg-gray-200 text-gray-500 py-3 px-4 text-center rounded text-sm flex mt-3">
         <div className="w-8 h-8 mr-3 ml-auto mt-1">
-          <Image src={InfoIcon} />
+          <Image src={InfoIcon} alt="information" />
         </div>
         <div className="mr-auto text-left">
-          Be sure to save your Master Password securely. If you forget your Master Password, you won't be able to login. Find uses end-to-end encryption, so we can't reset your Master Password.
+          Be sure to save your Master Password securely. If you forget your Master Password, you won&apos;t be able to login. Find uses end-to-end encryption, so we can&apos;t reset your Master Password.
         </div>
       </div>
     </>

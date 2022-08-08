@@ -18,7 +18,7 @@ const EnterPassword = () => {
   useEffect(() => {
     if (status === 'unauthenticated') 
       router.push('/login')
-  }, [status])
+  }, [status, router])
 
   return (
     <>
@@ -42,7 +42,7 @@ const EnterPassword = () => {
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             />
             <div className="absolute top-3 right-3 cursor-pointer" onClick={handleType}>
-              <Image src={EyeIcon} width={16} height={16} />
+              <Image src={EyeIcon} width={16} height={16} alt="eye" />
             </div>
           </div>
           <div className="text-red-500 text-sm font-medium">
