@@ -3,8 +3,12 @@ import Button from "../components/Button";
 import SocialLogin from "../components/SocialLogin"
 import KeyIcon from "../assets/icon/key.svg"
 import Image from "next/image";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const { data, status } = useSession()
+  const router = useRouter()
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -20,12 +24,28 @@ const Login = () => {
     if (!submitted) return
 
     if (email) {
-      if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) setError('')
-      else setError('Email is not valid!')
+      if (!/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
+        setError('Email is not valid!')
+        return
+      }
+      setError('')
+      signIn('email', {
+        email
+      })
     } else {
       setError('Please insert email address')
     }
   }, [email, submitted])
+
+  useEffect(() => {
+    if (status === 'authenticated' && data.user?.email) {
+      if (data.user.hasPassword) {
+        router.push('/auth/enter-password')
+      } else {
+        router.push('/auth/create-password')
+      }
+    }
+  }, [status])
 
   return (
     <>

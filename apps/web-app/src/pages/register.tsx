@@ -24,9 +24,13 @@ const Register = () => {
   }
 
   useEffect(() => {
-    if (status === 'authenticated') {
-      console.log(data)
-      router.push('/auth/create-password')
+    console.log(data)
+    if (status === 'authenticated' && data.user?.email) {
+      if (data.user.hasPassword) {
+        router.push('/auth/enter-password')
+      } else {
+        router.push('/auth/create-password')
+      }
     }
   }, [status])
 

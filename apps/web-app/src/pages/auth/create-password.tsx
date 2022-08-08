@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
-import { useSession } from "next-auth/react"
+import { signIn, useSession } from "next-auth/react"
 
 import Button from "../../components/Button"
 import EyeIcon from "../../assets/icon/eye.svg"
@@ -10,6 +10,7 @@ import { trpc } from "../../utils/trpc"
 const CreatePassword = () => {
   const { data, status } = useSession()
   const user = data?.user
+  console.log(user)
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [type, setType] = useState('password')
@@ -33,7 +34,12 @@ const CreatePassword = () => {
 
   useEffect(() => {
     if (mutation.data) {
-      
+      signIn('credentials', {
+        email: user?.email,
+        password: password,
+        user,
+        hasPassword: true
+      })
     }
   }, [mutation.data])
 

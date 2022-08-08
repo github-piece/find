@@ -10,6 +10,7 @@ import { prisma } from "../../../server/db/client";
 import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
 import EmailProvider from 'next-auth/providers/email';
+import CredentialsProvider from 'next-auth/providers/credentials';
 
 const ses = new aws.SES({
   region: process.env.AWS_REGION,
@@ -78,12 +79,28 @@ function text({ url, host }: { url: string; host: string }) {
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
   callbacks: {
-    session({ session, user }) {
-      console.log('session', session, user)
-      if (user) {
-        session.user.id = user.id;
+    session({ session, token }) {
+      if (token?.user) {
+        session.user = {
+          ...session.user,
+          ...token.user as object
+        }
       }
       return session;
+    },
+    jwt({ token, user, account, profile, isNewUser }) {
+      console.log('jwt', {user, account, profile, isNewUser})
+      if (user) {
+        user.hasPassword = !!user.password
+        delete user.password
+        const image = user.image || profile?.avatar_url
+        token.user = {
+          ...user,
+          image
+        }
+      }
+      console.log('token', token)
+      return token
     }
   },
   // Configure one or more authentication providers
@@ -118,6 +135,23 @@ export const authOptions: NextAuthOptions = {
         }
       },
     }),
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        username: { label: "Username", type: "text", placeholder: "jsmith" },
+        password: {  label: "Password", type: "password" }
+      },
+      async authorize(credentials, req) {
+        console.log(credentials, req)
+        // if (req.body?.hasPassword) {
+        //   return {
+        //     ...req.body.user,
+        //     hasPassword: req.body.hasPassword
+        //   }
+        // }
+        return null
+      }
+    })
   ],
   pages: {
     verifyRequest: '/auth/verify'

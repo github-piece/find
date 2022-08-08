@@ -1,15 +1,25 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Button from "../../components/Button"
 import EyeIcon from "../../assets/icon/eye.svg"
 import Image from "next/image";
+import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const EnterPassword = () => {
+  const { data, status } = useSession()
+  console.log(data, status)
+  const router = useRouter()
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [type, setType] = useState('password')
 
   const handleType = () => setType(type === 'text' ? 'password' : 'text')
   const handleSubmit = () => { }
+
+  useEffect(() => {
+    if (status === 'unauthenticated') 
+      router.push('/login')
+  }, [status])
 
   return (
     <>
