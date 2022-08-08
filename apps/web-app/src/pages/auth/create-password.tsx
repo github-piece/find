@@ -1,18 +1,44 @@
-import { useState } from "react"
-import Button from "../components/Button"
-import EyeIcon from "../assets/icon/eye.svg"
-import InfoIcon from "../assets/icon/info.svg"
-import Image from "next/image";
+import { useEffect, useState } from "react"
+import Image from "next/image"
+import { useSession } from "next-auth/react"
 
-const EnterPassword = () => {
+import Button from "../../components/Button"
+import EyeIcon from "../../assets/icon/eye.svg"
+import InfoIcon from "../../assets/icon/info.svg"
+import { trpc } from "../../utils/trpc"
+
+const CreatePassword = () => {
+  const { data, status } = useSession()
+  const user = data?.user
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [loading, setLoading] = useState(false);
   const [type, setType] = useState('password')
+  const [error, setError] = useState({
+    password: '',
+    confirm: ''
+  })
+  const mutation = trpc.useMutation<any>('authregister')
 
   const handleType = () => setType(type === 'text' ? 'password' : 'text')
-  const handleSubmit = () => { }
+  const handleSubmit = () => {
+    if (!password || password !== confirmPassword) {
+      setError({
+        password: password ? '' : 'Password is required',
+        confirm: password !== confirmPassword ? 'Password doesn\'t match' : ''
+      })
+    }
+    const data = mutation.mutate({ email: user?.email, password })
+    console.log('data', data)
+  }
 
+  useEffect(() => {
+    if (mutation.data) {
+      
+    }
+  }, [mutation.data])
+
+  if (status === 'loading') return <></>
+  
   return (
     <>
       <h1 className="font-semibold text-4xl mb-3">
@@ -75,21 +101,21 @@ const EnterPassword = () => {
         solid
         full
         className="mx-0"
-        loading={loading}
+        loading={mutation.isLoading}
         onClick={handleSubmit}
       />
       <div className="bg-gray-200 text-gray-500 py-3 px-4 text-center rounded text-sm flex mt-3">
-        <div className="w-6 h-6 mr-3 ml-auto">
+        <div className="w-8 h-8 mr-3 ml-auto mt-1">
           <Image src={InfoIcon} />
         </div>
         <div className="mr-auto text-left">
-          Please make sure you remember the Master Password you have set. If you forget your Master Password, you will be unable to access any of the information protected by it.
+          Be sure to save your Master Password securely. If you forget your Master Password, you won't be able to login. Find uses end-to-end encryption, so we can't reset your Master Password.
         </div>
       </div>
     </>
   )
 }
 
-EnterPassword.layout = "Auth"
+CreatePassword.layout = "Auth"
 
-export default EnterPassword
+export default CreatePassword

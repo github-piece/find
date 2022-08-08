@@ -1,13 +1,16 @@
-import { useState } from "react"
-import Button from "../components/Button";
+import { useEffect, useState } from "react"
+import { useSession, signIn } from "next-auth/react"
+import { useRouter } from "next/router"
+
+import Button from "../components/Button"
 import SocialLogin from "../components/SocialLogin"
-import Link from "next/link";
-import Navbar from "../components/Navbar";
-import { validateEmail } from "../utils/helper";
+import { validateEmail } from "../utils/helper"
 
 const Register = () => {
-  const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
+  const { data, status } = useSession()
+  const router = useRouter()
+  const [email, setEmail] = useState('')
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
   const handleSubmit = () => {
@@ -17,9 +20,15 @@ const Register = () => {
       return
     }
     setLoading(true)
-    console.log(email)
-    setLoading(false)
+    signIn("email", { email })
   }
+
+  useEffect(() => {
+    if (status === 'authenticated') {
+      console.log(data)
+      router.push('/auth/create-password')
+    }
+  }, [status])
 
   return (
     <>
@@ -50,7 +59,7 @@ const Register = () => {
       </div>
       <Button
         type="submit"
-        text="Join in with Email"
+        text="Join with Email"
         solid
         full
         className="mx-0"

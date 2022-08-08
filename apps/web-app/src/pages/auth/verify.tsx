@@ -1,8 +1,8 @@
 import Image from "next/image"
-import WarnIcon from "../assets/icon/warn.svg"
-import MailIcon from "../assets/mail.png"
+import WarnIcon from "../../assets/icon/warn.svg"
+import MailIcon from "../../assets/mail.png"
 
-const CheckEmail = () => {
+const Verify = () => {
   return (
     <>
       <div className="w-36 h-36 mx-auto">
@@ -26,6 +26,6 @@ const CheckEmail = () => {
   )
 }
 
-CheckEmail.layout = 'Auth'
+Verify.layout = 'Auth'
 
-export default CheckEmail
+export default Verify
