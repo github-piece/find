@@ -5,8 +5,9 @@ import { useRouter } from "next/router"
 import Button from "../components/Button"
 import SocialLogin from "../components/SocialLogin"
 import { validateEmail } from "../utils/helper"
+import { z } from "zod";
 
-const Register = () => {
+const Join = () => {
   const { data, status } = useSession()
   const router = useRouter()
   const [email, setEmail] = useState('')
@@ -15,22 +16,30 @@ const Register = () => {
 
   const handleSubmit = () => {
     setError('')
-    if (!validateEmail(email)) {
+    try {
+      if (z.string().email().parse(email)) {
+        console.log('passed', email)
+      } else {
+        console.log('emailadf', email)
+      }
+    } catch (err) {
       setError(email ? 'Email is  invalid' : 'Email is required')
+    }
+    if (!validateEmail(email)) {
       return
     }
     setLoading(true)
-    signIn("email", { email })
+    // signIn("email", { email })
   }
 
   useEffect(() => {
-    if (status === 'authenticated' && data.user?.email) {
-      if (data.user.hasPassword) {
-        router.push('/auth/enter-password')
-      } else {
-        router.push('/auth/create-password')
-      }
-    }
+    // if (status === 'authenticated' && data.user?.email) {
+    //   if (data.user.hasPassword) {
+    //     router.push('/auth/enter-password')
+    //   } else {
+    //     router.push('/auth/create-password')
+    //   }
+    // }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status])
 
@@ -77,6 +86,6 @@ const Register = () => {
   )
 }
 
-Register.layout = "Auth"
+Join.layout = "Auth"
 
-export default Register
+export default Join

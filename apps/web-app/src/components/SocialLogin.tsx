@@ -2,7 +2,6 @@ import GoogleIcon from "../assets/icon/google-logo.svg";
 import AppleIcon from "../assets/icon/apple-logo.svg";
 import GithubIcon from "../assets/icon/github-logo.svg";
 import Button from "./Button";
-import { FACEBOOK_AUTH_URL, GOOGLE_AUTH_URL } from "../constants";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useEffect } from "react";
 

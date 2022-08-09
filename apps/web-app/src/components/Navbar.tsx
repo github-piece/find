@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
@@ -6,10 +5,10 @@ const Navbar = () => {
   const router = useRouter()
   
   let auth = 'Join'
-  if (router.pathname === '/register') auth = "Login" 
+  if (router.pathname === '/join') auth = "Login" 
 
   const handleAuth = () => {
-    router.push(auth === 'Join' ? '/register' : '/login')
+    router.push(auth === 'Join' ? '/join' : '/login')
   }
   return (
     <nav className="p-5 flex justify-between">
