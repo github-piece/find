@@ -1,8 +1,6 @@
 import { useState } from "react"
 import Button from "../components/Button";
 import SocialLogin from "../components/SocialLogin"
-import KeyIcon from "../assets/icon/key.svg"
-import Image from "next/image";
 
 const JoinWaitlist = () => {
   const [email, setEmail] = useState('');

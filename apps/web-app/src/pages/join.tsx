@@ -4,7 +4,6 @@ import { useRouter } from "next/router"
 
 import Button from "../components/Button"
 import SocialLogin from "../components/SocialLogin"
-import { validateEmail } from "../utils/helper"
 import { z } from "zod";
 
 const Join = () => {
@@ -18,28 +17,22 @@ const Join = () => {
     setError('')
     try {
       if (z.string().email().parse(email)) {
-        console.log('passed', email)
-      } else {
-        console.log('emailadf', email)
+        signIn("email", { email })
       }
     } catch (err) {
       setError(email ? 'Email is  invalid' : 'Email is required')
     }
-    if (!validateEmail(email)) {
-      return
-    }
     setLoading(true)
-    // signIn("email", { email })
   }
 
   useEffect(() => {
-    // if (status === 'authenticated' && data.user?.email) {
-    //   if (data.user.hasPassword) {
-    //     router.push('/auth/enter-password')
-    //   } else {
-    //     router.push('/auth/create-password')
-    //   }
-    // }
+    if (status === 'authenticated' && data.user?.email) {
+      if (data.user.hasPassword) {
+        router.push('/auth/enter-password')
+      } else {
+        router.push('/auth/create-password')
+      }
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status])
 
