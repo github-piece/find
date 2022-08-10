@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useState } from "react";
 import { trpc } from "../utils/trpc";
 
 type TechnologyCardProps = {
@@ -10,7 +11,12 @@ type TechnologyCardProps = {
 
 const Home: NextPage = () => {
   const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
-
+  const [search, setSearch] = useState('')
+  const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      window.open(`https://google.com?search=${search}`, '_blank')
+    }
+  }
   return (
     <>
       <Head>
@@ -23,6 +29,18 @@ const Home: NextPage = () => {
         <h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700">
           Create <span className="text-purple-300">T3</span> App
         </h1>
+        <div className="mb-3 xl:w-96">
+          <label
+            className="form-label inline-block mb-2 text-gray-700 text-xl"
+          >Search</label>
+          <input
+            type="text"
+            className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            onKeyUp={handleKeyUp}
+          />
+        </div>
         <p className="text-2xl text-gray-700">This stack uses:</p>
         <div className="grid gap-3 pt-3 mt-3 text-center md:grid-cols-2 lg:w-2/3">
           <TechnologyCard
