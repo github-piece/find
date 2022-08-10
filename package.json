@@ -20,7 +20,7 @@
     "turbo": "latest"
   },
   "prisma": {
-    "schema": "web-app/prisma/schema.prisma"
+    "schema": "apps/web-app/prisma/schema.prisma"
   },
   "engines": {
     "npm": ">=7.0.0",
