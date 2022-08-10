@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 
 const Navbar = () => {
   const router = useRouter()
-  
+  const isWaitlist = process.env.NEXT_PUBLIC_IS_WAITLIST && process.env.NEXT_PUBLIC_IS_WAITLIST !== 'false'
   let auth = 'Join'
   if (router.pathname === '/join') auth = "Login" 
 
@@ -13,10 +13,10 @@ const Navbar = () => {
   return (
     <nav className="p-5 flex justify-between">
       <div className="flex">
-        <Link href={"/"}>
+        <Link href={"https://findlabs.org"}>
           <div className="mr-4 cursor-pointer">Learn more</div>
         </Link>
-        <Link href={"/"}>
+        <Link href={"https://findlabs.org/docs"}>
           <div className="mr-4 cursor-pointer">Help</div>
         </Link>
       </div>
