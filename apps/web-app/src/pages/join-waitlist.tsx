@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Button from "../components/Button";
 import SocialLogin from "../components/SocialLogin"
+import { z } from 'zod'
 
 const JoinWaitlist = () => {
   const [email, setEmail] = useState('');
@@ -8,9 +9,11 @@ const JoinWaitlist = () => {
 
   const handleSubmit = () => {
     setLoading(true)
-    if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
-      console.log('email', email)
-    } else {
+    try {
+      if (z.string().email().parse(email)) {
+        console.log('email', email)
+      }
+    } catch {
       console.log('failed', email)
     }
     setLoading(false)

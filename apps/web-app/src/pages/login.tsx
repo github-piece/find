@@ -39,11 +39,7 @@ const Login = () => {
 
   useEffect(() => {
     if (status === 'authenticated' && data.user?.email) {
-      if (data.user.hasPassword) {
-        router.push('/auth/enter-password')
-      } else {
-        router.push('/auth/create-password')
-      }
+      router.push('/auth/enter-password')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status])
