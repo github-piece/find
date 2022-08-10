@@ -1,18 +1,35 @@
 // src/pages/_app.tsx
 import { withTRPC } from "@trpc/next";
 import type { AppRouter } from "../server/router";
-import type { AppType } from "next/dist/shared/lib/utils";
 import superjson from "superjson";
 import { SessionProvider } from "next-auth/react";
 import "../styles/globals.css";
+import PageWithLayoutType from "../types/pageWithLayout";
+import BasicLayout from "../layouts/Basic";
+import AuthLayout from "../layouts/Auth";
 
-const MyApp: AppType = ({
+type AppLayoutProps = {
+  Component: PageWithLayoutType,
+  pageProps: any
+}
+
+const layouts = {
+  Basic: BasicLayout,
+  Auth: AuthLayout
+}
+
+const MyApp = ({
   Component,
   pageProps: { session, ...pageProps },
-}) => {
+}: AppLayoutProps) => {
+
+  const Layout = layouts[Component.layout || "Basic"]
+
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </SessionProvider>
   );
 };
