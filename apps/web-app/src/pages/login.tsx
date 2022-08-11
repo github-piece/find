@@ -5,6 +5,7 @@ import KeyIcon from "../assets/icon/key.svg"
 import Image from "next/image";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { z } from "zod";
 
 const Login = () => {
   const { data, status } = useSession()
@@ -23,18 +24,17 @@ const Login = () => {
   useEffect(() => {
     if (!submitted) return
 
-    if (email) {
-      if (!/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
-        setError('Email is not valid!')
-        return
+    try {
+      if (z.string().email().parse(email)) {
+        setError('')
+        signIn('email', {
+          email
+        })
       }
-      setError('')
-      signIn('email', {
-        email
-      })
-    } else {
-      setError('Please insert email address')
+    } catch {
+      setError(email ? 'Email is not valid!' : 'Please insert email address')
     }
+    
   }, [email, submitted])
 
   useEffect(() => {
