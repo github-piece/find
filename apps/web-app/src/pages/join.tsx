@@ -14,6 +14,7 @@ const Join = () => {
   const [error, setError] = useState('')
 
   const handleSubmit = () => {
+    setLoading(true)
     setError('')
     try {
       if (z.string().email().parse(email)) {
@@ -22,7 +23,7 @@ const Join = () => {
     } catch (err) {
       setError(email ? 'Email is  invalid' : 'Email is required')
     }
-    setLoading(true)
+    setLoading(false)
   }
 
   useEffect(() => {
