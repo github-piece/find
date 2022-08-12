@@ -1,8 +1,10 @@
 import { useState } from "react"
 import Button from "../components/Button";
 import { z } from 'zod'
+import { trpc } from "../utils/trpc";
 
 const JoinWaitlist = () => {
+  const mutation = trpc.useMutation("auth.waitlist")
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -13,6 +15,7 @@ const JoinWaitlist = () => {
     try {
       if (z.string().email().parse(email)) {
         console.log("email", { email })
+        
       }
     } catch (err) {
       setError(email ? 'Email is  invalid' : 'Email is required')
