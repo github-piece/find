@@ -1,10 +1,12 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Button from "../components/Button";
 import { z } from 'zod'
 import { trpc } from "../utils/trpc";
+import { useRouter } from "next/router";
 
 const JoinWaitlist = () => {
   const mutation = trpc.useMutation("auth.waitlist")
+  const router = useRouter()
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -14,14 +16,19 @@ const JoinWaitlist = () => {
     setError('')
     try {
       if (z.string().email().parse(email)) {
-        console.log("email", { email })
-        
+        mutation.mutate({ email })
       }
     } catch (err) {
       setError(email ? 'Email is  invalid' : 'Email is required')
     }
     setLoading(false)
   }
+
+  useEffect(() => {
+    if (mutation.data?.success) {
+      router.push("/waitlist-success")
+    }
+  }, [mutation.data])
 
   return (
     <>
