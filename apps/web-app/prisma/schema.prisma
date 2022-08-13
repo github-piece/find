@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
     provider = "postgresql" 
-    url      = env("DATABASE_URL")
+    url      = "postgres://postgres:mysecretpassword@localhost:5432/find"
 }
 
 model Example {
@@ -60,6 +60,13 @@ model VerificationToken {
 }
 
 model Waitlist {
-    id            String    @id @default(cuid())
-    email         String   @unique
+    // Email address that wants to join Find
+    email String @id
+    // When user submitted the waitlist form
+    createdAt DateTime @default(now())
+    modifiedAt DateTime @updatedAt
+    // If the waitlist entry has already been converted to a user.
+    redeemed Boolean @default(false)
+    // Whether to allow a user to join with the redeption secret
+    allowRedeem Boolean @default(false)
 }
