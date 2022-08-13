@@ -26,6 +26,11 @@ const CreatePassword = () => {
       })
       return
     }
+    console.log(user?.email, password)
+    fetch('/api/user/create', {
+      method: 'POST',
+      body: JSON.stringify({ email: user?.email, password })
+    })
   }
 
   if (status === 'loading') return <></>

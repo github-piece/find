@@ -17,7 +17,9 @@ export const serverSchema = z.object({
   AWS_ACCESS_KEY_ID: z.string().optional(),
   AWS_SECRET_ACCESS_KEY: z.string().optional(),
   AWS_REGION: z.string().optional(),
-  EMAIL_FROM: z.string().optional()
+  EMAIL_FROM: z.string().optional(),
+  ETEBASE_USERNAME: z.string(),
+  ETEBASE_PASSWORD: z.string(),
 });
 
 /**
