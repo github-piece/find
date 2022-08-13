@@ -15,8 +15,12 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@types/react": "^18.0.15",
     "prettier": "latest",
     "turbo": "latest"
+  },
+  "prisma": {
+    "schema": "apps/web-app/prisma/schema.prisma"
   },
   "engines": {
     "npm": ">=7.0.0",
