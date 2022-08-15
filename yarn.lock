@@ -3667,6 +3667,11 @@ table@^6.0.9:
     string-width "^4.2.3"
     strip-ansi "^6.0.1"
 
+tailwindcss-radix@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/tailwindcss-radix/-/tailwindcss-radix-2.5.0.tgz#d7cc67560361e4225a5fcee49ae76dc48c5b8f45"
+  integrity sha512-vPIvolTmb0L6DlvIKBJRVGo+gB7ZU2jZbO8EpZw/5gBSTHx6PezRgQhR68kOuteh3F1q2PV3oBQgaIN4FxVmrw==
+
 tailwindcss@^3.1.6:
   version "3.1.6"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.1.6.tgz#bcb719357776c39e6376a8d84e9834b2b19a49f1"
