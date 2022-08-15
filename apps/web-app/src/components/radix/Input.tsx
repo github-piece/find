@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import Image from 'next/image';
 import Label from './Label';
 
 type InputProps = {
@@ -13,6 +14,8 @@ type InputProps = {
   labelClassName?: string
   errorClassName?: string
   onKeyUp?: (e: React.KeyboardEvent<HTMLInputElement>) => void
+  icon?: any
+  onIconClick?: () => void
 }
 
 const Input: React.FC<InputProps> = ({
@@ -26,22 +29,30 @@ const Input: React.FC<InputProps> = ({
   inputClassName = "",
   labelClassName = "",
   error,
-  errorClassName = ""
+  errorClassName = "",
+  icon,
+  onIconClick
 }) => (
   <div className={className}>
     {!!label && <Label text={label} className={labelClassName} />}
-    <input
-      type={type || "string"}
-      className={classNames(
-        "form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
-        inputClassName
-      )}
-      value={value}
-      onChange={e => onChange(e.target.value)}
-      onKeyUp={onKeyUp}
-      placeholder={placeholder}
-    />
-    {error && <p className={classNames("text-red-500 text-xs italic", errorClassName)}>{error}</p>}
+    <div className="relative">
+      <input
+        type={type || "string"}
+        className={classNames(
+          "form-control bg-gray-200 block w-full px-4 py-2 font-normal text-gray-700 focus:bg-white bg-clip-padding border border-solid border-gray-200 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none",
+          inputClassName
+        )}
+        value={value}
+        onChange={e => onChange(e.target.value)}
+        onKeyUp={onKeyUp}
+        placeholder={placeholder}
+      />
+      {!!icon && <div className="absolute top-3 right-3 cursor-pointer" onClick={onIconClick}>
+        <Image src={icon} width={16} height={16} alt="eye" />
+      </div>}
+    </div>
+    
+    {error && <p className={classNames("text-red-500 text-sm font-medium", errorClassName)}>{error}</p>}
   </div>
 )
 

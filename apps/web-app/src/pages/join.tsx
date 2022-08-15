@@ -5,6 +5,7 @@ import { useRouter } from "next/router"
 import Button from "../components/Button"
 import SocialLogin from "../components/SocialLogin"
 import { z } from "zod";
+import Input from "../components/radix/Input"
 
 const Join = () => {
   const { data, status } = useSession()
@@ -42,23 +43,14 @@ const Join = () => {
         <span className="flex-shrink mx-4 text-gray-400">OR</span>
         <div className="flex-grow border-t border-gray-400"></div>
       </div>
-      <div className="flex flex-wrap mb-3">
-        <div className="w-full text-left">
-          <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2">
-            Email
-          </label>
-          <input
-            type="email"
-            placeholder="name@email.com"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-          />
-          <div className="text-red-500 text-sm font-medium">
-            {error}
-          </div>
-        </div>
-      </div>
+      <Input
+        className="w-full text-left mb-3"
+        label="Email"
+        value={email}
+        onChange={setEmail}
+        error={error}
+        placeholder="name@email.com"
+      />
       <Button
         type="submit"
         text="Join with Email"
