@@ -15,4 +15,13 @@ function defineNextConfig(config) {
 export default defineNextConfig({
   reactStrictMode: true,
   swcMinify: true,
+  env: {
+    providers: {
+      google: !!env.GOOGLE_CLIENT_ID,
+      github: !!env.GITHUB_CLIENT_ID,
+      apple: !!env.APPLE_CLIENT_ID,
+    },
+    aws: !!env.AWS_ACCESS_KEY_ID,
+    waitlist: env.IS_WAITLIST
+  }
 });

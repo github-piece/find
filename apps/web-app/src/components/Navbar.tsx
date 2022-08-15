@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 
 const Navbar = () => {
   const router = useRouter()
-  const isWaitlist = process.env.NEXT_PUBLIC_IS_WAITLIST && process.env.NEXT_PUBLIC_IS_WAITLIST !== 'false'
+  const isWaitlist = process.env.waitlist && process.env.waitlist !== 'false'
   let auth = 'Join'
   if (['/join', '/waitlist'].includes(router.pathname)) auth = "Login" 
 

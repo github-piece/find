@@ -43,7 +43,7 @@ const Join = () => {
         Privacy-first, open-source, and ad-free, $5 a month.
       </p>
       <SocialLogin />
-      {!!process.env.NEXT_PUBLIC_AWS_ACCESS_KEY_ID && (
+      {process.env.aws && (
         <>
           <div className="relative flex py-5 items-center sm:mt-8">
             <div className="flex-grow border-t border-gray-400"></div>
