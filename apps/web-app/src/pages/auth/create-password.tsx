@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import { useSession } from "next-auth/react"
 
 import Button from "../../components/Button"
 import EyeIcon from "../../assets/icon/eye.svg"
 import InfoIcon from "../../assets/icon/info.svg"
+import PasswordChecker from "../../components/PasswordChecker"
 
 const CreatePassword = () => {
   const { data, status } = useSession()
@@ -36,12 +37,12 @@ const CreatePassword = () => {
         Create your Find master password
       </h1>
       <p className="text-gray-400 text-sm mb-12 font-semibold mb-8">
-        Your master password is the only way to access Find. Keep this password secret, and do not share with others.
+        Your master password is the only way to access your Find account. It&apos;s used to end-to-end encrypt your private data. Use a strong password and keep it a secret.
       </p>
       <div className="flex flex-wrap mb-3">
         <div className="w-full text-left">
           <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2">
-            Password
+            Master Password
           </label>
           <div className="relative">
             <input
@@ -59,12 +60,7 @@ const CreatePassword = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-between my-4">
-        <div className="bg-gray-500 w-full h-1 mr-2 my-auto" />
-        <div className="bg-gray-500 w-full h-1 mr-2 my-auto" />
-        <div className="bg-gray-100 w-full h-1 mr-2 my-auto" />
-        <div className="text-sm text-gray-400 w-full">Could be stronger</div>
-      </div>
+      <PasswordChecker password={password} />
       <div className="flex flex-wrap mb-8">
         <div className="w-full text-left">
           <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2">
