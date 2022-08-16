@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react"
 import Button from "../../components/Button"
 import EyeIcon from "../../assets/icon/eye.svg"
-import Image from "next/image";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import Input from "../../components/radix/Input";
+import Checkbox from "../../components/radix/Checkbox";
 
 const EnterPassword = () => {
-  const { data, status } = useSession()
+  const { status } = useSession()
   const router = useRouter()
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -40,10 +40,7 @@ const EnterPassword = () => {
         onIconClick={handleType}
       />
       <div className="mb-6 text-gray-500 text-sm flex">
-        <label className="block font-bold">
-          <input className="mr-2 leading-tight" type="checkbox" />
-          <span>Keep me logged in</span>
-        </label>
+        <Checkbox label="Keep me logged in" />
       </div>
       <Button
         type="submit"
