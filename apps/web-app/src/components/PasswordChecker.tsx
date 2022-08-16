@@ -8,10 +8,6 @@ const PasswordChecker: React.FC<{ password: string }> = ({ password }) => {
     value: 0
   });
   useEffect(() => {
-    console.log({
-      text: passwordStrength(password).value,
-      value: passwordStrength(password).id
-    })
     setStrength({
       text: passwordStrength(password).value,
       value: passwordStrength(password).id

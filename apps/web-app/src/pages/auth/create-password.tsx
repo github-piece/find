@@ -37,7 +37,7 @@ const CreatePassword = () => {
         Create your Find master password
       </h1>
       <p className="text-gray-400 text-sm mb-12 font-semibold mb-8">
-        Your master password is the only wat to access your Find account. It&apos;s used to end-to-end encrypt your private data. Use a strong password and keep it a secret.
+        Your master password is the only way to access your Find account. It&apos;s used to end-to-end encrypt your private data. Use a strong password and keep it a secret.
       </p>
       <div className="flex flex-wrap mb-3">
         <div className="w-full text-left">

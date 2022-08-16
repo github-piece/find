@@ -49,11 +49,6 @@ const Login = () => {
       <h1 className="font-semibold text-4xl mb-3">Welcome back!</h1>
       <p className="text-gray-400 text-sm mb-4 font-semibold">Log in with your data that you enterd during your registration.</p>
       <SocialLogin />
-      <div className="relative flex py-5 items-center sm:mt-8">
-        <div className="flex-grow border-t border-gray-400"></div>
-        <span className="flex-shrink mx-4 text-gray-400">OR</span>
-        <div className="flex-grow border-t border-gray-400"></div>
-      </div>
       <div className="flex flex-wrap mb-3">
         <div className="w-full text-left">
           <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2">
