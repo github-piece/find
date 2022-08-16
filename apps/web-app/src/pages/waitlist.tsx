@@ -1,31 +1,44 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Button from "../components/Button";
-import SocialLogin from "../components/SocialLogin"
 import { z } from 'zod'
+import { trpc } from "../utils/trpc";
+import { useRouter } from "next/router";
 
 const JoinWaitlist = () => {
+  const mutation = trpc.useMutation("auth.waitlist")
+  const router = useRouter()
   const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = () => {
     setLoading(true)
+    setError('')
     try {
       if (z.string().email().parse(email)) {
-        console.log('email', email)
+        mutation.mutate({ email })
       }
-    } catch {
-      console.log('failed', email)
+    } catch (err) {
+      setError(email ? 'Email is  invalid' : 'Email is required')
     }
     setLoading(false)
   }
+
+  useEffect(() => {
+    if (mutation.data?.success) {
+      router.push("/waitlist-success")
+    }
+  }, [mutation.data])
 
   return (
     <>
       <h1 className="font-semibold text-4xl mb-3">Join Waitlist</h1>
       <p className="text-gray-400 text-sm mb-4 font-semibold">
-        Start now and manage tabs, bookmarks, your browser history, perform all sorts of actions and more.
+        Experience the next generation of search, discovery, and exploration on the internet.
       </p>
-      <SocialLogin />
+      <p className="text-gray-400 text-sm mb-4 font-semibold">
+        Privacy-first, open-source, and ad-free, $5 a month.
+      </p>
       <div className="flex flex-wrap mb-3">
         <div className="w-full text-left">
           <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2">
@@ -39,12 +52,13 @@ const JoinWaitlist = () => {
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           />
           <div className="text-red-500 text-sm font-medium">
+            {error}
           </div>
         </div>
       </div>
       <Button
         type="submit"
-        text="Join with Email"
+        text="Join Waitlist"
         solid
         full
         className="mx-0"
@@ -52,7 +66,7 @@ const JoinWaitlist = () => {
         onClick={handleSubmit}
       />
       <div className="bg-gray-200 text-gray-500 py-3 px-4 text-center rounded text-sm flex mt-3">
-        By join waitlist, you agree to Find Terms of Use, Privacy Plicy and to receive news and updates.
+        By join waitlist, you agree to Find Labs Privacy Policy and to receive news and updates.
       </div>
     </>
   )
