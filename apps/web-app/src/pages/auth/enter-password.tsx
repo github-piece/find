@@ -33,7 +33,7 @@ const EnterPassword = () => {
       </p>
       <Input
         className="w-full text-left mb-3"
-        label="Password"
+        label="Master Password"
         type={type}
         value={password}
         onChange={setPassword}
@@ -41,9 +41,6 @@ const EnterPassword = () => {
         icon={EyeIcon}
         onIconClick={handleType}
       />
-      <div className="mb-6 text-gray-500 text-sm flex">
-        <Checkbox label="Keep me logged in" />
-      </div>
       <Button
         type="submit"
         text="Log in"
