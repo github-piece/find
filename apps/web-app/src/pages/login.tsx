@@ -6,6 +6,7 @@ import Image from "next/image";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import Input from "../components/radix/Input";
+import { z } from "zod";
 
 const Login = () => {
   const { data, status } = useSession()
@@ -24,18 +25,17 @@ const Login = () => {
   useEffect(() => {
     if (!submitted) return
 
-    if (email) {
-      if (!/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
-        setError('Email is not valid!')
-        return
+    try {
+      if (z.string().email().parse(email)) {
+        setError('')
+        signIn('email', {
+          email
+        })
       }
-      setError('')
-      signIn('email', {
-        email
-      })
-    } else {
-      setError('Please insert email address')
+    } catch {
+      setError(email ? 'Email is not valid!' : 'Please insert email address')
     }
+    
   }, [email, submitted])
 
   useEffect(() => {
@@ -50,11 +50,6 @@ const Login = () => {
       <h1 className="font-semibold text-4xl mb-3">Welcome back!</h1>
       <p className="text-gray-400 text-sm mb-4 font-semibold">Log in with your data that you enterd during your registration.</p>
       <SocialLogin />
-      <div className="relative flex py-5 items-center sm:mt-8">
-        <div className="flex-grow border-t border-gray-400"></div>
-        <span className="flex-shrink mx-4 text-gray-400">OR</span>
-        <div className="flex-grow border-t border-gray-400"></div>
-      </div>
       <Input
         className="w-full text-left mb-3"
         label="Email"

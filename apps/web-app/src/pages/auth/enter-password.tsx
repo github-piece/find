@@ -21,6 +21,8 @@ const EnterPassword = () => {
       router.push('/login')
   }, [status, router])
 
+  if (status !== 'authenticated') return <></>
+
   return (
     <>
       <h1 className="font-semibold text-4xl mb-3">

@@ -15,6 +15,7 @@ const Join = () => {
   const [error, setError] = useState('')
 
   const handleSubmit = () => {
+    setLoading(true)
     setError('')
     try {
       if (z.string().email().parse(email)) {
@@ -23,7 +24,7 @@ const Join = () => {
     } catch (err) {
       setError(email ? 'Email is  invalid' : 'Email is required')
     }
-    setLoading(true)
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -35,34 +36,38 @@ const Join = () => {
 
   return (
     <>
-      <h1 className="font-semibold text-4xl mb-3">Create an account</h1>
-      <p className="text-gray-400 text-sm mb-4 font-semibold">Start now and manage tabs, bookmakrs, your browser history, perform all sorts of actions and more.</p>
+      <h1 className="font-semibold text-4xl mb-3">Become a Find Member</h1>
+      <p className="text-gray-400 text-sm mb-4 font-semibold">
+        Experience the next generation of search, discovery, and exploration on the internet.
+      </p>
+      <p className="text-gray-400 text-sm mb-4 font-semibold">
+        Privacy-first, open-source, and ad-free, $5 a month.
+      </p>
       <SocialLogin />
-      <div className="relative flex py-5 items-center sm:mt-8">
-        <div className="flex-grow border-t border-gray-400"></div>
-        <span className="flex-shrink mx-4 text-gray-400">OR</span>
-        <div className="flex-grow border-t border-gray-400"></div>
-      </div>
-      <Input
-        className="w-full text-left mb-3"
-        label="Email"
-        value={email}
-        onChange={setEmail}
-        error={error}
-        placeholder="name@email.com"
-      />
-      <Button
-        type="submit"
-        text="Join with Email"
-        solid
-        full
-        className="mx-0"
-        loading={loading}
-        onClick={handleSubmit}
-      />
-      <div className="bg-gray-200 text-gray-500 py-3 px-4 text-center rounded text-sm flex mt-3">
-        By creating an account, you agree to Find Terms of Use, Privacy Policy and to receive news and updates.
-      </div>
+      {process.env.aws && (
+        <>
+          <Input
+            className="w-full text-left mb-3"
+            label="Email"
+            value={email}
+            onChange={setEmail}
+            error={error}
+            placeholder="name@email.com"
+          />
+          <Button
+            type="submit"
+            text="Join with Email"
+            solid
+            full
+            className="mx-0"
+            loading={loading}
+            onClick={handleSubmit}
+          />
+          <div className="bg-gray-200 text-gray-500 py-3 px-4 text-center rounded text-sm flex mt-3">
+            By creating an account, you agree to Find Terms of Use, Privacy Policy and to receive news and updates.
+          </div>
+        </>
+      )}
     </>
   )
 }
