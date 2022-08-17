@@ -1,15 +1,17 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import { useSession } from "next-auth/react"
 
 import Button from "../../components/Button"
 import EyeIcon from "../../assets/icon/eye.svg"
 import InfoIcon from "../../assets/icon/info.svg"
+import Input from "../../components/radix/Input"
 import PasswordChecker from "../../components/PasswordChecker"
+import { useRouter } from "next/router"
 
 const CreatePassword = () => {
-  const { data, status } = useSession()
-  const user = data?.user
+  const { status } = useSession()
+  const router = useRouter()
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [type, setType] = useState('password')
@@ -29,7 +31,12 @@ const CreatePassword = () => {
     }
   }
 
-  if (status === 'loading') return <></>
+  useEffect(() => {
+    if (status === 'unauthenticated') 
+      router.push('/join')
+  }, [status, router])
+
+  if (status !== 'authenticated') return <></>
   
   return (
     <>
@@ -39,49 +46,27 @@ const CreatePassword = () => {
       <p className="text-gray-400 text-sm mb-12 font-semibold mb-8">
         Your master password is the only way to access your Find account. It&apos;s used to end-to-end encrypt your private data. Use a strong password and keep it a secret.
       </p>
-      <div className="flex flex-wrap mb-3">
-        <div className="w-full text-left">
-          <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2">
-            Master Password
-          </label>
-          <div className="relative">
-            <input
-              type={type}
-              placeholder="Enter your Password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            />
-            <div className="absolute top-3 right-3 cursor-pointer" onClick={handleType}>
-              <Image src={EyeIcon} width={16} height={16} alt="eye" />
-            </div>
-          </div>
-          <div className="text-red-500 text-sm font-medium">
-          </div>
-        </div>
-      </div>
+      <Input
+        className="w-full text-left mb-3"
+        label="Password"
+        type={type}
+        value={password}
+        onChange={setPassword}
+        placeholder="Enter your Password"
+        icon={EyeIcon}
+        onIconClick={handleType}
+      />
       <PasswordChecker password={password} />
-      <div className="flex flex-wrap mb-8">
-        <div className="w-full text-left">
-          <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2">
-            Confirm Password
-          </label>
-          <div className="relative">
-            <input
-              type={type}
-              placeholder="Enter your Password"
-              value={confirmPassword}
-              onChange={e => setConfirmPassword(e.target.value)}
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            />
-            <div className="absolute top-3 right-3 cursor-pointer" onClick={handleType}>
-              <Image src={EyeIcon} width={16} height={16} alt="eye" />
-            </div>
-          </div>
-          <div className="text-red-500 text-sm font-medium">
-          </div>
-        </div>
-      </div>
+      <Input
+        className="w-full text-left mb-8"
+        label="Confirm Password"
+        type={type}
+        value={password}
+        onChange={setConfirmPassword}
+        placeholder="Enter your Password"
+        icon={EyeIcon}
+        onIconClick={handleType}
+      />
       <Button
         type="submit"
         text="Submit"

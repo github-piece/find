@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import Button from "../components/Button";
+import SocialLogin from "../components/SocialLogin"
 import { z } from 'zod'
+import Input from "../components/radix/Input";
 import { trpc } from "../utils/trpc";
 import { useRouter } from "next/router";
 
@@ -36,9 +38,12 @@ const JoinWaitlist = () => {
       <p className="text-gray-400 text-sm mb-4 font-semibold">
         Experience the next generation of search, discovery, and exploration on the internet.
       </p>
-      <p className="text-gray-400 text-sm mb-4 font-semibold">
-        Privacy-first, open-source, and ad-free, $5 a month.
-      </p>
+      <SocialLogin />
+      <div className="relative flex py-5 items-center sm:mt-8">
+        <div className="flex-grow border-t border-gray-400"></div>
+        <span className="flex-shrink mx-4 text-gray-400">OR</span>
+        <div className="flex-grow border-t border-gray-400"></div>
+      </div>
       <div className="flex flex-wrap mb-3">
         <div className="w-full text-left">
           <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2">
@@ -52,7 +57,6 @@ const JoinWaitlist = () => {
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           />
           <div className="text-red-500 text-sm font-medium">
-            {error}
           </div>
         </div>
       </div>
