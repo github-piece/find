@@ -26,12 +26,12 @@ const EnterPassword = () => {
         Enter your Find master password
       </h1>
       <p className="text-gray-400 text-sm mb-12 font-semibold mb-8">
-        This action is protected. To continue, please enter your master password to verify your identity
+        Your private data in Find is end-to-end-encrypted. Enter the master password for your account to unlock.
       </p>
       <div className="flex flex-wrap mb-3">
         <div className="w-full text-left">
           <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2">
-            Password
+            Master Password
           </label>
           <div className="relative">
             <input
@@ -48,12 +48,6 @@ const EnterPassword = () => {
           <div className="text-red-500 text-sm font-medium">
           </div>
         </div>
-      </div>
-      <div className="mb-6 text-gray-500 text-sm flex">
-        <label className="block font-bold">
-          <input className="mr-2 leading-tight" type="checkbox" />
-          <span>Keep me logged in</span>
-        </label>
       </div>
       <Button
         type="submit"

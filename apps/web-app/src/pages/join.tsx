@@ -72,7 +72,7 @@ const Join = () => {
             onClick={handleSubmit}
           />
           <div className="bg-gray-200 text-gray-500 py-3 px-4 text-center rounded text-sm flex mt-3">
-            By creating an account, you agree to Find Terms of Use, Privacy Policy and to receive news and updates.
+            By creating an account, you agree to Find Labs Terms of Use and Privacy Policy. Your private data in Find is end-to-end encrypted.
           </div>
         </>
       )}
