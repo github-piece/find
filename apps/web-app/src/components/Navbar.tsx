@@ -14,16 +14,16 @@ const Navbar = () => {
     <nav className="p-5 flex justify-between">
       <div className="flex">
         <Link href={"https://findlabs.org"}>
-          <div className="mr-4 cursor-pointer">Learn more</div>
+          <div className="mr-4 cursor-pointer dark:text-gray-100">Learn more</div>
         </Link>
         <Link href={"https://findlabs.org/docs"}>
-          <div className="mr-4 cursor-pointer">Help</div>
+          <div className="mr-4 cursor-pointer dark:text-gray-100">Help</div>
         </Link>
       </div>
       <Link href={"/"}>
         <div className="flex cursor-pointer">
           <img src="/logo.svg" alt="logo" />
-          <div className="text-bold text-xl my-auto ml-3">find</div>
+          <div className="text-bold text-xl my-auto ml-3 dark:text-gray-100">find</div>
         </div>
       </Link>
       <div className="flex">

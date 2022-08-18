@@ -47,7 +47,7 @@ const Login = () => {
 
   return (
     <>
-      <h1 className="font-semibold text-4xl mb-3">Welcome back!</h1>
+      <h1 className="font-semibold text-4xl mb-3 dark:text-white">Welcome back!</h1>
       <p className="text-gray-400 text-sm mb-4 font-semibold">Log in with your data that you enterd during your registration.</p>
       <SocialLogin />
       <Input
