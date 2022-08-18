@@ -11,7 +11,7 @@ const BasicLayout = ({ children }: { children: React.ReactNode }) => {
     }
   }, [status, router])
 
-  if (status === 'loading') return <></>
+  if (status !== 'authenticated') return <></>
 
   return (
     <div>{children}</div>
