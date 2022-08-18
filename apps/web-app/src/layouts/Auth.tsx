@@ -7,10 +7,8 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Navbar />
-      <div className="flex mx-auto w-full max-w-lg text-center h-[calc(100vh-160px)] items-center">
-        <div className="mx-auto">
+      <div className="flex mx-auto w-full text-center lg:h-[calc(100vh-160px)] items-center">
           {children}
-        </div>
       </div>
       <Footer />
     </>

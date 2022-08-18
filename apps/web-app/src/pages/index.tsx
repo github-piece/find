@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
+import Input from "../components/radix/Input";
 
 const Home: NextPage = () => {
   const [search, setSearch] = useState('')
@@ -22,11 +23,11 @@ const Home: NextPage = () => {
           Create <span className="text-purple-300">T3</span> App
         </h1>
         <div className="mb-3 xl:w-96">
-          <input
+          <Input
             type="text"
-            className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none mt-12 mb-48"
+            className="mt-12 mb-48"
             value={search}
-            onChange={e => setSearch(e.target.value)}
+            onChange={setSearch}
             onKeyUp={handleKeyUp}
           />
         </div>

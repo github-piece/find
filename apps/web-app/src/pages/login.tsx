@@ -5,6 +5,7 @@ import KeyIcon from "../assets/icon/key.svg"
 import Image from "next/image";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import Input from "../components/radix/Input";
 import { z } from "zod";
 
 const Login = () => {
@@ -45,27 +46,18 @@ const Login = () => {
   }, [status])
 
   return (
-    <>
-      <h1 className="font-semibold text-4xl mb-3">Let's Explore</h1>
+    <div className="max-w-lg mx-auto w-full">
+      <h1 className="font-semibold text-4xl mb-3">Let&apos;s Explore</h1>
       <p className="text-gray-400 text-sm mb-4 font-semibold">Login to continue your Find journey</p>
       <SocialLogin />
-      <div className="flex flex-wrap mb-3">
-        <div className="w-full text-left">
-          <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2">
-            Email
-          </label>
-          <input
-            type="email"
-            placeholder="name@email.com"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-          />
-          <div className="text-red-500 text-sm font-medium">
-            {error}
-          </div>
-        </div>
-      </div>
+      <Input
+        className="w-full text-left mb-3"
+        label="Email"
+        value={email}
+        onChange={setEmail}
+        error={error}
+        placeholder="name@email.com"
+      />
       <Button
         type="submit"
         text="Log in with Email"
@@ -81,7 +73,7 @@ const Login = () => {
         </div>
         <div className="mr-auto">We&apos;ll email you a magic link for log in.</div>
       </div>
-    </>
+    </div>
   )
 }
 

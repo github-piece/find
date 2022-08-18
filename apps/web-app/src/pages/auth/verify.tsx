@@ -4,7 +4,7 @@ import MailIcon from "../../assets/mail.png"
 
 const Verify = () => {
   return (
-    <>
+    <div className="max-w-lg mx-auto w-full">
       <div className="w-36 h-36 mx-auto">
         <Image src={MailIcon} alt="mail" />
       </div>
@@ -22,7 +22,7 @@ const Verify = () => {
           Can&apos;t find your link? Check your spam folder.
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

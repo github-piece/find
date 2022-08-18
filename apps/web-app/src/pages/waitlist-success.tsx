@@ -4,7 +4,7 @@ import WindowIcon from "../assets/window.png"
 
 const Submission = () => {
   return (
-    <>
+    <div className="max-w-lg mx-auto w-full">
       <div className="w-36 h-36 mx-auto">
         <Image src={WindowIcon} alt="window" />
       </div>
@@ -22,7 +22,7 @@ const Submission = () => {
           The Find waitlist is growing fast, so there may be many folks ahead of you.
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

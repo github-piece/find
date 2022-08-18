@@ -9,7 +9,7 @@ const BasicLayout = ({ children }: { children: React.ReactNode }) => {
     if (status === 'unauthenticated') {
       router.push('/login')
     }
-  }, [status])
+  }, [status, router])
 
   if (status === 'loading') return <></>
 
