@@ -7,6 +7,8 @@ import "../styles/globals.css";
 import PageWithLayoutType from "../types/pageWithLayout";
 import BasicLayout from "../layouts/Basic";
 import AuthLayout from "../layouts/Auth";
+import { ThemeProvider } from "next-themes";
+import { useEffect, useState } from "react";
 
 type AppLayoutProps = {
   Component: PageWithLayoutType,
@@ -24,12 +26,21 @@ const MyApp = ({
 }: AppLayoutProps) => {
 
   const Layout = layouts[Component.layout || "Basic"]
+  const [init, setInit] = useState(false)
+
+  useEffect(() => {
+    setInit(true)
+  }, [])
+
+  if (!init) return <></>
 
   return (
     <SessionProvider session={session}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <ThemeProvider themes={['light', 'dark']}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
     </SessionProvider>
   );
 };

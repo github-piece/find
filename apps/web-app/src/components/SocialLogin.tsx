@@ -1,13 +1,15 @@
 import GoogleIcon from "../assets/icon/google-logo.svg";
 import AppleIcon from "../assets/icon/apple-logo.svg";
 import GithubIcon from "../assets/icon/github-logo.svg";
+import GithubWhiteIcon from "../assets/icon/github-white-logo.svg";
 import Button from "./Button";
 import { signIn } from "next-auth/react";
 import classNames from "classnames";
+import { useTheme } from "next-themes";
 
 const SocialLogin = () => {
-  let count = Object.values(process.env.providers as any).filter(v => v).length
-
+  const count = Object.values(process.env.providers as any).filter(v => v).length
+  const { theme } = useTheme()
   const socialLogin = (type: string) => {
     signIn(type)
   };
@@ -32,7 +34,7 @@ const SocialLogin = () => {
         />}
         {(process.env.providers as any).github && <Button
           text=""
-          icon={GithubIcon}
+          icon={theme === 'dark' ? GithubWhiteIcon : GithubIcon}
           onClick={() => socialLogin("github")}
           full
         />}

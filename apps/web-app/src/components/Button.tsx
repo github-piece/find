@@ -8,6 +8,7 @@ type ButtonProps = {
   onClick?: (() => void) | undefined;
   size?: string | undefined;
   solid?: boolean | undefined;
+  primary?: boolean
   rounded?: string | undefined;
   full?: boolean | undefined;
   type?: 'button' | 'submit' | 'reset' | undefined;
@@ -26,6 +27,7 @@ const Button: React.FC<ButtonProps> = ({
   type = "button",
   loading = false,
   icon,
+  primary
 }) => {
   return (
     <button
@@ -34,9 +36,11 @@ const Button: React.FC<ButtonProps> = ({
       className={cls(
         "font-semibold border mx-1 flex text-center",
         size === "sm" ? "py-2 px-4" : size === "md" ? "p-3" : "p-4",
-        solid
-          ? "bg-gray-600 hover:bg-gray-700 text-white border-gray-600 hover:border-gray-700"
-          : "bg-transparent border-2 text-gray-700 hover:text-white border-gray-200 hover:border-gray-300",
+        primary 
+          ?  "bg-primary hover:bg-blue-700 text-white border-primary hover:border-blue-700" 
+          : solid
+            ? "bg-gray-600 hover:bg-gray-700 text-white border-gray-600 hover:border-gray-700"
+            : "bg-transparent border-2 text-gray-700 hover:text-white border-gray-200 hover:border-gray-300",
         rounded === "right"
           ? "rounded-r"
           : rounded === "left"
