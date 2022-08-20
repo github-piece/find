@@ -71,7 +71,7 @@ const Login = () => {
         <div className="w-6 h-6 mr-3 ml-auto">
           <Image src={KeyIcon} alt="secret" />
         </div>
-        <div className="mr-auto">We&apos;ll email you a magic link for log in.</div>
+        <div className="mr-auto">We&apos;ll email you a magic link to log in.</div>
       </div>
     </div>
   )
