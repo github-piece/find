@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
 import Button from "../components/Button";
-import SocialLogin from "../components/SocialLogin"
+import CheckIcon from "../assets/icon/check.svg"
 import { z } from 'zod'
-import Input from "../components/radix/Input";
 import { trpc } from "../utils/trpc";
 import { useRouter } from "next/router";
+import Input from "../components/radix/Input";
+import Image from "next/image";
 
 const JoinWaitlist = () => {
   const mutation = trpc.useMutation("auth.waitlist")
@@ -38,21 +39,32 @@ const JoinWaitlist = () => {
       <p className="text-gray-400 text-sm mb-4 font-semibold">
         Experience the next generation of search, discovery, and exploration on the internet.
       </p>
-      <SocialLogin />
-      <div className="flex flex-wrap mb-3">
+      <div className="text-gray-700 text-sm mb-4 grid grid-cols-2 sm:grid-cols-4">
+        <div className="flex mx-auto">
+          <Image src={CheckIcon} alt="check" />
+          <div>Privacy-first</div>
+        </div>
+        <div className="flex mx-auto">
+          <Image src={CheckIcon} alt="check" />
+          <div>Open-source</div>
+        </div>
+        <div className="flex mx-auto">
+          <Image src={CheckIcon} alt="check" />
+          <div>Ad-free</div>
+        </div>
+        <div className="flex mx-auto">
+          <Image src={CheckIcon} alt="check" />
+          <div>$5 a month</div>
+        </div>
+      </div>
+      <div className="flex flex-wrap mb-3 mt-8">
         <div className="w-full text-left">
-          <label className="block tracking-wide text-gray-700 text-xs font-bold mb-2">
-            Email
-          </label>
-          <input
-            type="email"
+          <Input
+            label="Email"
             placeholder="name@email.com"
             value={email}
-            onChange={e => setEmail(e.target.value)}
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            onChange={setEmail}
           />
-          <div className="text-red-500 text-sm font-medium">
-          </div>
         </div>
       </div>
       <Button

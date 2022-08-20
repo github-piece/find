@@ -1,19 +1,20 @@
 import Image from "next/image"
 import LockIcon from "../assets/icon/lock.svg"
+import TargetIcon from "../assets/icon/target.svg"
+import NoNetworkIcon from "../assets/icon/no-network.svg"
+import TuneIcon from "../assets/icon/tune.svg"
+import UnlockIcon from "../assets/icon/unlock.svg"
+import EncryptIcon from "../assets/icon/encrypt.svg"
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../components/CheckoutForm"
 
 
-
-
-
-
 const ConnectPayment = () => {
-  if (!process.env.STRIPE_PUBLIC_KEY) return <></>
+  if (!process.env.stripeKey) return <div className="text-3xl mx-auto">Payment is not connected!</div>
 
-  const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY);
-  
+  const stripePromise = loadStripe(process.env.stripeKey || "");
+
   return (
     <div className="lg:max-w-4xl max-w-xl mx-auto w-full px-4">
       <h1 className="font-semibold text-4xl mb-0">
@@ -28,12 +29,27 @@ const ConnectPayment = () => {
       <div className="grid lg:grid-cols-2 space gap-6 text-left">
         <div>
           <h2 className="font-semibold text-lg mb-3">What you get</h2>
-          <ul className="bg-gray-100 p-5 rounded list-disc">
-            <li className="flex my-3 text-gray-500"><div className="w-4 h-4 rounded-full bg-gray-400 my-auto mr-2" />Sed posuere liqula a nulla sagittis, et consectetur.</li>
-            <li className="flex my-3 text-gray-500"><div className="w-4 h-4 rounded-full bg-gray-400 my-auto mr-2" />Arci varius natoque penatibus et magnis dis.</li>
-            <li className="flex my-3 text-gray-500"><div className="w-4 h-4 rounded-full bg-gray-400 my-auto mr-2" />Nam pretium rutrum venenatis.</li>
-            <li className="flex my-3 text-gray-500"><div className="w-4 h-4 rounded-full bg-gray-400 my-auto mr-2" />Mauris rhoncus risus ex, in ultricies libero varius.</li>
-            <li className="flex my-3 text-gray-500"><div className="w-4 h-4 rounded-full bg-gray-400 my-auto mr-2" />Suspendisse at lorem lobortis, tempor elit nec.</li>
+          <ul className="bg-gray-100 p-5 pl-12 rounded list-disc relative">
+            <li className="flex my-3 text-gray-500">
+              <div className="absolute left-4"><Image src={TargetIcon} alt="target" /></div>
+              <div>A unique new search experience designed for speed, efficiency, accuracy, and exploration</div>
+            </li>
+            <li className="flex my-3 text-gray-500">
+              <div className="absolute left-4"><Image src={NoNetworkIcon} alt="network" /></div>
+              <div>No ads, tracking or integrations with ad networks</div>
+            </li>
+            <li className="flex my-3 text-gray-500">
+              <div className="absolute left-4"><Image src={TuneIcon} alt="tune" /></div>
+              <div>Customizable algorithms that find high quality and relevant information</div>
+            </li>
+            <li className="flex my-3 text-gray-500">
+              <div className="absolute left-4"><Image src={UnlockIcon} alt="unlock" /></div>
+              <div>A transparent open-source community</div>
+            </li>
+            <li className="flex my-3 text-gray-500">
+              <div className="absolute left-4"><Image src={EncryptIcon} alt="encrypt" /></div>
+              <div>End-to-end encryption of your private search data</div>
+            </li>
           </ul>
         </div>
         <div>
