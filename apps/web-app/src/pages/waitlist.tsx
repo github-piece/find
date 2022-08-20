@@ -30,7 +30,7 @@ const JoinWaitlist = () => {
     if (mutation.data?.success) {
       router.push("/waitlist-success")
     }
-  }, [mutation.data])
+  }, [mutation.data, router])
 
   return (
     <>

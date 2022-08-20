@@ -3,6 +3,7 @@ import { useRouter } from "next/router"
 import ThemeSelectButton from "./ThemeSelectButton"
 import classNames from "classnames"
 import { useTheme } from "next-themes"
+import Image from "next/image"
 
 const Navbar = () => {
   const router = useRouter()
@@ -27,7 +28,7 @@ const Navbar = () => {
       </div>
       <Link href={"/"}>
         <div className="flex cursor-pointer">
-          <img src="/logo.svg" alt="logo" />
+          <Image src="/logo.svg" width={32} height={32} alt="logo" />
           <div className="text-bold text-xl my-auto ml-3 dark:text-gray-100">find</div>
         </div>
       </Link>
