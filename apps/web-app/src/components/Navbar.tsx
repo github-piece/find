@@ -5,7 +5,7 @@ const Navbar = () => {
   const router = useRouter()
   const isWaitlist = process.env.waitlist && process.env.waitlist !== 'false'
   let auth = 'Join'
-  if (['/join', '/waitlist'].includes(router.pathname)) auth = "Login" 
+  if (['/join', '/waitlist'].includes(router.pathname)) auth = "Log in" 
 
   const handleAuth = () => {
     router.push(auth === 'Join' ? isWaitlist ? '/waitlist' : '/join' : '/login')
