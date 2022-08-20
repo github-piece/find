@@ -48,7 +48,7 @@ const Login = () => {
   return (
     <div className="max-w-lg mx-auto w-full">
       <h1 className="font-semibold text-4xl mb-3">Let&apos;s Explore</h1>
-      <p className="text-gray-400 text-sm mb-4 font-semibold">Login to continue your Find journey</p>
+      <p className="text-gray-400 text-sm mb-4 font-semibold">Log in to continue your Find journey</p>
       <SocialLogin />
       <Input
         className="w-full text-left mb-3"
