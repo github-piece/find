@@ -77,7 +77,7 @@ const JoinWaitlist = () => {
         onClick={handleSubmit}
       />
       <div className="bg-gray-200 text-gray-500 py-3 px-4 text-center rounded text-sm flex mt-3">
-        By join waitlist, you agree to Find Labs Privacy Policy and to receive news and updates.
+        By joining the waitlist, you agree to the Find Labs Privacy Policy and to receive news and updates. 
       </div>
     </div>
   )
