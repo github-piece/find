@@ -1,9 +1,11 @@
 import { useSession } from "next-auth/react"
+import { useTheme } from "next-themes"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
 
 const BasicLayout = ({ children }: { children: React.ReactNode }) => {
   const { status } = useSession()
+  const { theme } = useTheme()
   const router = useRouter()
   useEffect(() => {
     if (status === 'unauthenticated') {
@@ -14,7 +16,7 @@ const BasicLayout = ({ children }: { children: React.ReactNode }) => {
   if (status !== 'authenticated') return <></>
 
   return (
-    <div>{children}</div>
+    <div className={theme}>{children}</div>
   )
 }
 

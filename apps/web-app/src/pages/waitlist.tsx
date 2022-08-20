@@ -38,7 +38,6 @@ const JoinWaitlist = () => {
       <p className="text-gray-400 text-sm mb-4 font-semibold">
         Experience the next generation of search, discovery, and exploration on the internet.
       </p>
-      <SocialLogin />
       <Input
         label="Email"
         placeholder="name@email.com"
@@ -56,7 +55,7 @@ const JoinWaitlist = () => {
         loading={loading}
         onClick={handleSubmit}
       />
-      <div className="bg-gray-200 text-gray-500 py-3 px-4 text-center rounded text-sm flex mt-3">
+      <div className="bg-gray-200 dark:bg-dark text-gray-500 py-3 px-4 text-center rounded text-sm flex mt-3">
         By join waitlist, you agree to Find Labs Privacy Policy and to receive news and updates.
       </div>
     </>
