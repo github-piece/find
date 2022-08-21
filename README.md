@@ -1,4 +1,5 @@
-# Find
+
+![icon (3)](https://user-images.githubusercontent.com/68179593/185813265-fc001e76-f1e8-42a9-aa1b-b88e99d8eb6f.png)
 
 This is the public monorepo for Find, a privacy-first, open-source, ad-free search service.
 
