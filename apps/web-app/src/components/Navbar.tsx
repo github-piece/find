@@ -33,7 +33,6 @@ const Navbar = () => {
         </div>
       </Link>
       <div className="flex">
-        <ThemeSelectButton />
         <div className="text-sm text-gray-500 my-auto mr-4">{auth === 'Join' ? 'Don\'t have an account' : 'Already have an account?'}</div>
         <button onClick={handleAuth} className="bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-400 hover:bg-gray-400 text-gray-800 dark:text-gray-200 text-sm font-bold py-1 px-3 rounded">
           {auth}
