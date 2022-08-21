@@ -82,12 +82,12 @@ if (process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET) {
   )
 }
 
-if (process.env.AWS_REGION && process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY) {
+if (process.env.FIND_SES_AWS_REGION && process.env.FIND_SES_AWS_ACCESS_KEY_ID && process.env.FIND_SES_AWS_SECRET_ACCESS_KEY) {
   const ses = new aws.SES({
-    region: process.env.AWS_REGION,
+    region: process.env.FIND_SES_AWS_REGION,
     credentials: {
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+      accessKeyId: process.env.FIND_SES_AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.FIND_SES_AWS_SECRET_ACCESS_KEY
     },
   });
   

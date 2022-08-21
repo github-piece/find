@@ -12,12 +12,12 @@ export const serverSchema = z.object({
   NEXTAUTH_URL: z.string().url(),
   GOOGLE_CLIENT_SECRET: z.string().optional(),
   GITHUB_CLIENT_SECRET: z.string().optional(),
-  AWS_SECRET_ACCESS_KEY: z.string().optional(),
+  FIND_SES_AWS_SECRET_ACCESS_KEY: z.string().optional(),
   AWS_REGION: z.string().optional(),
   EMAIL_FROM: z.string().optional(),
   GOOGLE_CLIENT_ID: z.string().optional(),
   GITHUB_CLIENT_ID: z.string().optional(),
-  AWS_ACCESS_KEY_ID: z.string().optional(),
+  FIND_SES_AWS_ACCESS_KEY_ID: z.string().optional(),
   IS_WAITLIST: z.string().optional()
 });
 
