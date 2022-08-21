@@ -1,8 +1,13 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
+import ThemeSelectButton from "./ThemeSelectButton"
+import classNames from "classnames"
+import { useTheme } from "next-themes"
+import Image from "next/image"
 
 const Navbar = () => {
   const router = useRouter()
+  const { theme } = useTheme()
   const isWaitlist = process.env.waitlist && process.env.waitlist !== 'false'
   let auth = 'Join'
   if (['/join', '/waitlist'].includes(router.pathname)) auth = "Log in" 
@@ -10,20 +15,21 @@ const Navbar = () => {
   const handleAuth = () => {
     router.push(auth === 'Join' ? isWaitlist ? '/waitlist' : '/join' : '/login')
   }
+
   return (
-    <nav className="p-5 flex justify-between">
+    <nav className={classNames("p-5 flex justify-between", theme)}>
       <div className="flex">
         <Link href={"https://findlabs.org"}>
-          <div className="mr-4 cursor-pointer">Learn more</div>
+          <div className="mr-4 cursor-pointer dark:text-gray-100">Learn more</div>
         </Link>
         <Link href={"https://findlabs.org/docs"}>
-          <div className="mr-4 cursor-pointer">Help</div>
+          <div className="mr-4 cursor-pointer dark:text-gray-100">Help</div>
         </Link>
       </div>
       <Link href={"/"}>
         <div className="flex cursor-pointer">
-          <img src="/logo.svg" alt="logo" />
-          <div className="text-bold text-xl my-auto ml-3">find</div>
+          <Image src="/logo.svg" width={32} height={32} alt="logo" />
+          <div className="text-bold text-xl my-auto ml-3 dark:text-gray-100">find</div>
         </div>
       </Link>
       <div className="flex">

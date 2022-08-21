@@ -4,7 +4,7 @@ import classNames from 'classnames';
 const Label: React.FC<{ text: string, className?: string }> = ({ text, className = "" }) => (
   <LabelPrimitive.Label
     className={classNames(
-      "block text-gray-700 text-sm font-bold mb-2",
+      "block text-gray-700 dark:text-gray-200 text-sm font-bold mb-2",
       className
     )}
   >

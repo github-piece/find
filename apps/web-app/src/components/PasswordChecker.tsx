@@ -15,9 +15,9 @@ const PasswordChecker: React.FC<{ password: string }> = ({ password }) => {
   }, [password])
   return (
     <div className="flex justify-between my-4">
-      <div className={classNames("w-full h-1 mr-2 my-auto", strength.value > 0 ? 'bg-gray-500' : 'bg-gray-100')} />
-      <div className={classNames("w-full h-1 mr-2 my-auto", strength.value > 1 ? 'bg-gray-500' : 'bg-gray-100')} />
-      <div className={classNames("w-full h-1 mr-2 my-auto", strength.value > 2 ? 'bg-gray-500' : 'bg-gray-100')} />
+      <div className={classNames("w-full h-1 mr-2 my-auto", strength.value > 0 ? 'bg-[#00CDAE]' : 'bg-gray-100')} />
+      <div className={classNames("w-full h-1 mr-2 my-auto", strength.value > 1 ? 'bg-[#00CDAE]' : 'bg-gray-100')} />
+      <div className={classNames("w-full h-1 mr-2 my-auto", strength.value > 2 ? 'bg-[#00CDAE]' : 'bg-gray-100')} />
       <div className="text-sm text-gray-400 text-bold text-right whitespace-nowrap">{ strength.text }</div>
     </div>
   )
