@@ -10,7 +10,7 @@ const Navbar = () => {
   const { theme } = useTheme()
   const isWaitlist = process.env.waitlist && process.env.waitlist !== 'false'
   let auth = 'Join'
-  if (['/join', '/waitlist'].includes(router.pathname)) auth = "Login" 
+  if (['/join', '/waitlist'].includes(router.pathname)) auth = "Log in" 
 
   const handleAuth = () => {
     router.push(auth === 'Join' ? isWaitlist ? '/waitlist' : '/join' : '/login')
@@ -33,8 +33,8 @@ const Navbar = () => {
         </div>
       </Link>
       <div className="flex">
-        <div className="text-sm text-gray-500 my-auto mr-4">{auth === 'Join' ? 'Don\'t have an account' : 'Already have an account?'}</div>
-        <button onClick={handleAuth} className="bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-400 hover:bg-gray-400 text-gray-800 dark:text-gray-200 text-sm font-bold py-1 px-3 rounded">
+        <div className="text-sm text-gray-500 my-auto mr-4">{auth === 'Join' ? 'Don\'t have an account?' : 'Already have an account?'}</div>
+        <button onClick={handleAuth} className="bg-gray-300 hover:bg-gray-400 text-gray-800 text-sm font-bold py-1 px-3 rounded">
           {auth}
         </button>
       </div>
