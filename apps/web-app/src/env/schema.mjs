@@ -10,14 +10,15 @@ export const serverSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]),
   NEXTAUTH_SECRET: z.string(),
   NEXTAUTH_URL: z.string().url(),
-  GOOGLE_CLIENT_ID: z.string().optional(),
   GOOGLE_CLIENT_SECRET: z.string().optional(),
-  GITHUB_CLIENT_ID: z.string().optional(),
   GITHUB_CLIENT_SECRET: z.string().optional(),
-  AWS_ACCESS_KEY_ID: z.string().optional(),
-  AWS_SECRET_ACCESS_KEY: z.string().optional(),
+  FIND_SES_AWS_SECRET_ACCESS_KEY: z.string().optional(),
   AWS_REGION: z.string().optional(),
-  EMAIL_FROM: z.string().optional()
+  EMAIL_FROM: z.string().optional(),
+  GOOGLE_CLIENT_ID: z.string().optional(),
+  GITHUB_CLIENT_ID: z.string().optional(),
+  FIND_SES_AWS_ACCESS_KEY_ID: z.string().optional(),
+  IS_WAITLIST: z.string().optional()
 });
 
 /**
@@ -25,9 +26,7 @@ export const serverSchema = z.object({
  * This way you can ensure the app isn't built with invalid env vars.
  * To expose them to the client, prefix them with `NEXT_PUBLIC_`.
  */
-export const clientSchema = z.object({
-  // NEXT_PUBLIC_BAR: z.string(),
-});
+export const clientSchema = z.object({ });
 
 /**
  * You can't destruct `process.env` as a regular object, so you have to do

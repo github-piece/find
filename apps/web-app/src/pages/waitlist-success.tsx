@@ -9,17 +9,17 @@ const Submission = () => {
         <Image src={WindowIcon} alt="window" />
       </div>
       <h1 className="font-semibold text-4xl mb-3">
-        Thank you for your submission
+        Thank you for your interest!
       </h1>
       <p className="text-gray-400 text-sm mb-12 font-semibold">
-        We&apos;ll send you an email as soon as you have a chance to register
+        We&apos;re inviting new members to Find every week. We&apos;ll send you an email as soon as Find is ready for you.
       </p>
-      <div className="bg-gray-200 text-gray-500 py-3 px-4 text-center rounded text-sm flex mt-3">
+      <div className="bg-gray-200 dark:bg-dark text-gray-500 py-3 px-4 text-center rounded text-sm flex mt-3">
         <div className="w-6 h-6 mr-3 ml-auto">
           <Image src={WarnIcon} alt="warn" />
         </div>
         <div className="mr-auto">
-          Can&apos;t find your link? Check your spam folder!
+          The Find waitlist is growing fast, so there may be many folks ahead of you.
         </div>
       </div>
     </>
