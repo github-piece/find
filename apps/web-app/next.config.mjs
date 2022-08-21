@@ -22,6 +22,7 @@ export default defineNextConfig({
       apple: !!env.APPLE_CLIENT_ID,
     },
     aws: !!env.AWS_ACCESS_KEY_ID,
-    waitlist: env.IS_WAITLIST
+    waitlist: env.IS_WAITLIST,
+    stripeKey: env.STRIPE_PUBLIC_KEY
   }
 });

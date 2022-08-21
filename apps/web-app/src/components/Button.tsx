@@ -14,6 +14,7 @@ type ButtonProps = {
   type?: 'button' | 'submit' | 'reset' | undefined;
   loading?: boolean | undefined;
   icon?: any;
+  disabled?: boolean
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -27,6 +28,7 @@ const Button: React.FC<ButtonProps> = ({
   type = "button",
   loading = false,
   icon,
+  disabled = false,
   primary
 }) => {
   return (
@@ -47,10 +49,10 @@ const Button: React.FC<ButtonProps> = ({
           ? "rounded-l"
           : "rounded",
         full ? "w-full" : "",
-        loading ? "text-gray-500" : "",
+        loading || disabled ? "text-gray-500 dark:text-gray-500-dark" : "",
         className
       )}
-      disabled={loading}
+      disabled={disabled || loading}
     >
       {!!icon && (
         <div className={cls("w-6 h-6 ml-auto", text ? 'mr-3' : 'mr-auto')}>

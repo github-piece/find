@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
 import Button from "../components/Button";
-import SocialLogin from "../components/SocialLogin"
+import CheckIcon from "../assets/icon/check.svg"
 import { z } from 'zod'
-import Input from "../components/radix/Input";
 import { trpc } from "../utils/trpc";
 import { useRouter } from "next/router";
+import Input from "../components/radix/Input";
+import Image from "next/image";
 
 const JoinWaitlist = () => {
   const mutation = trpc.useMutation("auth.waitlist")
@@ -33,18 +34,39 @@ const JoinWaitlist = () => {
   }, [mutation.data, router])
 
   return (
-    <>
+    <div className="max-w-lg mx-auto w-full">
       <h1 className="font-semibold text-4xl mb-3">Join Waitlist</h1>
       <p className="text-gray-400 text-sm mb-4 font-semibold">
         Experience the next generation of search, discovery, and exploration on the internet.
       </p>
-      <Input
-        label="Email"
-        placeholder="name@email.com"
-        value={email}
-        onChange={setEmail}
-        className="mb-3"
-      />
+      <div className="text-gray-700 text-sm mb-4 grid grid-cols-2 sm:grid-cols-4">
+        <div className="flex mx-auto">
+          <Image src={CheckIcon} alt="check" />
+          <div>Privacy-first</div>
+        </div>
+        <div className="flex mx-auto">
+          <Image src={CheckIcon} alt="check" />
+          <div>Open-source</div>
+        </div>
+        <div className="flex mx-auto">
+          <Image src={CheckIcon} alt="check" />
+          <div>Ad-free</div>
+        </div>
+        <div className="flex mx-auto">
+          <Image src={CheckIcon} alt="check" />
+          <div>$5 a month</div>
+        </div>
+      </div>
+      <div className="flex flex-wrap mb-3 mt-8">
+        <div className="w-full text-left">
+          <Input
+            label="Email"
+            placeholder="name@email.com"
+            value={email}
+            onChange={setEmail}
+          />
+        </div>
+      </div>
       <Button
         type="submit"
         text="Join Waitlist"
@@ -55,10 +77,10 @@ const JoinWaitlist = () => {
         loading={loading}
         onClick={handleSubmit}
       />
-      <div className="bg-gray-200 dark:bg-dark text-gray-500 py-3 px-4 text-center rounded text-sm flex mt-3">
-        By join waitlist, you agree to Find Labs Privacy Policy and to receive news and updates.
+      <div className="bg-gray-100 dark:bg-gray-100-dark text-gray-500 dark:text-gray-500-dark py-3 px-4 text-center rounded text-sm flex mt-3">
+        By joining the waitlist, you agree to the Find Labs Privacy Policy and to receive news and updates. 
       </div>
-    </>
+    </div>
   )
 }
 

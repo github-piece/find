@@ -18,7 +18,8 @@ export const serverSchema = z.object({
   GOOGLE_CLIENT_ID: z.string().optional(),
   GITHUB_CLIENT_ID: z.string().optional(),
   AWS_ACCESS_KEY_ID: z.string().optional(),
-  IS_WAITLIST: z.string().optional()
+  IS_WAITLIST: z.string().optional(),
+  STRIPE_PUBLIC_KEY: z.string().optional()
 });
 
 /**
