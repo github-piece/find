@@ -77,7 +77,7 @@ const CreatePassword = () => {
         loading={false}
         onClick={handleSubmit}
       />
-      <div className="bg-gray-200 dark:bg-dark text-gray-500 py-3 px-4 text-center rounded text-sm flex mt-3">
+      <div className="bg-gray-100 dark:bg-dark text-gray-500 py-3 px-4 text-center rounded text-sm flex mt-3">
         <div className="w-8 h-8 mr-3 ml-auto mt-1">
           <Image src={InfoIcon} alt="information" />
         </div>

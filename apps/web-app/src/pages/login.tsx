@@ -48,7 +48,7 @@ const Login = () => {
 
   return (
     <>
-      <h1 className="font-semibold text-4xl mb-3 dark:text-white">Welcome back!</h1>
+      <h1 className="font-semibold text-4xl mb-3 dark:text-white">Let's Explore</h1>
       <p className="text-gray-400 text-sm mb-4 font-semibold">Log in with your data that you enterd during your registration.</p>
       <SocialLogin />
       <Input
@@ -69,7 +69,7 @@ const Login = () => {
         loading={loading}
         onClick={handleSubmit}
       />
-      <div className="bg-gray-200 dark:bg-dark text-gray-500 dark:bg-[#212121] py-3 px-4 text-center rounded text-sm flex mt-3">
+      <div className="bg-gray-100 dark:bg-dark text-gray-500 dark:bg-[#212121] py-3 px-4 text-center rounded text-sm flex mt-3">
         <div className="w-6 h-6 mr-3 ml-auto">
           <Image src={KeyIcon} alt="secret" />
         </div>
