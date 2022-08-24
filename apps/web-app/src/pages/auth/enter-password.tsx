@@ -4,7 +4,6 @@ import EyeIcon from "../../assets/icon/eye.svg"
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import Input from "../../components/radix/Input";
-import Checkbox from "../../components/radix/Checkbox";
 
 const EnterPassword = () => {
   const { status } = useSession()
@@ -24,12 +23,12 @@ const EnterPassword = () => {
   if (status !== 'authenticated') return <></>
 
   return (
-    <>
+    <div className="max-w-lg mx-auto w-full">
       <h1 className="font-semibold text-4xl mb-3">
         Enter your Find master password
       </h1>
       <p className="text-gray-400 text-sm mb-12 font-semibold mb-8">
-        This action is protected. To continue, please enter your master password to verify your identity
+        Your private data in Find is end-to-end-encrypted. Enter the master password for your account to unlock.
       </p>
       <Input
         className="w-full text-left mb-3"
@@ -50,7 +49,7 @@ const EnterPassword = () => {
         loading={loading}
         onClick={handleSubmit}
       />
-    </>
+    </div>
   )
 }
 
