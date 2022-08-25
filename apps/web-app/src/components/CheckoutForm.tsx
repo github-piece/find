@@ -6,7 +6,7 @@ import {
   CardNumberElement,
 } from "@stripe/react-stripe-js";
 import classNames from "classnames";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import Button from "./Button";
 import { inputBaseClass } from "./radix/Input";
 import Label from "./radix/Label";
@@ -18,7 +18,7 @@ const CheckoutForm = () => {
   const [message, setMessage] = useState<string>();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!stripe || !elements) {
