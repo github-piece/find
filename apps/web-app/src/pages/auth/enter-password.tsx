@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 import Button from "../../components/Button"
 import EyeIcon from "../../assets/icon/eye.svg"
 import { useSession } from "next-auth/react";
@@ -13,7 +13,9 @@ const EnterPassword = () => {
   const [type, setType] = useState('password')
 
   const handleType = () => setType(type === 'text' ? 'password' : 'text')
-  const handleSubmit = () => { }
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+  }
 
   useEffect(() => {
     if (status === 'unauthenticated') 
@@ -30,25 +32,26 @@ const EnterPassword = () => {
       <p className="text-gray-400 text-sm mb-12 font-semibold mb-8">
         Your private data in Find is end-to-end-encrypted. Enter the master password for your account to unlock.
       </p>
-      <Input
-        className="w-full text-left mb-3"
-        label="Master Password"
-        type={type}
-        value={password}
-        onChange={setPassword}
-        placeholder="Enter your Password"
-        icon={EyeIcon}
-        onIconClick={handleType}
-      />
-      <Button
-        type="submit"
-        text="Log in"
-        solid
-        full
-        className="mx-0"
-        loading={loading}
-        onClick={handleSubmit}
-      />
+      <form onSubmit={handleSubmit}>
+        <Input
+          className="w-full text-left mb-3"
+          label="Master Password"
+          type={type}
+          value={password}
+          onChange={setPassword}
+          placeholder="Enter your Password"
+          icon={EyeIcon}
+          onIconClick={handleType}
+        />
+        <Button
+          type="submit"
+          text="Log in"
+          solid
+          full
+          className="mx-0"
+          loading={loading}
+        />
+      </form>
     </div>
   )
 }
