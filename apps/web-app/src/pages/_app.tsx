@@ -9,6 +9,7 @@ import BasicLayout from "../layouts/Basic";
 import AuthLayout from "../layouts/Auth";
 import { ThemeProvider } from "next-themes";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
 type AppLayoutProps = {
   Component: PageWithLayoutType,
@@ -35,13 +36,19 @@ const MyApp = ({
   if (!init) return <></>
 
   return (
-    <SessionProvider session={session}>
-      <ThemeProvider themes={['light', 'dark']}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
-    </SessionProvider>
+    <div>
+      <Head>
+        <title>find.new</title>
+        <meta name="description" content="Find is the next generation of search, discovery, and exploration on the internet." />
+      </Head>
+      <SessionProvider session={session}>
+        <ThemeProvider themes={['light', 'dark']}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </SessionProvider>
+    </div>
   );
 };
 
