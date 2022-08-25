@@ -33,8 +33,8 @@ const Navbar = () => {
         </div>
       </Link>
       <div className="flex">
-        <div className="text-sm text-gray-500 my-auto mr-4">{auth === 'Join' ? 'Don\'t have an account?' : 'Already have an account?'}</div>
-        <button onClick={handleAuth} className="bg-gray-300 hover:bg-gray-400 text-gray-800 text-sm font-bold py-1 px-3 rounded">
+        <div className="text-sm text-gray-500 dark:text-gray-500-dark my-auto mr-4">{auth === 'Join' ? 'Don\'t have an account?' : 'Already have an account?'}</div>
+        <button onClick={handleAuth} className="bg-gray-100 dark:bg-gray-100-dark hover:bg-gray-400 text-gray-700 dark:text-gray-700-dark text-sm font-bold py-1 px-3 rounded">
           {auth}
         </button>
       </div>

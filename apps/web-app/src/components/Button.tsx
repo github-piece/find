@@ -14,6 +14,7 @@ type ButtonProps = {
   type?: 'button' | 'submit' | 'reset' | undefined;
   loading?: boolean | undefined;
   icon?: any;
+  disabled?: boolean
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -27,6 +28,7 @@ const Button: React.FC<ButtonProps> = ({
   type = "button",
   loading = false,
   icon,
+  disabled = false,
   primary
 }) => {
   return (
@@ -40,17 +42,17 @@ const Button: React.FC<ButtonProps> = ({
           ?  "bg-primary hover:bg-blue-700 text-white border-primary hover:border-blue-700" 
           : solid
             ? "bg-gray-600 hover:bg-gray-700 text-white border-gray-600 hover:border-gray-700"
-            : "bg-transparent border-2 text-gray-700 hover:text-white border-gray-200 hover:border-gray-300",
+            : "bg-transparent border-2 text-gray-700 hover:text-white border-[#e8e8eb] dark:border-[#2c2c2c] hover:border-gray-300",
         rounded === "right"
           ? "rounded-r"
           : rounded === "left"
           ? "rounded-l"
           : "rounded",
         full ? "w-full" : "",
-        loading ? "text-gray-500" : "",
+        loading || disabled ? "text-gray-500 dark:text-gray-500-dark" : "",
         className
       )}
-      disabled={loading}
+      disabled={disabled || loading}
     >
       {!!icon && (
         <div className={cls("w-6 h-6 ml-auto", text ? 'mr-3' : 'mr-auto')}>
