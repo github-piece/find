@@ -34,9 +34,9 @@ const JoinWaitlist = () => {
   }, [mutation.data, router])
 
   return (
-    <div className="max-w-lg mx-auto w-full">
+    <div className="max-w-[600px] mx-auto w-full">
       <h1 className="font-semibold text-4xl mb-3">Join Waitlist</h1>
-      <p className="text-gray-400 text-sm mb-4 font-semibold">
+      <p className="text-gray-400 text-lg mb-4 font-semibold max-w-[480px] mx-auto">
         Experience the next generation of search, discovery, and exploration on the internet.
       </p>
       <div className="text-gray-700 text-sm mb-4 grid grid-cols-2 sm:grid-cols-4">
@@ -57,8 +57,8 @@ const JoinWaitlist = () => {
           <div>$5 a month</div>
         </div>
       </div>
-      <div className="flex flex-wrap mb-3 mt-8">
-        <div className="w-full text-left">
+      <div className="max-w-[480px] mx-auto">
+        <div className="mb-3 mt-8">
           <Input
             label="Email"
             placeholder="name@email.com"
@@ -66,19 +66,19 @@ const JoinWaitlist = () => {
             onChange={setEmail}
           />
         </div>
-      </div>
-      <Button
-        type="submit"
-        text="Join Waitlist"
-        solid
-        full
-        primary
-        className="mx-0"
-        loading={loading}
-        onClick={handleSubmit}
-      />
-      <div className="bg-gray-100 dark:bg-gray-100-dark text-gray-500 dark:text-gray-500-dark py-3 px-4 text-center rounded text-sm flex mt-3">
-        By joining the waitlist, you agree to the Find Labs Privacy Policy and to receive news and updates. 
+        <Button
+          type="submit"
+          text="Join Waitlist"
+          solid
+          full
+          primary
+          className="mx-0"
+          loading={loading}
+          onClick={handleSubmit}
+        />
+        <div className="bg-gray-100 dark:bg-gray-100-dark text-gray-500 dark:text-gray-500-dark py-3 px-4 text-center rounded text-sm flex mt-3">
+          By joining the waitlist, you agree to the Find Labs Privacy Policy and to receive news and updates. 
+        </div>
       </div>
     </div>
   )

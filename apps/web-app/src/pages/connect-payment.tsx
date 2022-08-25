@@ -20,14 +20,14 @@ const ConnectPayment = () => {
       <h1 className="font-semibold text-4xl mb-0">
         Start your journey
       </h1>
-      <div className="font-semibold text-4xl mb-3 text-gray-500 dark:text-gray-500-dark">
+      <div className="font-semibold text-4xl mb-3 text-blue-500">
         for $5 a month
       </div>
-      <p className="text-gray-400 text-sm mb-12 font-semibold max-w-lg mx-auto">
+      <p className="text-gray-400 sm:text-lg text-sm mb-12 font-semibold max-w-lg mx-auto">
         Your Find subscription will renew automatically every month for $5. You can cancel your subscription any time.
       </p>
       <div className="grid lg:grid-cols-2 space gap-6 text-left text-gray-500 dark:text-gray-500-dark">
-        <div>
+        <div className="lg:block hidden">
           <h2 className="font-semibold text-lg mb-3">What you get</h2>
           <ul className="bg-gray-100 dark:bg-gray-100-dark p-5 pl-12 rounded list-disc relative">
             <li className="flex my-3">
@@ -64,6 +64,31 @@ const ConnectPayment = () => {
               We use Stripe for payments and never see or save your card details ourselves.
             </div>
           </div>
+        </div>
+        <div className="lg:hidden block">
+          <h2 className="font-semibold text-lg mb-3">What you get</h2>
+          <ul className="bg-gray-100 dark:bg-gray-100-dark p-5 pl-12 rounded list-disc relative">
+            <li className="flex my-3">
+              <div className="absolute left-4"><Image src={TargetIcon} alt="target" /></div>
+              <div>A unique new search experience designed for speed, efficiency, accuracy, and exploration</div>
+            </li>
+            <li className="flex my-3">
+              <div className="absolute left-4"><Image src={NoNetworkIcon} alt="network" /></div>
+              <div>No ads, tracking or integrations with ad networks</div>
+            </li>
+            <li className="flex my-3">
+              <div className="absolute left-4"><Image src={TuneIcon} alt="tune" /></div>
+              <div>Customizable algorithms that find high quality and relevant information</div>
+            </li>
+            <li className="flex my-3">
+              <div className="absolute left-4"><Image src={UnlockIcon} alt="unlock" /></div>
+              <div>A transparent open-source community</div>
+            </li>
+            <li className="flex my-3">
+              <div className="absolute left-4"><Image src={EncryptIcon} alt="encrypt" /></div>
+              <div>End-to-end encryption of your private search data</div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

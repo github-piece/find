@@ -39,10 +39,10 @@ const Join = () => {
   return (
     <div className="max-w-lg mx-auto w-full">
       <h1 className="font-semibold text-4xl mb-3">Become a Find Member</h1>
-      <p className="text-gray-400 text-sm mb-4 font-semibold">
+      <p className="text-gray-400 sm:text-lg text-sm mb-4 font-semibold">
         Experience the next generation of search, discovery, and exploration on the internet.
       </p>
-      <div className="text-gray-700 text-sm mb-4 grid grid-cols-2 sm:grid-cols-4">
+      <div className="text-gray-700 sm:text-lg text-sm mb-4 grid grid-cols-2 sm:grid-cols-4">
         <div className="flex mx-auto">
           <Image src={CheckIcon} alt="check" />
           <div>Privacy-first</div>

@@ -18,7 +18,12 @@ const Navbar = () => {
 
   return (
     <nav className={classNames("p-5 flex justify-between", theme)}>
-      <div className="flex">
+      <Link href={"/"}>
+        <div className="flex cursor-pointer sm:hidden block">
+          <Image src="/logo.svg" width={32} height={32} alt="logo" />
+        </div>
+      </Link>
+      <div className="flex ml-auto sm:ml-0 my-auto">
         <Link href={"https://findlabs.org"}>
           <div className="mr-4 cursor-pointer dark:text-gray-100">Learn more</div>
         </Link>
@@ -27,13 +32,13 @@ const Navbar = () => {
         </Link>
       </div>
       <Link href={"/"}>
-        <div className="flex cursor-pointer">
+        <div className="cursor-pointer sm:flex hidden">
           <Image src="/logo.svg" width={32} height={32} alt="logo" />
           <div className="text-bold text-xl my-auto ml-3 dark:text-gray-100">find</div>
         </div>
       </Link>
       <div className="flex">
-        <div className="text-sm text-gray-500 dark:text-gray-500-dark my-auto mr-4">{auth === 'Join' ? 'Don\'t have an account?' : 'Already have an account?'}</div>
+        <div className="text-sm text-gray-500 dark:text-gray-500-dark my-auto mr-4 sm:block hidden">{auth === 'Join' ? 'Don\'t have an account?' : 'Already have an account?'}</div>
         <button onClick={handleAuth} className="bg-gray-100 dark:bg-gray-100-dark hover:bg-gray-400 text-gray-700 dark:text-gray-700-dark text-sm font-bold py-1 px-3 rounded">
           {auth}
         </button>

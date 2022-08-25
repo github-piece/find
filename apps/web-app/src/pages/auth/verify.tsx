@@ -4,14 +4,14 @@ import MailIcon from "../../assets/mail.png"
 
 const Verify = () => {
   return (
-    <div className="max-w-lg mx-auto w-full">
+    <div className="max-w-[480px] mx-auto w-full">
       <div className="w-36 h-36 mx-auto">
         <Image src={MailIcon} alt="mail" />
       </div>
       <h1 className="font-semibold text-4xl mb-3">
         Check your email for a link
       </h1>
-      <p className="text-gray-400 text-sm mb-12 font-semibold">
+      <p className="text-gray-400 sm:text-lg text-sm mb-12 font-semibold">
         We&apos;ll email you a magic link to confirm your email.
       </p>
       <div className="bg-gray-100 dark:bg-gray-100-dark text-gray-500 dark:text-gray-500-dark py-3 px-4 text-center rounded text-sm flex mt-3">

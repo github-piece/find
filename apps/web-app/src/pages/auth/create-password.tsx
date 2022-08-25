@@ -39,50 +39,52 @@ const CreatePassword = () => {
   if (status !== 'authenticated') return <></>
   
   return (
-    <div className="max-w-lg mx-auto w-full">
+    <div className="max-w-[600px] mx-auto w-full">
       <h1 className="font-semibold text-4xl mb-3">
         Create your Find master password
       </h1>
-      <p className="text-gray-400 text-sm mb-12 font-semibold mb-8">
-        Your master password is the only way to access your Find account. It&apos;s used to end-to-end encrypt your private data. Use a strong password and keep it a secret.
-      </p>
-      <Input
-        className="w-full text-left mb-3"
-        label="Password"
-        type={type}
-        value={password}
-        onChange={setPassword}
-        placeholder="Enter your Password"
-        icon={EyeIcon}
-        onIconClick={handleType}
-      />
-      <PasswordChecker password={password} />
-      <Input
-        className="w-full text-left mb-8"
-        label="Confirm Password"
-        type={type}
-        value={password}
-        onChange={setConfirmPassword}
-        placeholder="Enter your Password"
-        icon={EyeIcon}
-        onIconClick={handleType}
-      />
-      <Button
-        type="submit"
-        text="Submit"
-        solid
-        full
-        primary
-        className="mx-0"
-        loading={false}
-        onClick={handleSubmit}
-      />
-      <div className="bg-gray-100 dark:bg-gray-100-dark text-gray-500 dark:text-gray-500-dark py-3 px-4 text-center rounded text-sm flex mt-3">
-        <div className="w-8 h-8 mr-3 ml-auto mt-1">
-          <Image src={InfoIcon} alt="information" />
-        </div>
-        <div className="mr-auto text-left">
-          Be sure to save your Master Password securely. If you forget your Master Password, you won&apos;t be able to login. Find uses end-to-end encryption, so we can&apos;t reset your Master Password.
+      <div className="max-w-[480px] mx-auto">
+        <p className="text-gray-400 sm:text-lg text-sm mb-12 font-semibold mb-8">
+          Your master password is the only way to access your Find account. It&apos;s used to end-to-end encrypt your private data. Use a strong password and keep it a secret.
+        </p>
+        <Input
+          className="w-full text-left mb-3"
+          label="Password"
+          type={type}
+          value={password}
+          onChange={setPassword}
+          placeholder="Enter your Password"
+          icon={EyeIcon}
+          onIconClick={handleType}
+        />
+        <PasswordChecker password={password} />
+        <Input
+          className="w-full text-left mb-8"
+          label="Confirm Password"
+          type={type}
+          value={password}
+          onChange={setConfirmPassword}
+          placeholder="Enter your Password"
+          icon={EyeIcon}
+          onIconClick={handleType}
+        />
+        <Button
+          type="submit"
+          text="Submit"
+          solid
+          full
+          primary
+          className="mx-0"
+          loading={false}
+          onClick={handleSubmit}
+        />
+        <div className="bg-gray-100 dark:bg-gray-100-dark text-gray-500 dark:text-gray-500-dark py-3 px-4 text-center rounded text-sm flex mt-3">
+          <div className="w-8 h-8 mr-3 ml-auto mt-1">
+            <Image src={InfoIcon} alt="information" />
+          </div>
+          <div className="mr-auto text-left">
+            Be sure to save your Master Password securely. If you forget your Master Password, you won&apos;t be able to login. Find uses end-to-end encryption, so we can&apos;t reset your Master Password.
+          </div>
         </div>
       </div>
     </div>
