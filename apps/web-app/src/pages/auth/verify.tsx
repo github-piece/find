@@ -1,6 +1,6 @@
-import Image from "next/image"
-import WarnIcon from "../../assets/icon/warn.svg"
-import MailIcon from "../../assets/mail.png"
+import Image from "next/image";
+import WarnIcon from "../../assets/icon/warn.svg";
+import MailIcon from "../../assets/mail.png";
 
 const Verify = () => {
   return (
@@ -12,20 +12,20 @@ const Verify = () => {
         Check your email for a link
       </h1>
       <p className="text-gray-400 text-sm mb-12 font-semibold">
-        We&apos;ll email you a magic link to confirm your email.
+        We just emailed you a magic link. Click it to log in.
       </p>
       <div className="bg-gray-100 dark:bg-gray-100-dark text-gray-500 dark:text-gray-500-dark py-3 px-4 text-center rounded text-sm flex mt-3">
         <div className="w-6 h-6 mr-3 ml-auto">
           <Image src={WarnIcon} alt="warning" />
         </div>
         <div className="mr-auto">
-          Can&apos;t find your link? Check your spam folder.
+          Can&apos;t find the link? Check your spam folder.
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-Verify.layout = 'Auth'
+Verify.layout = "Auth";
 
-export default Verify
+export default Verify;
