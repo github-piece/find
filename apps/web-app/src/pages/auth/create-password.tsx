@@ -39,7 +39,7 @@ const CreatePassword = () => {
   if (status !== 'authenticated') return <></>
   
   return (
-    <>
+    <div className="max-w-lg mx-auto w-full">
       <h1 className="font-semibold text-4xl mb-3">
         Create your Find master password
       </h1>
@@ -77,7 +77,7 @@ const CreatePassword = () => {
         loading={false}
         onClick={handleSubmit}
       />
-      <div className="bg-gray-200 dark:bg-dark text-gray-500 py-3 px-4 text-center rounded text-sm flex mt-3">
+      <div className="bg-gray-100 dark:bg-gray-100-dark text-gray-500 dark:text-gray-500-dark py-3 px-4 text-center rounded text-sm flex mt-3">
         <div className="w-8 h-8 mr-3 ml-auto mt-1">
           <Image src={InfoIcon} alt="information" />
         </div>
@@ -85,7 +85,7 @@ const CreatePassword = () => {
           Be sure to save your Master Password securely. If you forget your Master Password, you won&apos;t be able to login. Find uses end-to-end encryption, so we can&apos;t reset your Master Password.
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
