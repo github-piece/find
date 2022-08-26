@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <nav className={classNames("p-5 flex justify-between", theme)}>
-      <div className="flex">
+      <div className="flex my-auto">
         <Link href={"https://findlabs.org"}>
           <div className="mr-4 cursor-pointer dark:text-gray-100">
             Learn more
