@@ -1,6 +1,6 @@
-import Image from "next/image"
-import WarnIcon from "../../assets/icon/warn.svg"
-import MailIcon from "../../assets/mail.png"
+import Image from "next/image";
+import WarnIcon from "../../assets/icon/warn.svg";
+import MailIcon from "../../assets/mail.png";
 
 const Verify = () => {
   return (
@@ -19,13 +19,13 @@ const Verify = () => {
           <Image src={WarnIcon} alt="warning" />
         </div>
         <div className="mr-auto">
-          Can&apos;t find your link? Check your spam folder.
+          Can&apos;t find the link? Check your spam folder.
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-Verify.layout = 'Auth'
+Verify.layout = "Auth";
 
-export default Verify
+export default Verify;

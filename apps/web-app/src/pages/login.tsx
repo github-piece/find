@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 import Button from "../components/Button";
 import SocialLogin from "../components/SocialLogin"
 import KeyIcon from "../assets/icon/key.svg"
@@ -7,7 +7,6 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import Input from "../components/radix/Input";
 import { z } from "zod";
-import { useTheme } from "next-themes";
 
 const Login = () => {
   const { data, status } = useSession()
@@ -17,7 +16,8 @@ const Login = () => {
   const [error, setError] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     setSubmitted(true)
     if (error) return
     setLoading(false)
@@ -51,24 +51,25 @@ const Login = () => {
       <h1 className="font-semibold text-4xl mb-3">Let&apos;s Explore</h1>
       <p className="text-gray-400 sm:text-lg text-sm mb-4 font-semibold">Log in to continue your Find journey</p>
       <SocialLogin />
-      <Input
-        className="w-full text-left mb-3"
-        label="Email"
-        value={email}
-        onChange={setEmail}
-        error={error}
-        placeholder="name@email.com"
-      />
-      <Button
-        type="submit"
-        text="Log in with Email"
-        solid
-        full
-        primary
-        className="mx-0"
-        loading={loading}
-        onClick={handleSubmit}
-      />
+      <form onSubmit={handleSubmit}>
+        <Input
+          className="w-full text-left mb-3"
+          label="Email"
+          value={email}
+          onChange={setEmail}
+          error={error}
+          placeholder="name@email.com"
+        />
+        <Button
+          type="submit"
+          text="Log in with Email"
+          solid
+          full
+          primary
+          className="mx-0"
+          loading={loading}
+        />
+      </form>
       <div className="bg-gray-100 dark:bg-gray-100-dark text-gray-500 dark:text-gray-500-dark py-3 px-4 text-center rounded text-sm flex mt-3">
         <div className="w-6 h-6 mr-3 ml-auto">
           <Image src={KeyIcon} alt="secret" />
