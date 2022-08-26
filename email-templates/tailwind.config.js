@@ -149,6 +149,15 @@ module.exports = {
       minWidth: theme => ({
         ...theme('spacing'),
       }),
+      colors: {
+        primary: '#2876F8',
+        gray: {
+          700: '#151515',
+          600: '#47495D',
+          400: '#A3A4AE',
+          200: '#E8E8EB'
+        }
+      }
     },
   },
   corePlugins: {
