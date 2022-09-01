@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 import { useSession, signIn } from "next-auth/react"
 import { useRouter } from "next/router"
 
@@ -16,7 +16,8 @@ const Join = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     setLoading(true)
     setError('')
     try {
@@ -62,7 +63,7 @@ const Join = () => {
       </div>
       <SocialLogin />
       {process.env.aws && (
-        <>
+        <form onSubmit={handleSubmit}>
           <Input
             className="w-full text-left mb-3"
             label="Email"
@@ -79,12 +80,11 @@ const Join = () => {
             primary
             className="mx-0"
             loading={loading}
-            onClick={handleSubmit}
           />
           <div className="bg-gray-100 dark:bg-gray-100-dark text-gray-500 dark:text-gray-500-dark py-3 px-4 text-center rounded text-sm flex mt-3">
             By creating an account, you agree to Find Labs Terms of Use and Privacy Policy. Your private data in Find is end-to-end encrypted.
           </div>
-        </>
+        </form>
       )}
     </div>
   )
