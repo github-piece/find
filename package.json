@@ -6,8 +6,7 @@
   "private": true,
   "workspaces": [
     "apps/*",
-    "packages/*",
-    "email-templates/*"
+    "packages/*"
   ],
   "scripts": {
     "build": "turbo run build",
