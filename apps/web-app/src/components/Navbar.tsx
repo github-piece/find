@@ -19,8 +19,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={classNames("p-5 flex justify-between", theme)}>
-      <div className="flex my-auto">
+    <nav className={classNames("p-5 flex justify-between relative", theme)}>
+      <Link href={"/"}>
+        <div className="flex cursor-pointer sm:hidden block">
+          <Image src="/logo.svg" width={32} height={32} alt="logo" />
+        </div>
+      </Link>
+      <div className="flex ml-auto sm:ml-0 my-auto">
         <Link href={"https://findlabs.org"}>
           <div className="mr-4 cursor-pointer dark:text-gray-100">
             Learn more
@@ -31,7 +36,7 @@ const Navbar = () => {
         </Link>
       </div>
       <Link href={"/"}>
-        <div className="flex cursor-pointer">
+        <div className="flex cursor-pointer sm:flex hidden absolute left-1/2 translate-x-[-50%] mt-[-6px]">
           <Image
             src={theme === "dark" ? "/find-logo-white.svg" : "/find-logo.svg"}
             width={96}
@@ -41,7 +46,7 @@ const Navbar = () => {
         </div>
       </Link>
       <div className="flex">
-        <div className="text-sm text-gray-500 dark:text-gray-500-dark my-auto mr-4">
+        <div className="text-sm text-gray-500 dark:text-gray-500-dark my-auto mr-4 sm:block hidden">
           {auth === "Join"
             ? "Don't have an account?"
             : "Already have an account?"}
