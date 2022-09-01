@@ -16,8 +16,21 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.15",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "prettier": "latest",
     "turbo": "latest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "prisma": {
     "schema": "apps/web-app/prisma/schema.prisma"
