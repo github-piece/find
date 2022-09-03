@@ -16,6 +16,7 @@
     "@radix-ui/react-checkbox": "^1.0.0",
     "@radix-ui/react-icons": "^1.1.1",
     "@radix-ui/react-label": "^1.0.0",
+    "@radix-ui/react-select": "^1.0.0",
     "@stripe/react-stripe-js": "^1.10.0",
     "@stripe/stripe-js": "^1.35.0",
     "@trpc/client": "^9.26.2",

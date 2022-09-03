@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 import Button from "../components/Button";
 import CheckIcon from "../assets/icon/check.svg"
 import { z } from 'zod'
@@ -14,7 +14,8 @@ const JoinWaitlist = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     setLoading(true)
     setError('')
     try {
@@ -57,26 +58,27 @@ const JoinWaitlist = () => {
           <div>$5 a month</div>
         </div>
       </div>
-      <div className="flex flex-wrap mb-3 mt-8">
-        <div className="w-full text-left">
-          <Input
-            label="Email"
-            placeholder="name@email.com"
-            value={email}
-            onChange={setEmail}
-          />
+      <form onSubmit={handleSubmit}>
+        <div className="flex flex-wrap mb-3 mt-8">
+          <div className="w-full text-left">
+            <Input
+              label="Email"
+              placeholder="name@email.com"
+              value={email}
+              onChange={setEmail}
+            />
+          </div>
         </div>
-      </div>
-      <Button
-        type="submit"
-        text="Join Waitlist"
-        solid
-        full
-        primary
-        className="mx-0"
-        loading={loading}
-        onClick={handleSubmit}
-      />
+        <Button
+          type="submit"
+          text="Join Waitlist"
+          solid
+          full
+          primary
+          className="mx-0"
+          loading={loading}
+        />
+      </form>
       <div className="bg-gray-100 dark:bg-gray-100-dark text-gray-500 dark:text-gray-500-dark py-3 px-4 text-center rounded text-sm flex mt-3">
         By joining the waitlist, you agree to the Find Labs Privacy Policy and to receive news and updates. 
       </div>
