@@ -33,7 +33,7 @@
 @font-face {
   font-family: 'sf-ui-font';
   src: url('/assets/fonts/sf-ui-display-medium-58646be638f96.otf');
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -58,6 +58,7 @@
   font-style: normal;
 }
 
-body, html {
+body,
+html {
   font-family: 'sf-ui-font';
 }
