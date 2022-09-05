@@ -47,7 +47,7 @@ const Navbar = () => {
         </div>
         <button
           onClick={handleAuth}
-          className="bg-gray-100 dark:bg-gray-100-dark hover:bg-gray-400 text-gray-700 dark:text-gray-700-dark text-sm font-bold py-1 px-3 rounded"
+          className="bg-gray-100 dark:bg-gray-100-dark hover:bg-gray-400 text-gray-700 dark:text-gray-700-dark text-sm font-semibold py-1 px-3 rounded"
         >
           {auth}
         </button>
