@@ -15,6 +15,9 @@ const EnterPassword = () => {
   const handleType = () => setType(type === "text" ? "password" : "text");
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // always redirect to home page
+    router.push("/");
   };
 
   useEffect(() => {
