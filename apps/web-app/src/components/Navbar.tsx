@@ -17,9 +17,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={classNames('p-10 sm:pb-0 pb-10 flex justify-between relative', theme)}>
+    <nav className={classNames('p-5 flex justify-between relative', theme)}>
       <Link href={'/'}>
-        <div className="flex cursor-pointer sm:hidden ">
+        <div className="flex cursor-pointer sm:hidden block">
           <Image src="/logo.svg" width={32} height={32} alt="logo" />
         </div>
       </Link>
@@ -32,7 +32,7 @@ const Navbar = () => {
         </Link>
       </div>
       <Link href={'/'}>
-        <div className="cursor-pointer sm:flex hidden absolute left-1/2 translate-x-[-50%] mt-[-6px]">
+        <div className="flex cursor-pointer sm:flex hidden absolute left-1/2 translate-x-[-50%] mt-[-6px]">
           <Image
             src={theme === 'dark' ? '/find-logo-white.svg' : '/find-logo.svg'}
             width={96}

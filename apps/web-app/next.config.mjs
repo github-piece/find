@@ -1,4 +1,4 @@
-import { env } from "./src/env/server.mjs";
+import { env } from './src/env/server.mjs';
 
 /**
  * Don't be scared of the generics here.
@@ -21,8 +21,8 @@ export default defineNextConfig({
       github: !!env.GITHUB_CLIENT_ID,
       apple: !!env.APPLE_CLIENT_ID,
     },
-    aws: !!env.AWS_ACCESS_KEY_ID,
+    aws: !!env.FIND_SES_AWS_ACCESS_KEY_ID,
     waitlist: env.IS_WAITLIST,
-    stripeKey: env.STRIPE_PUBLIC_KEY
-  }
+    stripeKey: env.STRIPE_PUBLIC_KEY,
+  },
 });
