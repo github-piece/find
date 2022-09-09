@@ -1,55 +1,54 @@
-import { FormEvent, useEffect, useState } from "react"
-import Button from "../components/Button";
-import SocialLogin from "../components/SocialLogin"
-import KeyIcon from "../assets/icon/key.svg"
-import Image from "next/image";
-import { signIn, useSession } from "next-auth/react";
-import { useRouter } from "next/router";
-import Input from "../components/radix/Input";
-import { z } from "zod";
+import { FormEvent, useEffect, useState } from 'react';
+import Button from '../components/Button';
+import SocialLogin from '../components/SocialLogin';
+import KeyIcon from '../assets/icon/key.svg';
+import Image from 'next/image';
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
+import Input from '../components/radix/Input';
+import { z } from 'zod';
 
 const Login = () => {
-  const { data, status } = useSession()
-  const router = useRouter()
+  const { data, status } = useSession();
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setSubmitted(true)
-    if (error) return
-    setLoading(false)
-  }
+    e.preventDefault();
+    setSubmitted(true);
+    if (error) return;
+    setLoading(false);
+  };
 
   useEffect(() => {
-    if (!submitted) return
+    if (!submitted) return;
 
     try {
       if (z.string().email().parse(email)) {
-        setError('')
+        setError('');
         signIn('email', {
-          email
-        })
+          email,
+        });
       }
     } catch {
-      setError(email ? 'Email is not valid!' : 'Please insert email address')
+      setError(email ? 'Email is not valid!' : 'Please insert email address');
     }
-    
-  }, [email, submitted])
+  }, [email, submitted]);
 
   useEffect(() => {
     if (status === 'authenticated' && data.user?.email) {
-      router.push('/auth/enter-password')
+      router.push('/auth/enter-password');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [status])
+  }, [status]);
 
   return (
-    <div className="max-w-lg mx-auto w-full">
+    <div className="max-w-[480px] mx-auto w-full">
       <h1 className="font-semibold text-4xl mb-3">Let&apos;s Explore</h1>
-      <p className="text-gray-400 text-sm mb-4 font-semibold">Log in to continue your Find journey</p>
+      <p className="text-gray-400 text-sm mb-4 font-normal">Log in to continue your Find journey</p>
       <SocialLogin />
       <form onSubmit={handleSubmit}>
         <Input
@@ -77,9 +76,9 @@ const Login = () => {
         <div className="mr-auto">We&apos;ll email you a magic link to log in.</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-Login.layout = "Auth"
+Login.layout = 'Auth';
 
-export default Login
+export default Login;
