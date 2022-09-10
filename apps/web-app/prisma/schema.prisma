@@ -49,6 +49,7 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+    stripeCustomerId    String?
 }
 
 model VerificationToken {
@@ -69,4 +70,11 @@ model Waitlist {
     redeemed Boolean @default(false)
     // Whether to allow a user to join with the redeption secret
     allowRedeem Boolean @default(false)
+}
+
+model Plan {
+    id  String  @id
+    name String @unique
+    amount  Int
+    status  Boolean @default(true)
 }
