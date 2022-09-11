@@ -27,11 +27,11 @@ const EnterPassword = () => {
     router.push('/');
   };
 
-  // useEffect(() => {
-  //   if (status === 'unauthenticated') router.push('/login');
-  // }, [status, router]);
+  useEffect(() => {
+    if (status === 'unauthenticated') router.push('/login');
+  }, [status, router]);
 
-  // if (status !== 'authenticated') return <></>;
+  if (status !== 'authenticated') return <></>;
 
   return (
     <div className="max-w-[600px] mx-auto w-full">
