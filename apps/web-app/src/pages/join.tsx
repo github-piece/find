@@ -1,41 +1,41 @@
-import { FormEvent, useEffect, useState } from "react"
-import { useSession, signIn } from "next-auth/react"
-import { useRouter } from "next/router"
+import { FormEvent, useEffect, useState } from 'react';
+import { useSession, signIn, signOut } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
-import Button from "../components/Button"
-import SocialLogin from "../components/SocialLogin"
-import { z } from "zod";
-import Input from "../components/radix/Input"
-import CheckIcon from "../assets/icon/check.svg"
-import Image from "next/image"
+import Button from '../components/Button';
+import SocialLogin from '../components/SocialLogin';
+import { z } from 'zod';
+import Input from '../components/radix/Input';
+import CheckIcon from '../assets/icon/check.svg';
+import Image from 'next/image';
 
 const Join = () => {
-  const { data, status } = useSession()
-  const router = useRouter()
-  const [email, setEmail] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
+  const { data, status } = useSession();
+  const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setLoading(true)
-    setError('')
+    e.preventDefault();
+    setLoading(true);
+    setError('');
     try {
       if (z.string().email().parse(email)) {
-        signIn("email", { email })
+        signIn('email', { email });
       }
     } catch (err) {
-      setError(email ? 'Email is  invalid' : 'Email is required')
+      setError(email ? 'Email is  invalid' : 'Email is required');
     }
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
   useEffect(() => {
     if (status === 'authenticated' && data.user?.email) {
-      router.push('/auth/create-password')
+      router.push('/auth/create-password');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [status])
+  }, [status]);
 
   return (
     <div className="max-w-lg mx-auto w-full">
@@ -82,14 +82,15 @@ const Join = () => {
             loading={loading}
           />
           <div className="bg-gray-100 dark:bg-gray-100-dark text-gray-500 dark:text-gray-500-dark py-3 px-4 text-center rounded text-sm flex mt-3">
-            By creating an account, you agree to Find Labs Terms of Use and Privacy Policy. Your private data in Find is end-to-end encrypted.
+            By creating an account, you agree to Find Labs Terms of Use and Privacy Policy. Your
+            private data in Find is end-to-end encrypted.
           </div>
         </form>
       )}
     </div>
-  )
-}
+  );
+};
 
-Join.layout = "Auth"
+Join.layout = 'Auth';
 
-export default Join
+export default Join;

@@ -1,30 +1,30 @@
-import NextAuth, { type NextAuthOptions } from "next-auth";
-import { createTransport } from "nodemailer";
-import * as aws from "@aws-sdk/client-ses";
+import NextAuth, { type NextAuthOptions } from 'next-auth';
+import { createTransport } from 'nodemailer';
+import * as aws from '@aws-sdk/client-ses';
 
 // Prisma adapter for NextAuth, optional and can be removed
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { prisma } from "../../../server/db/client";
+import { PrismaAdapter } from '@next-auth/prisma-adapter';
+import { prisma } from '../../../server/db/client';
 
 // Providers
-import GoogleProvider from "next-auth/providers/google";
-import GitHubProvider from "next-auth/providers/github";
+import GoogleProvider from 'next-auth/providers/google';
+import GitHubProvider from 'next-auth/providers/github';
 import EmailProvider from 'next-auth/providers/email';
 
 function html(params: { url: string; host: string }) {
-  const { url, host } = params
+  const { url, host } = params;
 
-  const escapedHost = host.replace(/\./g, "&#8203;.")
+  const escapedHost = host.replace(/\./g, '&#8203;.');
 
-  const brandColor = "#346df1"
+  const brandColor = '#346df1';
   const color = {
-    background: "#f9f9f9",
-    text: "#444",
-    mainBackground: "#fff",
+    background: '#f9f9f9',
+    text: '#444',
+    mainBackground: '#fff',
     buttonBackground: brandColor,
     buttonBorder: brandColor,
-    buttonText: "#fff",
-  }
+    buttonText: '#fff',
+  };
 
   return `
 <body style="background: ${color.background};">
@@ -56,21 +56,21 @@ function html(params: { url: string; host: string }) {
     </tr>
   </table>
 </body>
-`
+`;
 }
 
 function text({ url, host }: { url: string; host: string }) {
-  return `Sign in to ${host}\n${url}\n\n`
+  return `Sign in to ${host}\n${url}\n\n`;
 }
 
-let providers = []
+let providers = [];
 if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
   providers.push(
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     })
-  )
+  );
 }
 
 if (process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET) {
@@ -79,18 +79,22 @@ if (process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET) {
       clientId: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     })
-  )
+  );
 }
 
-if (process.env.FIND_SES_AWS_REGION && process.env.FIND_SES_AWS_ACCESS_KEY_ID && process.env.FIND_SES_AWS_SECRET_ACCESS_KEY) {
+if (
+  process.env.FIND_SES_AWS_REGION &&
+  process.env.FIND_SES_AWS_ACCESS_KEY_ID &&
+  process.env.FIND_SES_AWS_SECRET_ACCESS_KEY
+) {
   const ses = new aws.SES({
     region: process.env.FIND_SES_AWS_REGION,
     credentials: {
       accessKeyId: process.env.FIND_SES_AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.FIND_SES_AWS_SECRET_ACCESS_KEY
+      secretAccessKey: process.env.FIND_SES_AWS_SECRET_ACCESS_KEY,
     },
   });
-  
+
   const transport = createTransport({
     SES: { ses, aws },
   });
@@ -98,22 +102,23 @@ if (process.env.FIND_SES_AWS_REGION && process.env.FIND_SES_AWS_ACCESS_KEY_ID &&
   providers.push(
     EmailProvider({
       async sendVerificationRequest(params) {
-        const { identifier, url } = params
-        const { host } = new URL(url)
+        const { identifier, url } = params;
+        console.log({ identifier, url });
+        const { host } = new URL(url);
         const result = await transport.sendMail({
           to: identifier,
-          from : process.env.EMAIL_FROM,
+          from: process.env.EMAIL_FROM,
           subject: 'Welcome to Findlabs',
           text: text({ url, host }),
-          html: html({ url, host })
-        })
-        const failed = result.rejected?.concat(result.pending).filter(Boolean)
+          html: html({ url, host }),
+        });
+        const failed = result.rejected?.concat(result.pending).filter(Boolean);
         if (failed && failed.length) {
-          throw new Error(`Email(s) (${failed.join(", ")}) could not be sent`)
+          throw new Error(`Email(s) (${failed.join(', ')}) could not be sent`);
         }
       },
     })
-  )
+  );
 }
 
 export const authOptions: NextAuthOptions = {
@@ -123,32 +128,33 @@ export const authOptions: NextAuthOptions = {
       if (token?.user) {
         session.user = {
           ...session.user,
-          ...token.user as object
-        }
+          ...(token.user as object),
+        };
       }
       return session;
     },
     jwt({ token, user, account, profile, isNewUser }) {
       if (user) {
-        const image = user.image || profile?.avatar_url
+        const image = user.image || profile?.avatar_url;
         token.user = {
           ...user,
-          image
-        }
+          image,
+        };
       }
-      return token
-    }
+      return token;
+    },
   },
   // Configure one or more authentication providers
   adapter: PrismaAdapter(prisma),
   session: {
-    strategy: "jwt",
+    strategy: 'jwt',
   },
   secret: process.env.NEXTAUTH_SECRET,
   providers,
   pages: {
-    verifyRequest: '/auth/verify'
-  }
+    verifyRequest: '/auth/verify',
+    error: '/auth/error',
+  },
 };
 
 export default NextAuth(authOptions);

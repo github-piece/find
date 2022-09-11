@@ -45,17 +45,16 @@ const CheckoutForm: React.FC<{ plan: string }> = ({ plan }) => {
       plan,
       email: 'blabla@mail.com',
     });
-    console.log('subscription', subscription);
+
     if (!subscription?.client) {
       setMessage(subscription.error);
       return;
     }
-    console.log({ subscription, paymentMethod });
+
     const stripePayload = await stripe.confirmCardPayment(subscription.client, {
       payment_method: paymentMethod.id,
     });
 
-    console.log('stripePayload', stripePayload);
     if (stripePayload.error) {
       setMessage(stripePayload.error.message);
     }
