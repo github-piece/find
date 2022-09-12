@@ -102,19 +102,19 @@ if (
   providers.push(
     EmailProvider({
       async sendVerificationRequest(params) {
-        // const { identifier, url } = params;
-        // const { host } = new URL(url);
-        // const result = await transport.sendMail({
-        //   to: identifier,
-        //   from: process.env.EMAIL_FROM,
-        //   subject: 'Welcome to Findlabs',
-        //   text: text({ url, host }),
-        //   html: html({ url, host }),
-        // });
-        // const failed = result.rejected?.concat(result.pending).filter(Boolean);
-        // if (failed && failed.length) {
-        throw new Error(`Email(s) could not be sent`);
-        // }
+        const { identifier, url } = params;
+        const { host } = new URL(url);
+        const result = await transport.sendMail({
+          to: identifier,
+          from: process.env.EMAIL_FROM,
+          subject: 'Welcome to Findlabs',
+          text: text({ url, host }),
+          html: html({ url, host }),
+        });
+        const failed = result.rejected?.concat(result.pending).filter(Boolean);
+        if (failed && failed.length) {
+          throw new Error(`Email(s) could not be sent`);
+        }
       },
     })
   );
