@@ -370,6 +370,8 @@ export const authOptions: NextAuthOptions = {
   providers,
   pages: {
     verifyRequest: '/auth/verify',
+    error: '/auth/error',
+    signIn: '/login',
   },
 };
 
