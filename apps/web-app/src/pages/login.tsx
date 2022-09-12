@@ -52,7 +52,7 @@ const Login = () => {
       <SocialLogin />
       <form onSubmit={handleSubmit}>
         <Input
-          className="w-full text-left mb-3"
+          className="w-full text-left mb-4"
           label="Email"
           value={email}
           onChange={setEmail}
@@ -69,7 +69,7 @@ const Login = () => {
           loading={loading}
         />
       </form>
-      <div className="bg-gray-100 dark:bg-gray-100-dark text-gray-500 dark:text-gray-500-dark py-3 px-4 text-center rounded text-sm flex mt-3">
+      <div className="bg-gray-100 dark:bg-gray-100-dark text-gray-500 dark:text-gray-500-dark py-3 px-4 text-center rounded text-sm flex mt-4">
         <div className="w-6 h-6 mr-3 ml-auto">
           <Image src={KeyIcon} alt="secret" />
         </div>
