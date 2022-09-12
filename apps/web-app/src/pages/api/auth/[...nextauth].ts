@@ -11,11 +11,14 @@ import GoogleProvider from 'next-auth/providers/google';
 import GitHubProvider from 'next-auth/providers/github';
 import EmailProvider from 'next-auth/providers/email';
 
-function html(params: { url: string; host: string }) {
-  const { url, host } = params;
+function html(params: { url: string; host: string; join: boolean }) {
+  const { url, host, join } = params;
 
   const escapedHost = host.replace(/\./g, '&#8203;.');
-  console.log({ url, host, escapedHost });
+  const title = join ? '${title}' : 'Trying to login?';
+  const description = join
+    ? 'Follow this link to authenticate.'
+    : 'Follow this link to continue joining';
 
   return `
   <!DOCTYPE html>
@@ -38,7 +41,7 @@ function html(params: { url: string; host: string }) {
     <style>
       td,th,div,p,a,h1,h2,h3,h4,h5,h6 {font-family: "Segoe UI", sans-serif; mso-line-height-rule: exactly;}
     </style>
-    <![endif]-->    <title>Confirm your email address</title>    <style>
+    <![endif]-->    <title>${title}</title>    <style>
   .hover-text-decoration-underline:hover {
       text-decoration: underline;
   }
@@ -98,7 +101,7 @@ function html(params: { url: string; host: string }) {
   }
   </style></head>
   <body style="word-break: break-word; -webkit-font-smoothing: antialiased; margin: 0; width: 100%; padding: 0">
-    <div role="article" aria-roledescription="email" aria-label="Confirm your email address" lang="en">    <table style="width: 100%" cellpadding="0" cellspacing="0" role="presentation">
+    <div role="article" aria-roledescription="email" aria-label="${title}" lang="en">    <table style="width: 100%" cellpadding="0" cellspacing="0" role="presentation">
         <tr>
           <td align="center" style="background-color: #ECEEF8">
             <table class="sm-w-full" style="width: 600px" cellpadding="0" cellspacing="0" role="presentation">
@@ -160,10 +163,10 @@ function html(params: { url: string; host: string }) {
                           </svg>
                         </div>
                         <p class="sm-text-22px sm-mt-5" style="margin-bottom: 0; margin-top: 40px; text-align: center; font-size: 36px; font-weight: 600; color: #151515">
-                          Confirm your email address
+                          ${title}
                         </p>
                         <p class="sm-text-xs sm-mt-2" style="margin-bottom: 0; margin-top: 16px; font-size: 20px; font-weight: 400; color: #47495D">
-                          Follow this link to complete registration
+                          ${description}
                         </p>
                       </td>
                     </tr>
@@ -171,7 +174,7 @@ function html(params: { url: string; host: string }) {
                       <td style="text-align: center">
                         <div class="sm-mx-3" style="margin-left: 20px; margin-right: 20px; border-radius: 20px; border-width: 1px; border-style: solid; border-color: #E8E8EB">
                           <p class="sm-p-3" style="margin-top: 0; margin-bottom: 0; padding-left: 20px; padding-right: 20px; padding-top: 28px; padding-bottom: 28px; text-align: center">
-                            <a href="https://www.google.com/search?q=login&sxsrf=APq-WBuF8xtMFsvG289YRdnZl2irfoOssA:1644221995493&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj5kOSflO31AhXhtYsKHQgDAFAQ_AUoAXoECAEQAw&biw=2133&bih=1041&dpr=0.9" class="sm-text-xs" style="padding-top: 2px; padding-bottom: 2px; font-size: 18px; font-weight: 500; color: #2876F8; text-decoration-line: none">https://www.google.com/search?q=login&amp;sxsrf=APq-WBuF8xtMFsvG289YRdnZl2irfoOssA:1644221995493&amp;source=lnms&amp;tbm=isch&amp;sa=X&amp;ved=2ahUKEwj5kOSflO31AhXhtYsKHQgDAFAQ_AUoAXoECAEQAw&amp;biw=2133&amp;bih=1041&amp;dpr=0.9</a>
+                            <a href="${url}" class="sm-text-xs" style="padding-top: 2px; padding-bottom: 2px; font-size: 18px; font-weight: 500; color: #2876F8; text-decoration-line: none">${url}</a>
                           </p>
                         </div>
                         <p class="sm-mt-30px sm-text-xs" style="margin-top: 60px; text-align: center; font-weight: 600; color: #151515">
@@ -317,13 +320,14 @@ if (
     EmailProvider({
       async sendVerificationRequest(params) {
         const { identifier, url } = params;
+        const user = await prisma.user.findFirst({ where: { email: identifier } });
         const { host } = new URL(url);
         const result = await transport.sendMail({
           to: identifier,
           from: process.env.EMAIL_FROM,
           subject: 'Welcome to Findlabs',
           text: text({ url, host }),
-          html: html({ url, host }),
+          html: html({ url, host, join: !user }),
         });
         const failed = result.rejected?.concat(result.pending).filter(Boolean);
         if (failed && failed.length) {
