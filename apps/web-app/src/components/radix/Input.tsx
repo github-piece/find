@@ -21,7 +21,7 @@ type InputProps = {
 };
 
 export const inputBaseClass =
-  'flex form-control bg-transparent block w-full px-4 py-2 font-normal text-gray-700 focus:bg-white bg-clip-padding border border-solid  border-[#e8e8eb] dark:border-[#2c2c2c] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none min-h-[42px]';
+  'flex form-control bg-transparent block w-full px-4 py-2 font-normal text-gray-700 dark:text-white bg-clip-padding border border-solid  border-[#e8e8eb] dark:border-[#2c2c2c] rounded transition ease-in-out m-0 focus:border-blue-600 focus:outline-none min-h-[42px]';
 
 const Input: React.FC<InputProps> = ({
   label,
