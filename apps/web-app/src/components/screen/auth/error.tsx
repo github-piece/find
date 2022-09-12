@@ -12,7 +12,7 @@ const Error: React.FC<{ type: string }> = ({ type }) => {
         <Image src={MailIcon} alt="mail" />
       </div>
       <h1 className="font-semibold text-4xl mb-3">Something went wrong 😢</h1>
-      <p className="text-gray-500 dark:text-gray-500-dark text-sm mb-12 font-semibold">
+      <p className="text-gray-500 dark:text-gray-500-dark sm:text-lg text-sm mb-12 font-semibold">
         {type === 'EmailSignin' ? (
           <>
             <p>We can&apos;t sent a link to your email.</p>
