@@ -7,9 +7,16 @@ export const authRouter = createRouter()
       email: z.string().email(),
     }),
     async resolve({ input, ctx }) {
-      const { email } = input;
-      const user = await ctx.prisma.waitlist.findFirst({ where: { email } });
-      return !!(user && user.allowRedeem);
+      try {
+        const { email } = input;
+
+        if (process.env.IS_WAITLIST !== 'true') return true;
+
+        const user = await ctx.prisma.waitlist.findFirst({ where: { email } });
+        return !!(user && user.allowRedeem);
+      } catch {
+        return false;
+      }
     },
   })
   .mutation('waitlist', {
@@ -17,20 +24,26 @@ export const authRouter = createRouter()
       email: z.string().email(),
     }),
     async resolve({ input, ctx }) {
-      const { email } = input;
-      await ctx.prisma.waitlist.upsert({
-        where: {
-          email,
-        },
-        update: {
-          email,
-        },
-        create: {
-          email,
-        },
-      });
-      return {
-        success: true,
-      };
+      try {
+        const { email } = input;
+        await ctx.prisma.waitlist.upsert({
+          where: {
+            email,
+          },
+          update: {
+            email,
+          },
+          create: {
+            email,
+          },
+        });
+        return {
+          success: true,
+        };
+      } catch (err) {
+        return {
+          success: false,
+        };
+      }
     },
   });
