@@ -41,7 +41,7 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppLayoutPro
         />
       </Head>
       <SessionProvider session={session}>
-        <ThemeProvider defaultTheme="light" themes={['light', 'dark']}>
+        <ThemeProvider enableSystem={false} themes={['light', 'dark']}>
           <Layout>
             <Component {...pageProps} />
           </Layout>

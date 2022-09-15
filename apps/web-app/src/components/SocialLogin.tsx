@@ -9,7 +9,7 @@ import { useTheme } from 'next-themes';
 
 const SocialLogin = () => {
   const count = Object.values(process.env.providers as any).filter((v) => v).length;
-  const { resolvedTheme } = useTheme();
+  const { theme } = useTheme();
   const socialLogin = (type: string) => {
     signIn(type);
   };
@@ -31,7 +31,7 @@ const SocialLogin = () => {
         {(process.env.providers as any).github && (
           <Button
             text=""
-            icon={resolvedTheme === 'dark' ? GithubWhiteIcon : GithubIcon}
+            icon={theme === 'dark' ? GithubWhiteIcon : GithubIcon}
             onClick={() => socialLogin('github')}
             full
           />
