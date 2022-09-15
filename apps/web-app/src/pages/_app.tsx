@@ -1,48 +1,47 @@
 // src/pages/_app.tsx
-import { withTRPC } from "@trpc/next";
-import type { AppRouter } from "../server/router";
-import superjson from "superjson";
-import { SessionProvider } from "next-auth/react";
-import "../styles/globals.css";
-import PageWithLayoutType from "../types/pageWithLayout";
-import BasicLayout from "../layouts/Basic";
-import AuthLayout from "../layouts/Auth";
-import { ThemeProvider } from "next-themes";
-import { useEffect, useState } from "react";
-import Head from "next/head";
+import { withTRPC } from '@trpc/next';
+import type { AppRouter } from '../server/router';
+import superjson from 'superjson';
+import { SessionProvider } from 'next-auth/react';
+import '../styles/globals.css';
+import PageWithLayoutType from '../types/pageWithLayout';
+import BasicLayout from '../layouts/Basic';
+import AuthLayout from '../layouts/Auth';
+import { ThemeProvider } from 'next-themes';
+import { useEffect, useState } from 'react';
+import Head from 'next/head';
 
 type AppLayoutProps = {
-  Component: PageWithLayoutType,
-  pageProps: any
-}
+  Component: PageWithLayoutType;
+  pageProps: any;
+};
 
 const layouts = {
   Basic: BasicLayout,
-  Auth: AuthLayout
-}
+  Auth: AuthLayout,
+};
 
-const MyApp = ({
-  Component,
-  pageProps: { session, ...pageProps },
-}: AppLayoutProps) => {
-
-  const Layout = layouts[Component.layout || "Basic"]
-  const [init, setInit] = useState(false)
+const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppLayoutProps) => {
+  const Layout = layouts[Component.layout || 'Basic'];
+  const [init, setInit] = useState(false);
 
   useEffect(() => {
-    setInit(true)
-  }, [])
+    setInit(true);
+  }, []);
 
-  if (!init) return <></>
+  if (!init) return <></>;
 
   return (
     <div>
       <Head>
         <title>find.new</title>
-        <meta name="description" content="Find is the next generation of search, discovery, and exploration on the internet." />
+        <meta
+          name="description"
+          content="Find is the next generation of search, discovery, and exploration on the internet."
+        />
       </Head>
       <SessionProvider session={session}>
-        <ThemeProvider themes={['light', 'dark']}>
+        <ThemeProvider defaultTheme="light" themes={['light', 'dark']}>
           <Layout>
             <Component {...pageProps} />
           </Layout>
@@ -53,8 +52,8 @@ const MyApp = ({
 };
 
 const getBaseUrl = () => {
-  if (typeof window !== "undefined") {
-    return "";
+  if (typeof window !== 'undefined') {
+    return '';
   }
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`; // SSR should use vercel url
 
