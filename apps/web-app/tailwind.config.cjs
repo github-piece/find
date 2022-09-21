@@ -1,37 +1,40 @@
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
   theme: {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#2876F8",
+          DEFAULT: '#2876F8',
         },
         dark: {
-          DEFAULT: "#212121"
+          DEFAULT: '#212121',
         },
         gray: {
           ...colors.gray,
           100: {
             DEFAULT: '#f3f4f5',
-            dark: '#212121'
+            dark: '#212121',
           },
           500: {
             DEFAULT: '#757685',
-            dark: '#8A8A8A'
+            dark: '#8A8A8A',
           },
           700: {
             DEFAULT: '#151515',
-            dark: '#FFFFFF'
-          }
-        }
-      }
+            dark: '#FFFFFF',
+          },
+        },
+        red: {
+          ...colors.red,
+          100: '#FA61531A',
+          500: '#FA6153',
+        },
+      },
     },
   },
-  plugins: [
-    require("tailwindcss-radix")()
-  ],
+  plugins: [require('tailwindcss-radix')()],
 };
