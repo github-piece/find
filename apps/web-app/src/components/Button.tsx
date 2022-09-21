@@ -42,10 +42,10 @@ const Button: React.FC<ButtonProps> = ({
           ? 'bg-primary hover:bg-blue-700 text-white border-primary hover:border-blue-700'
           : solid
           ? 'bg-gray-600 hover:bg-gray-700 text-white border-gray-600 hover:border-gray-700'
-          : 'bg-transparent border-2 text-gray-700 hover:text-white border-[#e8e8eb] dark:border-[#444444] hover:border-gray-300',
+          : 'bg-transparent border-2 text-gray-700 hover:text-white border-[#e8e8eb] dark:border-[#2c2c2c] hover:border-gray-300',
         rounded === 'right' ? 'rounded-r' : rounded === 'left' ? 'rounded-l' : 'rounded',
         full ? 'w-full' : '',
-        (loading || disabled) && !primary ? 'text-gray-500 dark:text-gray-500-dark' : '',
+        loading || disabled ? 'text-gray-500 dark:text-gray-500-dark' : '',
         className
       )}
       disabled={disabled || loading}

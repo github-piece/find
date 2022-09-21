@@ -12,39 +12,37 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 
 type AppLayoutProps = {
-  Component: PageWithLayoutType;
-  pageProps: any;
-};
+  Component: PageWithLayoutType,
+  pageProps: any
+}
 
 const layouts = {
   Basic: BasicLayout,
-  Auth: AuthLayout,
-};
+  Auth: AuthLayout
+}
 
 const MyApp = ({
   Component,
   pageProps: { session, ...pageProps },
 }: AppLayoutProps) => {
-  const Layout = layouts[Component.layout || "Basic"];
-  const [init, setInit] = useState(false);
+
+  const Layout = layouts[Component.layout || "Basic"]
+  const [init, setInit] = useState(false)
 
   useEffect(() => {
-    setInit(true);
-  }, []);
+    setInit(true)
+  }, [])
 
-  if (!init) return <></>;
+  if (!init) return <></>
 
   return (
     <div>
       <Head>
         <title>find.new</title>
-        <meta
-          name="description"
-          content="Find is the next generation of search, discovery, and exploration on the internet."
-        />
+        <meta name="description" content="Find is the next generation of search, discovery, and exploration on the internet." />
       </Head>
       <SessionProvider session={session}>
-        <ThemeProvider themes={["light", "dark"]}>
+        <ThemeProvider themes={['light', 'dark']}>
           <Layout>
             <Component {...pageProps} />
           </Layout>
