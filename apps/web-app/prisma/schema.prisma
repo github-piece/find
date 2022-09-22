@@ -85,6 +85,7 @@ model Order {
     id              String      @id @default(cuid())
     planId          String
     userId          String
+    subscription    String
     paymentIntent   String
     status          Boolean     @default(true)  
     createdAt       DateTime    @default(now())

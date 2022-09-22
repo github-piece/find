@@ -48,11 +48,12 @@ export const paymentRouter = createRouter()
       id: z.string(),
       plan: z.string(),
       customer: z.string(),
+      subscription: z.string(),
       paymentIntent: z.string(),
     }),
     async resolve({ input, ctx }) {
       try {
-        const { id, plan, customer, paymentIntent } = input;
+        const { id, plan, customer, subscription, paymentIntent } = input;
         const user = await ctx.prisma.user.update({
           where: { id },
           data: {
@@ -71,6 +72,7 @@ export const paymentRouter = createRouter()
           data: {
             planId: plan,
             userId: id,
+            subscription,
             paymentIntent,
           },
         });

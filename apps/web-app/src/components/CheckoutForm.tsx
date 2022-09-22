@@ -72,6 +72,7 @@ const CheckoutForm: React.FC<{ plan: string }> = ({ plan }) => {
       id: data.user.id!,
       plan,
       customer: subscription.customer,
+      subscription: subscription.id,
       paymentIntent: stripePayload.paymentIntent.id,
     });
   };
