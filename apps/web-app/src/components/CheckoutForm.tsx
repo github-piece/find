@@ -6,6 +6,7 @@ import {
   CardNumberElement,
 } from '@stripe/react-stripe-js';
 import axios from 'axios';
+import { useSession } from 'next-auth/react';
 import { FormEvent, useState } from 'react';
 import Button from './Button';
 import Label from './radix/Label';
@@ -13,6 +14,7 @@ import Label from './radix/Label';
 const CheckoutForm: React.FC<{ plan: string }> = ({ plan }) => {
   const stripe = useStripe();
   const elements = useElements();
+  const { data } = useSession();
 
   const [message, setMessage] = useState<string>();
   const [isLoading, setIsLoading] = useState(false);
@@ -23,7 +25,7 @@ const CheckoutForm: React.FC<{ plan: string }> = ({ plan }) => {
     setMessage('');
     const cardNumberElement = elements?.getElement('cardNumber');
 
-    if (!stripe || !cardNumberElement) {
+    if (!stripe || !cardNumberElement || !data?.user?.email) {
       // Stripe.js has not yet loaded.
       // Make sure to disable form submission until Stripe.js has loaded.
       return;
@@ -43,7 +45,7 @@ const CheckoutForm: React.FC<{ plan: string }> = ({ plan }) => {
 
     const { data: subscription }: any = await axios.post('/api/stripe/subscribe', {
       plan,
-      email: 'blabla@mail.com',
+      email: data.user.email,
     });
 
     if (!subscription?.client) {
