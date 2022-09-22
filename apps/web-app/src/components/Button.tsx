@@ -45,7 +45,7 @@ const Button: React.FC<ButtonProps> = ({
           : 'bg-transparent border-2 text-gray-700 hover:text-white border-[#e8e8eb] dark:border-[#2c2c2c] hover:border-gray-300',
         rounded === 'right' ? 'rounded-r' : rounded === 'left' ? 'rounded-l' : 'rounded',
         full ? 'w-full' : '',
-        loading || disabled ? 'text-gray-500 dark:text-gray-500-dark' : '',
+        loading || disabled ? 'text-gray-300 dark:text-gray-500-dark' : '',
         className
       )}
       disabled={disabled || loading}

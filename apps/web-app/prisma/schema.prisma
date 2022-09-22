@@ -49,6 +49,7 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+    orders        Order[]
     stripeCustomerId    String?
 }
 
@@ -77,4 +78,17 @@ model Plan {
     name String @unique
     amount  Int
     status  Boolean @default(true)
+    orders  Order[]
+}
+
+model Order {
+    id              String      @id @default(cuid())
+    planId          String
+    userId          String
+    paymentIntent   String
+    status          Boolean     @default(true)  
+    createdAt       DateTime    @default(now())
+    modifiedAt      DateTime    @updatedAt
+    plan            Plan        @relation(fields: [planId], references: [id], onDelete: Cascade)
+    user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

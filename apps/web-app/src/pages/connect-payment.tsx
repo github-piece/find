@@ -1,15 +1,19 @@
+import { useEffect } from 'react';
 import Image from 'next/image';
+import { getSession, GetSessionParams } from 'next-auth/react';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+
+import CheckoutForm from '../components/CheckoutForm';
+
+import { trpc } from '../utils/trpc';
+
 import LockIcon from '../assets/icon/lock.svg';
 import TargetIcon from '../assets/icon/target.svg';
 import NoNetworkIcon from '../assets/icon/no-network.svg';
 import TuneIcon from '../assets/icon/tune.svg';
 import UnlockIcon from '../assets/icon/unlock.svg';
 import EncryptIcon from '../assets/icon/encrypt.svg';
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
-import CheckoutForm from '../components/CheckoutForm';
-import { trpc } from '../utils/trpc';
-import { useEffect } from 'react';
 
 const ConnectPayment = () => {
   const { mutate, isLoading, data } = trpc.useMutation('payment.plan');
@@ -125,5 +129,18 @@ const ConnectPayment = () => {
 };
 
 ConnectPayment.layout = 'Auth';
+
+export async function getServerSideProps(context: GetSessionParams | undefined) {
+  const session = await getSession(context);
+  if (!session?.user) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
+  return { props: {} };
+}
 
 export default ConnectPayment;

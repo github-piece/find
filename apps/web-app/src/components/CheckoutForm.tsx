@@ -1,3 +1,5 @@
+import { FormEvent, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import {
   useStripe,
   useElements,
@@ -7,11 +9,15 @@ import {
 } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import { useSession } from 'next-auth/react';
-import { FormEvent, useState } from 'react';
+
+import { trpc } from '../utils/trpc';
+
 import Button from './Button';
 import Label from './radix/Label';
 
 const CheckoutForm: React.FC<{ plan: string }> = ({ plan }) => {
+  const { mutate, data: connectPaymentResult } = trpc.useMutation('payment.connect');
+  const router = useRouter();
   const stripe = useStripe();
   const elements = useElements();
   const { data } = useSession();
@@ -59,8 +65,25 @@ const CheckoutForm: React.FC<{ plan: string }> = ({ plan }) => {
 
     if (stripePayload.error) {
       setMessage(stripePayload.error.message);
+      return;
     }
+
+    mutate({
+      id: data.user.id!,
+      plan,
+      customer: subscription.customer,
+      paymentIntent: stripePayload.paymentIntent.id,
+    });
   };
+
+  useEffect(() => {
+    if (!connectPaymentResult?.success) {
+      setMessage(connectPaymentResult?.message);
+      return;
+    }
+
+    router.push('/auth/create-password');
+  }, [connectPaymentResult]);
 
   return (
     <form id="payment-form" onSubmit={handleSubmit} className="grid grid-cols-2 gap-3">

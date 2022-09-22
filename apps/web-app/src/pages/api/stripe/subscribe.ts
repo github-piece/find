@@ -25,6 +25,7 @@ async function subscribeHandler(req: NextApiRequest, res: NextApiResponse) {
     res.status(200).json({
       success: true,
       client: (subscription?.latest_invoice as any)?.payment_intent.client_secret,
+      customer: subscription.customer,
     });
   } catch (e) {
     res.status(400).json({ error: e });
