@@ -1,11 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import WarnIcon from '../../../assets/icon/warn.svg';
+
 import MailIcon from '../../../assets/mail-error.png';
 
 const Error: React.FC<{ type: string }> = ({ type }) => {
-  const router = useRouter();
   return (
     <div className="max-w-[480px] mx-auto w-full">
       <div className="w-36 h-36 mx-auto">

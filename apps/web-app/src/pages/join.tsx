@@ -1,50 +1,55 @@
-import { FormEvent, useEffect, useState } from 'react';
-import { useSession, signIn } from 'next-auth/react';
+import { FormEvent, useState } from 'react';
+import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
+import { z } from 'zod';
 
 import Button from '../components/Button';
 import SocialLogin from '../components/SocialLogin';
-import { z } from 'zod';
 import Input from '../components/radix/Input';
-import CheckIcon from '../assets/icon/check.svg';
-import Image from 'next/image';
+
 import { trpc } from '../utils/trpc';
 
+import CheckIcon from '../assets/icon/check.svg';
+
 const Join = () => {
-  const isWaitlist = process.env.waitlist && process.env.waitlist !== 'false';
-  const mutation = trpc.useMutation('auth.isWaitlist');
-  const { data, status } = useSession();
+  const waitlistMutation = trpc.useMutation('auth.waitlist');
+  const waitlistCheckMutation = trpc.useMutation('auth.isWaitlist');
+
   const router = useRouter();
+
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     setLoading(true);
     setError('');
     try {
-      let isAllowed = true;
-      if (isWaitlist) {
-        isAllowed = await mutation.mutateAsync({ email });
+      if (!z.string().email().parse(email)) {
+        setError('Email is invalid');
+        return;
       }
-      if (z.string().email().parse(email) && isAllowed) {
-        signIn('email', { email });
-      } else {
-        setError('Email is  invalid');
+
+      const isAllowed = await waitlistCheckMutation.mutateAsync({ email });
+      if (!isAllowed) {
+        const data = await waitlistMutation.mutateAsync({ email });
+        if (data?.success) router.push('/waitlist-success');
+        else {
+          setLoading(false);
+          setError('Something went wrong');
+        }
+        return;
       }
+
+      signIn('email', { email });
     } catch (err) {
       setError(email ? 'Email is  invalid' : 'Email is required');
     }
     setLoading(false);
   };
-
-  useEffect(() => {
-    if (status === 'authenticated' && data.user?.email) {
-      router.push('/auth/create-password');
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [status]);
 
   return (
     <div className="max-w-lg mx-auto w-full">
