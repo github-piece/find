@@ -17,7 +17,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={classNames('p-5 flex justify-between relative', theme)}>
+    <nav className={classNames('pt-10 px-10 flex justify-between relative h-20', theme)}>
       <Link href={'/'}>
         <div className="flex cursor-pointer sm:hidden block">
           <Image src="/logo.svg" width={32} height={32} alt="logo" />
@@ -32,7 +32,7 @@ const Navbar = () => {
         </Link>
       </div>
       <Link href={'/'}>
-        <div className="flex cursor-pointer sm:flex hidden absolute left-1/2 translate-x-[-50%] mt-[-6px]">
+        <div className="flex cursor-pointer sm:flex hidden absolute left-1/2 translate-x-[-50%]">
           <Image
             src={theme === 'dark' ? '/find-logo-white.svg' : '/find-logo.svg'}
             width={96}
@@ -47,7 +47,7 @@ const Navbar = () => {
         </div>
         <button
           onClick={handleAuth}
-          className="bg-gray-100 dark:bg-gray-100-dark hover:bg-gray-400 text-gray-700 dark:text-gray-700-dark text-sm font-semibold py-1 px-3 rounded"
+          className="bg-gray-100 dark:bg-gray-100-dark hover:bg-gray-400 text-gray-700 dark:text-gray-700-dark text-sm font-semibold py-1 px-4 rounded"
         >
           {auth}
         </button>
