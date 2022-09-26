@@ -39,6 +39,7 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppLayoutPro
           name="description"
           content="Find is the next generation of search, discovery, and exploration on the internet."
         />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <SessionProvider session={session}>
         <ThemeProvider themes={['light', 'dark']}>

@@ -1,45 +1,47 @@
-import { FormEvent, useEffect, useState } from "react";
-import Button from "../components/Button";
-import CheckIcon from "../assets/icon/check.svg";
-import { z } from "zod";
-import { trpc } from "../utils/trpc";
-import { useRouter } from "next/router";
-import Input from "../components/radix/Input";
-import Image from "next/image";
+import { FormEvent, useState } from 'react';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { z } from 'zod';
+
+import Button from '../components/Button';
+import Input from '../components/radix/Input';
+
+import { trpc } from '../utils/trpc';
+
+import CheckIcon from '../assets/icon/check.svg';
 
 const JoinWaitlist = () => {
-  const mutation = trpc.useMutation("auth.waitlist");
+  const mutation = trpc.useMutation('auth.waitlist');
   const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     setLoading(true);
-    setError("");
+    setError('');
     try {
       if (z.string().email().parse(email)) {
-        mutation.mutate({ email });
+        const data = await mutation.mutateAsync({ email });
+        if (data?.success) router.push('/waitlist-success');
+        else {
+          setLoading(false);
+          setError('Something went wrong');
+        }
       }
     } catch (err) {
-      setError(email ? "Email is  invalid" : "Email is required");
+      setError(email ? 'Email is  invalid' : 'Email is required');
     }
     setLoading(false);
   };
-
-  useEffect(() => {
-    if (mutation.data?.success) {
-      router.push("/waitlist-success");
-    }
-  }, [mutation.data, router]);
 
   return (
     <div className="max-w-[560px] mx-auto w-full">
       <h1 className="font-semibold text-4xl mb-3">Join Waitlist</h1>
       <p className="text-gray-400 text-lg mb-4 font-semibold max-w-[480px] mx-auto">
-        Experience the next generation of search, discovery, and exploration on
-        the internet.
+        Experience the next generation of search, discovery, and exploration on the internet.
       </p>
       <div className="text-gray-700 text-sm mb-4 grid grid-cols-2 sm:grid-cols-4">
         <div className="flex mx-auto">
@@ -61,12 +63,7 @@ const JoinWaitlist = () => {
       </div>
       <form onSubmit={handleSubmit} className="max-w-[480px] mx-auto">
         <div className="mb-3 mt-8">
-          <Input
-            label="Email"
-            placeholder="name@email.com"
-            value={email}
-            onChange={setEmail}
-          />
+          <Input label="Email" placeholder="name@email.com" value={email} onChange={setEmail} />
         </div>
         <Button
           type="submit"
@@ -78,14 +75,14 @@ const JoinWaitlist = () => {
           loading={loading}
         />
         <div className="bg-gray-100 dark:bg-gray-100-dark text-gray-500 dark:text-gray-500-dark py-3 px-4 text-center rounded text-sm flex mt-3">
-          By joining the waitlist, you agree to the Find Labs Privacy Policy and
-          to receive news and updates.
+          By joining the waitlist, you agree to the Find Labs Privacy Policy and to receive news and
+          updates.
         </div>
       </form>
     </div>
   );
 };
 
-JoinWaitlist.layout = "Auth";
+JoinWaitlist.layout = 'Auth';
 
 export default JoinWaitlist;
