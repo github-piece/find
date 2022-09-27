@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const Navbar = () => {
   const router = useRouter();
-  const { theme } = useTheme();
+  const { resolvedTheme: theme } = useTheme();
   const isWaitlist = process.env.waitlist && process.env.waitlist !== 'false';
   let auth = 'Join';
   if (['/join', '/waitlist'].includes(router.pathname)) auth = 'Log in';
@@ -34,7 +34,7 @@ const Navbar = () => {
       <Link href={'/'}>
         <div className="flex cursor-pointer sm:flex hidden absolute left-1/2 translate-x-[-50%]">
           <Image
-            src={theme === 'dark' ? '/find-logo-white.svg' : '/find-logo.svg'}
+            src={theme === 'light' ? '/find-logo.svg' : '/find-logo-white.svg'}
             width={96}
             height={40}
             alt="logo"
