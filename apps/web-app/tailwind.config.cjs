@@ -15,18 +15,18 @@ module.exports = {
         },
         gray: {
           ...colors.gray,
-          100: {
-            DEFAULT: '#f3f4f5',
-            dark: '#212121',
-          },
-          500: {
-            DEFAULT: '#757685',
-            dark: '#8A8A8A',
-          },
-          700: {
-            DEFAULT: '#151515',
-            dark: '#FFFFFF',
-          },
+          50: '#F8F9FD',
+          '50-dark': '#2C2C2C',
+          100: '#f3f4f5',
+          '100-dark': '#212121',
+          200: '#E8E8EB',
+          '200-dark': '#383838',
+          400: '#A3A4AE',
+          '400-dark': '#737373',
+          500: '#757685',
+          '500-dark': '#8A8A8A',
+          700: '#151515',
+          '700-dark': '#FFFFFF',
         },
         red: {
           ...colors.red,

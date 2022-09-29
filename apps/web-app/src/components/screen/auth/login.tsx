@@ -55,7 +55,9 @@ const Login = () => {
   return (
     <div className="max-w-[480px] mx-auto w-full">
       <h1 className="font-semibold text-4xl mb-3">Let&apos;s Explore</h1>
-      <p className="text-gray-400 text-sm mb-4 font-normal">Log in to continue your Find journey</p>
+      <p className="text-gray-400 text-sm sm:text-base mb-4 font-normal">
+        Log in to continue your Find journey
+      </p>
       <SocialLogin />
       <form onSubmit={handleSubmit}>
         <Input
@@ -76,7 +78,7 @@ const Login = () => {
           loading={loading}
         />
       </form>
-      <div className="bg-gray-100 dark:bg-gray-100-dark text-gray-500 dark:text-gray-500-dark py-3 px-4 text-center rounded text-sm flex mt-4">
+      <div className="bg-gray-100 dark:bg-gray-100-dark text-gray-500 dark:text-gray-500-dark py-3.5 px-4 text-center rounded-lg text-sm flex mt-4">
         <div className="w-6 h-6 mr-3 ml-auto">
           <Image src={KeyIcon} alt="secret" />
         </div>

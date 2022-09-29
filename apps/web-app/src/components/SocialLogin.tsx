@@ -1,11 +1,14 @@
+import { signIn } from 'next-auth/react';
+import { useTheme } from 'next-themes';
+import classNames from 'classnames';
+
+import Button from './Button';
+
 import GoogleIcon from '../assets/icon/google-logo.svg';
+import GooglWhiteIcon from '../assets/icon/google-white-logo.svg';
 import AppleIcon from '../assets/icon/apple-logo.svg';
 import GithubIcon from '../assets/icon/github-logo.svg';
 import GithubWhiteIcon from '../assets/icon/github-white-logo.svg';
-import Button from './Button';
-import { signIn } from 'next-auth/react';
-import classNames from 'classnames';
-import { useTheme } from 'next-themes';
 
 const SocialLogin = () => {
   const count = Object.values(process.env.providers as any).filter((v) => v).length;
@@ -23,7 +26,12 @@ const SocialLogin = () => {
         )}
       >
         {(process.env.providers as any).google && (
-          <Button text="" icon={GoogleIcon} onClick={() => socialLogin('google')} full />
+          <Button
+            text=""
+            icon={theme === 'light' ? GoogleIcon : GooglWhiteIcon}
+            onClick={() => socialLogin('google')}
+            full
+          />
         )}
         {(process.env.providers as any).apple && (
           <Button text="" icon={AppleIcon} onClick={() => socialLogin('apple')} full />
@@ -39,9 +47,9 @@ const SocialLogin = () => {
       </div>
       {!!Object.values(process.env.providers as any).filter((v) => v).length && (
         <div className="relative flex py-5 items-center sm:mt-8">
-          <div className="flex-grow border-t border-gray-400"></div>
-          <span className="flex-shrink mx-4 text-gray-400">OR</span>
-          <div className="flex-grow border-t border-gray-400"></div>
+          <div className="flex-grow border-t border-gray-200 dark:border-gray-200-dark"></div>
+          <span className="flex-shrink mx-4 text-gray-400 dark:text-gray-400">OR</span>
+          <div className="flex-grow border-t border-gray-200 dark:border-gray-200-dark"></div>
         </div>
       )}
     </>

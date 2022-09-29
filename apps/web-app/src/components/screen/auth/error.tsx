@@ -21,7 +21,7 @@ const Error: React.FC<{ type: string }> = ({ type }) => {
         )}
       </p>
       <Link href={'/login'}>
-        <div className="border border-[#E8E8EB] dark:border-[#444444] rounded py-3.5 cursor-pointer">
+        <div className="border border-gray-200 dark:border-gray-200-dark rounded-lg py-3.5 cursor-pointer">
           Go back
         </div>
       </Link>
