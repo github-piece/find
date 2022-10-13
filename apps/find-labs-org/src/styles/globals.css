@@ -62,3 +62,7 @@ body,
 html {
   font-family: 'sf-ui-font';
 }
+
+.bg-radial-primary {
+  background: radial-gradient(circle, #01cdae66, #ffffff 54px) !important;
+}

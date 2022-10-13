@@ -17,22 +17,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={classNames('pt-10 px-10 flex justify-between relative h-20', theme)}>
+    <nav className={classNames('flex justify-between relative h-12 w-full mt-4', theme)}>
       <Link href={'/'}>
-        <div className="flex cursor-pointer sm:hidden block">
-          <Image src="/logo.svg" width={32} height={32} alt="logo" />
-        </div>
-      </Link>
-      <div className="flex ml-auto sm:ml-0 my-auto">
-        <Link href={'https://findlabs.org'}>
-          <div className="mr-4 cursor-pointer dark:text-gray-100">Learn more</div>
-        </Link>
-        <Link href={'https://findlabs.org/docs'}>
-          <div className="mr-4 cursor-pointer dark:text-gray-100">Help</div>
-        </Link>
-      </div>
-      <Link href={'/'}>
-        <div className="flex cursor-pointer sm:flex hidden absolute left-1/2 translate-x-[-50%]">
+        <div className="flex cursor-pointer sm:flex hidden">
           <Image
             src={theme === 'light' ? '/find-logo.svg' : '/find-logo-white.svg'}
             width={96}
@@ -41,14 +28,27 @@ const Navbar = () => {
           />
         </div>
       </Link>
+      <Link href={'/'}>
+        <div className="flex cursor-pointer sm:hidden block">
+          <Image src="/logo.svg" width={32} height={32} alt="logo" />
+        </div>
+      </Link>
+      <div className="flex ml-auto sm:ml-0 my-auto">
+        <Link href={'https://findlabs.org'}>
+          <div className="mr-10 cursor-pointer dark:text-gray-100">Mission</div>
+        </Link>
+        <Link href={'https://findlabs.org/docs'}>
+          <div className="mr-10 cursor-pointer dark:text-gray-100">Product</div>
+        </Link>
+        <Link href={'https://findlabs.org/docs'}>
+          <div className="cursor-pointer dark:text-gray-100">Docs</div>
+        </Link>
+      </div>
       <div className="flex">
         <ThemeSelectButton />
-        <div className="text-sm text-gray-500 dark:text-gray-500-dark my-auto mr-4 sm:block hidden">
-          {auth === 'Join' ? "Don't have an account?" : 'Already have an account?'}
-        </div>
         <button
           onClick={handleAuth}
-          className="bg-gray-100 dark:bg-gray-100-dark hover:bg-gray-400 text-gray-700 dark:text-gray-700-dark text-sm font-semibold py-1 px-4 rounded"
+          className="bg-gray-700 dark:bg-gray-200-dark hover:bg-gray-400 text-white dark:text-gray-700-dark font-semibold px-4 py-2.5 rounded-xl my-auto"
         >
           {auth}
         </button>
