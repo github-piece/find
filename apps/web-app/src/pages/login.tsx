@@ -38,7 +38,7 @@ export async function getServerSideProps(context: GetSessionParams | undefined) 
       }
     }
   }
-  return { props: null };
+  return { props: {} };
 }
 
 export default LoginPage;
