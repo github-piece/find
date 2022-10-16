@@ -4,6 +4,7 @@ import ThemeSelectButton from './ThemeSelectButton';
 import classNames from 'classnames';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
+import { signOut } from 'next-auth/react';
 
 const Navbar = () => {
   const router = useRouter();
