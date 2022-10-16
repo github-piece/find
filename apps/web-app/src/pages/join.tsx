@@ -114,7 +114,6 @@ export async function getServerSideProps(context: GetSessionParams | undefined) 
   if (email) {
     const user = await prisma.user.findFirst({ where: { email }, include: { accounts: true } });
     if (user) {
-      console.log(user.accounts);
       if (user?.emailVerified || user.accounts[0]?.provider) {
         return {
           redirect: {
