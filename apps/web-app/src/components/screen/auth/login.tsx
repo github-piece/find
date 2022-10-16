@@ -1,7 +1,8 @@
 import { FormEvent, useState } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import { useTheme } from 'next-themes';
 import { z } from 'zod';
 
 import Button from '../../Button';
@@ -11,16 +12,18 @@ import Input from '../../radix/Input';
 import { trpc } from '../../../utils/trpc';
 
 import KeyIcon from '../../../assets/icon/key.svg';
+import ErrIcon from '../../../assets/icon/error.svg';
+import ErrWhiteIcon from '../../../assets/icon/error-white.svg';
 
 const Login = () => {
-  const waitlistMutation = trpc.useMutation('auth.waitlist');
-  const waitlistCheckMutation = trpc.useMutation('auth.isWaitlist');
+  const { resolvedTheme } = useTheme();
 
-  const router = useRouter();
+  const userExists = trpc.useMutation('auth.exists');
 
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [exists, setExists] = useState(true);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,14 +35,10 @@ const Login = () => {
         setError('Email is not valid!');
       }
 
-      const isAllowed = await waitlistCheckMutation.mutateAsync({ email });
-      if (!isAllowed) {
-        const data = await waitlistMutation.mutateAsync({ email });
-        if (data?.success) router.push('/waitlist-success');
-        else {
-          setLoading(false);
-          setError('Something went wrong');
-        }
+      const status = await userExists.mutateAsync({ email });
+      if (!status) {
+        setExists(false);
+        setLoading(false);
         return;
       }
 
@@ -82,6 +81,20 @@ const Login = () => {
         </div>
         <div className="mr-auto">We&apos;ll email you a magic link to log in.</div>
       </div>
+      {!exists && (
+        <div className="bg-red-100 dark:bg-red-500 text-red-500 dark:text-white py-3 px-4 text-center rounded text-sm flex mt-4">
+          <div className="w-6 h-6 mr-3 ml-auto">
+            <Image src={resolvedTheme === 'light' ? ErrIcon : ErrWhiteIcon} alt="error" />
+          </div>
+          <div className="mr-auto">
+            There is no account associated with this email.{' '}
+            <Link href="/join">
+              <span className="underline cursor-pointer">Sign Up</span>
+            </Link>
+            ?
+          </div>
+        </div>
+      )}
     </div>
   );
 };
