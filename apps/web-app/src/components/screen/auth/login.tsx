@@ -77,11 +77,14 @@ const Login = () => {
           loading={loading}
         />
       </form>
-      <div className="bg-gray-100-dark light:bg-gray-100 text-gray-500-dark light:text-gray-500 py-3.5 px-4 text-center rounded-lg text-sm flex mt-4">
-        <div className="w-6 h-6 mr-3 ml-auto">
-          <Image src={KeyIcon} alt="secret" />
+
+      <div className={resolvedTheme === 'light'? "bg-gray-100 text-gray-500" : 'bg-gray-100-dark text-gray-500-dark'}>
+        <div className='py-3.5 px-4 text-center rounded-lg text-sm flex mt-4'>
+          <div className="w-6 h-6 mr-3 ml-auto">
+            <Image src={KeyIcon} alt="secret" />
+          </div>
+          <div className="mr-auto">We&apos;ll email you a magic link to log in.</div>
         </div>
-        <div className="mr-auto">We&apos;ll email you a magic link to log in.</div>
       </div>
       {!exists && (
         <div className="bg-red-100 dark:bg-red-500 text-red-500 dark:text-white py-3 px-4 text-center rounded text-sm flex mt-4">
