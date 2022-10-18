@@ -78,7 +78,7 @@ const Login = () => {
         />
       </form>
 
-      <div className={resolvedTheme === 'light'? "bg-gray-100 text-gray-500" : 'bg-gray-100-dark text-gray-500-dark'}>
+      <div className={resolvedTheme === 'light'? "bg-gray-100 text-gray-500" : 'bg-gray-50-dark text-gray-500-dark'}>
         <div className='py-3.5 px-4 text-center rounded-lg text-sm flex mt-4'>
           <div className="w-6 h-6 mr-3 ml-auto">
             <Image src={KeyIcon} alt="secret" />

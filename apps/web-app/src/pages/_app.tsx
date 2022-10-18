@@ -10,6 +10,13 @@ import AuthLayout from '../layouts/Auth';
 import { ThemeProvider } from 'next-themes';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  [data-theme="dark"] body {
+    background: #212121;
+  }
+`;
 
 type AppLayoutProps = {
   Component: PageWithLayoutType;
@@ -18,7 +25,7 @@ type AppLayoutProps = {
 
 const layouts = {
   Basic: BasicLayout,
-  Auth: AuthLayout,
+  Auth: AuthLayout
 };
 
 const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppLayoutProps) => {
@@ -36,12 +43,13 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppLayoutPro
       <Head>
         <title>find.new</title>
         <meta
-          name="description"
-          content="Find is the next generation of search, discovery, and exploration on the internet."
+          name='description'
+          content='Find is the next generation of search, discovery, and exploration on the internet.'
         />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel='shortcut icon' href='/favicon.ico' />
       </Head>
       <SessionProvider session={session}>
+        <GlobalStyle />
         <ThemeProvider themes={['light', 'dark']}>
           <Layout>
             <Component {...pageProps} />
@@ -71,7 +79,7 @@ export default withTRPC<AppRouter>({
 
     return {
       url,
-      transformer: superjson,
+      transformer: superjson
       /**
        * @link https://react-query.tanstack.com/reference/QueryClient
        */
@@ -81,5 +89,5 @@ export default withTRPC<AppRouter>({
   /**
    * @link https://trpc.io/docs/ssr
    */
-  ssr: false,
+  ssr: false
 })(MyApp);

@@ -1,4 +1,4 @@
-import NextAuth, { type NextAuthOptions } from 'next-auth';
+import NextAuth, { NextAuthOptions } from 'next-auth';
 import { createTransport } from 'nodemailer';
 import * as aws from '@aws-sdk/client-ses';
 import moment from 'moment';
