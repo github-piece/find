@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import ThemeSelectButton from './ThemeSelectButton';
 import classNames from 'classnames';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
@@ -46,7 +45,6 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex">
-          <ThemeSelectButton />
           <button
             onClick={handleAuth}
             className="bg-gray-700 dark:bg-gray-200-dark hover:bg-gray-400 text-white dark:text-gray-700-dark font-semibold px-4 py-2.5 rounded-xl my-auto"
@@ -70,7 +68,6 @@ const Navbar = () => {
           </div>
         </Link>
         <div className="flex pr-5">
-          <ThemeSelectButton />
           <button
             onClick={handleAuth}
             className="bg-white dark:bg-gray-200-dark hover:bg-gray-400 dark:text-gray-700-dark font-semibold px-4 py-2.5 rounded-xl my-auto"

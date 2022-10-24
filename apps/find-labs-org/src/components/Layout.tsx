@@ -4,7 +4,8 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  const { theme } = useTheme();
+  const { resolvedTheme: theme } = useTheme();
+
   if (process.env.NEXT_PUBLIC_IS_WAITLIST == 'false')
     return (
       <div className={clx(theme, 'w-full max-w-[1368px] p-6 mx-auto ')} >
@@ -19,7 +20,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <div className="-mt-3 bg-no-repeat bg-cover bg-[url('/assets/coming-soon-light-bg.svg')] dark:bg-[url('/assets/coming-soon-dark-bg.svg')]">
           <Navbar />
           <div>{children}</div>
-          <Footer />
         </div>
       </div>
     );
