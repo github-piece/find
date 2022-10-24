@@ -8,7 +8,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   if (process.env.NEXT_PUBLIC_IS_WAITLIST == 'false')
     return (
-      <div className={clx(theme, 'w-full max-w-[1368px] p-6 mx-auto ')} >
+      <div className={clx(theme, 'mx-auto')} >
         <Navbar />
         <div>{children}</div>
         <Footer />

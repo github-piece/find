@@ -59,7 +59,7 @@ const ComingSoon = () => {
                 src={theme === 'light' ? '/assets/discord-light.svg' : '/assets/discord-dark.svg'}
                 width={21}
                 height={21}
-                alt='Github'
+                alt='Discord'
               />
             </div>
           </Link>
@@ -69,7 +69,7 @@ const ComingSoon = () => {
                 src={theme === 'light' ? '/assets/twitter-light.svg' : '/assets/twitter-dark.svg'}
                 width={21}
                 height={21}
-                alt='Github'
+                alt='Twitter'
               />
             </div>
           </Link>

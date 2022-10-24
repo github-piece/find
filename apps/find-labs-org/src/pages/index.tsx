@@ -1,101 +1,36 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import ComingSoon from '../components/ComingSoon'
 import { useTheme } from 'next-themes';
 
 export default function Web() {
   const { resolvedTheme: theme } = useTheme();
 
   if (process.env.NEXT_PUBLIC_IS_WAITLIST == 'true')
-    return (
-      <div className="text-center">
-        <div className="mt-80">
-          <div className="mb-10">
-            <Image
-              src={theme === 'light' ? '/assets/coming-soon-light.svg' : '/assets/coming-soon-dark.svg'}
-              width={960}
-              height={140}
-              alt="Coming Soon"
-            />
-          </div>
-          <p className="text-gray-600 dark:text-gray-600-dark text-xl max-w-[800px] mx-auto px-12">
-            Our mission is to build the future of search, discovery, and exploration on the internet
-            through privacy-first, open-source, and ad-free tools.
-          </p>
-        </div>
-        <div className="mt-20 pb-2.5">
-          <div className="mb-10">
-            <h2 className="text-2xl">
-              Get notified when we launch
-            </h2>
-            <form method="post">
-              <div className="flex flex-row justify-center mt-7">
-                <input type="text" id="email" className="w-96 h-16 text-lg pl-6 border border-solid border-[#e8e8eb] dark:border-[#2c2c2c] rounded" placeholder="Please enter the email address"/>
-                <button type="submit" className=''>
-                  <Image
-                    src='/assets/notify-me.svg'
-                    width={188}
-                    height={64}
-                    alt="Notify me"
-                  />
-                </button>
-              </div>
-            </form>
-          </div>
-          <div className="flex justify-center pb-20">
-            <Link href={'https://github.com'}>
-              <div className="flex cursor-pointer block">
-                <Image
-                  src={theme === 'light' ? '/assets/github-light.svg' : '/assets/github-dark.svg'}
-                  width={21}
-                  height={21}
-                  alt="Github"
-                />
-              </div>
-            </Link>
-            <Link href={'https://discord.com'}>
-              <div className="flex cursor-pointer mx-10">
-                <Image
-                  src={theme === 'light' ? '/assets/discord-light.svg' : '/assets/discord-dark.svg'}
-                  width={21}
-                  height={21}
-                  alt="Github"
-                />
-              </div>
-            </Link>
-            <Link href={'https://twitter.com'}>
-              <div className="flex cursor-pointer">
-                <Image
-                  src={theme === 'light' ? '/assets/twitter-light.svg' : '/assets/twitter-dark.svg'}
-                  width={21}
-                  height={21}
-                  alt="Github"
-                />
-              </div>
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
+    return (<ComingSoon/>);
   else
     return (
-      <div className="text-center">
-        <section>
+      <>
+        <section className="text-center">
           <h1 className="mt-24 text-gray-700 dark:text-gray-700-dark mb-5 text-6xl">
             A new era for search
           </h1>
-          <p className="text-gray-600 dark:text-gray-600-dark text-xl max-w-[800px] mx-auto px-12">
-            Our mission is to build the future of search, discovery, and exploration on the internet
-            through privacy-first, open-source, and ad-free tools.
-          </p>
-          <button className="rounded-2xl bg-primary hover:bg-blue-700 text-xl px-10 py-4 text-white mt-10">
-            Join
-          </button>
-          <div className="relative">
-            <img src={'/assets/figma.png'} alt="figma" />
+          <div className="bg-no-repeat bg-right-bottom bg-[url('/assets/vector2.svg')]">
+            <div className="bg-no-repeat bg-left-top bg-[url('/assets/vector1.svg')]">
+              <p className="text-gray-600 dark:text-gray-600-dark text-xl max-w-[800px] mx-auto px-12">
+                Our mission is to build the future of search, discovery, and exploration on the internet
+                through privacy-first, open-source, and ad-free tools.
+              </p>
+              <button className="rounded-2xl bg-primary hover:bg-blue-700 text-xl px-10 py-4 text-white mt-10">
+                Join
+              </button>
+              <div>
+                <Image src={theme === 'light' ? '/assets/figma.svg' : '/assets/figma-dark.svg'} width={1440} height={935.5} alt="figma" />
+              </div>
+            </div>
           </div>
         </section>
-        <section>
-          <div className="max-w-[700px] mx-auto">
+        <section >
+          <div className="max-w-[700px] mx-auto text-center">
             <h2 className="text-gray-700 dark:text-gray-700-dark mb-5 text-6xl">
               A fast, accurate, and private search service
             </h2>
@@ -105,15 +40,14 @@ export default function Web() {
             </p>
             <div className="text-primary text-lg mb-16">&#123; Core Principles &#125;</div>
           </div>
-          <div className="mt-1 grid grid-cols-3 gap-4 text-left">
+          <div className="mt-1 grid grid-cols-3 gap-4 max-w-[1368px] mx-auto">
             <div>
               <div className="p-5 w-fit bg-radial-primary">
                 <Image src={'/assets/privacy.svg'} width={64} height={64} alt="privacy" />
               </div>
               <div className="text-gray-700 dark:text-gray-700-dark text-xl mb-4">Privacy-first</div>
               <p className="text-gray-600 dark:text-gray-600-dark text-lg">
-                No ad tracking, no unnecessary data collection, and end-to-end encryption of sensitive
-                data
+                No ad tracking, no unnecessary data collection, and end-to-end encryption of sensitive data
               </p>
             </div>
             <div>
@@ -227,23 +161,198 @@ export default function Web() {
             </div>
           </div>
         </section>
-        <section>
-          <div className="flex">
-            <div className="max-w-[400px] text-left">
-              <div>
-                <Image src={'/assets/location.svg'} width={20} height={20} alt="location" />
-                <span className="text-primary capitalize">Chrome Extension</span>
+        <section className="max-w-[1368px] mx-auto">
+          <div className="mt-48 flex justify-between">
+            <div className="max-w-[400px] mt-20">
+              <div className="flex flex-row">
+                <Image src={'/assets/location.svg'} width={40} height={40} alt="location"/>
+                <span className="text-primary text-base m-2.5">FUTURE OF SEARCH</span>
               </div>
-              <div className="text-gray-700 dark:text-gray-700-dark text-4xl">
+              <div className="text-gray-700 dark:text-gray-700-dark text-4xl mt-4">
+                Fast and accurate search results free of ads and SEO-bait.
+              </div>
+              <p className="text-gray-600 dark:text-gray-600-dark text-lg mt-7">
+                No in-product ads, no integration with ad networks, and no building of customer profiles for advertising purposes
+              </p>
+            </div>
+            <Image src={theme === 'light' ? '/assets/search.svg' : '/assets/search-dark.svg'} width={800} height={500} alt="figma search"/>
+          </div>
+          <div className="mt-48 flex justify-between">
+            <div className="max-w-[400px] mt-8">
+              <div className="mb-4 flex flex-row">
+                <Image src={'/assets/extension.svg'} width={40} height={40} alt="extension search" />
+                <span className="text-primary m-2.5">CHROME EXTENSION</span>
+              </div>
+              <div className="text-gray-700 dark:text-gray-700-dark text-4xl mb-7">
                 Use the web privately across devices.
+              </div>
+              <p className="text-gray-600 dark:text-gray-600-dark text-lg">
+                End-to-end encrypted search and browser history through our Chrome extension and unique Sessions feature
+              </p>
+            </div>
+            <Image src={theme === 'light' ? '/assets/bes.svg' : '/assets/bes-dark.svg'} width={704} height={342} alt="extension search"/>
+          </div>
+          <div className="mt-48 flex justify-between">
+            <div className="max-w-[400px] mt-20">
+              <div className="mb-4 flex flex-row">
+                <Image src={'/assets/star.svg'} width={40} height={40} alt="extension" />
+                <span className="text-primary m-2.5">FILTER AND EXPLORE</span>
+              </div>
+              <div className="text-gray-700 dark:text-gray-700-dark text-4xl mb-7">
+                Customizable Perspectives and Briefings
               </div>
               <p className="text-gray-600 dark:text-gray-600-dark text-lg">
                 You can customize how our algorithms find search, discovery, and exploration results.
                 Go back in time, travel around the world, and prioritize sources.
               </p>
             </div>
+            <Image src={theme === 'light' ? '/assets/perspective.svg' : '/assets/perspective-dark.svg'} width={800} height={520} alt="create perspective"/>
+          </div>
+          <div className="mt-48 flex justify-between">
+            <div className="max-w-[400px] mt-10">
+              <div className="mb-4 flex flex-row">
+                <Image src={'/assets/star.svg'} width={40} height={40} alt="extension" />
+                <span className="text-primary m-2.5">SEARCH YOUR APPS</span>
+              </div>
+              <div className="text-gray-700 dark:text-gray-700-dark text-4xl mb-7">
+                Connected apps allow fast and private access to your cloud data
+              </div>
+              <p className="text-gray-600 dark:text-gray-600-dark text-lg">
+                Not sure where you took that note or added that task?
+                Search across all of your apps simply and securely - we can’t access your data.
+              </p>
+            </div>
+            <Image src={theme === 'light' ? '/assets/time.svg' : '/assets/time-dark.svg'} width={833.5} height={468} alt="connect more apps"/>
           </div>
         </section>
-      </div>
+        <section className="mt-48 text-center max-w-[1840px] mx-auto">
+          <div className="bg-no-repeat bg-cover bg-[url('/assets/coming-soon-light-bg.svg')] dark:bg-[url('/assets/coming-soon-dark-bg.svg')]">
+            <h1 className="text-8xl pt-80 pb-10">
+              Ready <br/>
+              to Explore?
+            </h1>
+            <div className="flex flex-row justify-center">
+              <div className="flex mx-5">
+                <Image src={'/assets/check.svg'} width={20} height={20} alt="check" />
+                $5 a month
+              </div>
+              <div className="flex mx-5">
+                <Image src={'/assets/check.svg'} width={20} height={20} alt="check" />
+                Cancel any time
+              </div>
+              <div className="flex mx-5">
+                <Image src={'/assets/check.svg'} width={20} height={20} alt="check" />
+                Unlimited connected devices
+              </div>
+              <div className="flex mx-5">
+                <Image src={'/assets/check.svg'} width={20} height={20} alt="check" />
+                Private data end-to-end encrypted
+              </div>
+            </div>
+            <div className="pt-10 pb-40">
+              <button className="btn btn-primary bg-primary text-white text-xl px-10 py-5 rounded-2xl">
+                Get started
+              </button>
+            </div>
+          </div>
+        </section>
+        <section className="mt-48 flex justify-between max-w-[1368px] mx-auto">
+          <div className="max-w-[500px]">
+            <div className="text-gray-700 dark:text-gray-700-dark text-6xl mb-5">
+              Frequently Asked
+              Questions
+            </div>
+            <p className="text-gray-600 dark:text-gray-600-dark text-xl">
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
+              Can't find the answer you're looking for? <a href="/" className="text-blue-500">Docs </a>
+            </p>
+            <div className="mt-56">
+              <Image src={theme === 'light' ? '/assets/vector.svg' : '/assets/vector-dark.svg'} width={486} height={486} alt={"vector"}/>
+            </div>
+          </div>
+          <div className="max-w-[673px] text-gray-700 dark:text-gray-700-dark">
+            <div>
+              <div className="flex justify-between p-8 ">
+                <div className="text-2xl">
+                  How does Find generate search results?
+                </div>
+                <Image src={'/assets/expand.svg'} width={36} height={36} alt="expand" />
+              </div>
+              <p className="text-gray-600 dark:text-gray-600-dark text-lg px-8">
+
+              </p>
+            </div>
+            <div>
+              <div className="flex justify-between p-8">
+                <div className="text-2xl">
+                  How do I know Find is secure?
+                </div>
+                <Image src={'/assets/expanded.svg'} width={36} height={36} alt="expanded" />
+              </div>
+              <p className="text-gray-600 dark:text-gray-600-dark text-lg px-8">
+                The Find source code is public, so the developer community can validate our approach to security.
+                We do not sell user data and never will.
+                Your private search data is end-to-end encrypted,
+                so your password is needed to access that data – not even Find Labs can see it.
+              </p>
+            </div>
+            <div>
+              <div className="flex justify-between p-8">
+                <div className="text-2xl">
+                  Can I delete my personal Find data?
+                </div>
+                <Image src={'/assets/expand.svg'} width={36} height={36} alt="expand" />
+              </div>
+              <p className="text-gray-600 dark:text-gray-600-dark text-lg px-8">
+
+              </p>
+            </div>
+            <div>
+              <div className="flex justify-between p-8">
+                <div className="text-2xl">
+                  Is Find open-source?
+                </div>
+                <Image src={'/assets/expand.svg'} width={36} height={36} alt="expand" />
+              </div>
+              <p className="text-gray-600 dark:text-gray-600-dark text-lg px-8">
+
+              </p>
+            </div>
+            <div>
+              <div className="flex justify-between p-8">
+                <div className="text-2xl">
+                  If Find is open-source, why should I pay to be a member?
+                </div>
+                <Image src={'/assets/expand.svg'} width={36} height={36} alt="expand" />
+              </div>
+              <p className="text-gray-600 dark:text-gray-600-dark text-lg px-8">
+
+              </p>
+            </div>
+            <div>
+              <div className="flex justify-between p-8">
+                <div className="text-2xl">
+                  Why should I use Find instead of other search services?
+                </div>
+                <Image src={'/assets/expand.svg'} width={36} height={36} alt="expand" />
+              </div>
+              <p className="text-gray-600 dark:text-gray-600-dark text-lg px-8">
+
+              </p>
+            </div>
+            <div>
+              <div className="flex justify-between p-8">
+                <div className="text-2xl">
+                  What data is end-to-end encrypted? Do you track what I search?
+                </div>
+                <Image src={'/assets/expand.svg'} width={36} height={36} alt="expand" />
+              </div>
+              <p className="text-gray-600 dark:text-gray-600-dark text-lg px-8">
+
+              </p>
+            </div>
+          </div>
+        </section>
+      </>
     );
 }
