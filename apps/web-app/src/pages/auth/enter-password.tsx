@@ -12,7 +12,7 @@ import Input from '../../components/radix/Input';
 const EnterPassword = () => {
   const { status } = useSession();
   const router = useRouter();
-  const { resolvedTheme } = useTheme();
+  const { resolvedTheme: theme } = useTheme();
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [type, setType] = useState('password');
@@ -68,7 +68,7 @@ const EnterPassword = () => {
         {!err && (
           <div className="bg-red-100 dark:bg-red-500 text-red-500 dark:text-white py-3 px-4 text-center rounded text-sm flex mt-4">
             <div className="w-6 h-6 mr-3 ml-auto">
-              <Image src={resolvedTheme === 'dark' ? ErrWhiteIcon : ErrIcon} alt="error" />
+              <Image src={theme === 'light' ? ErrIcon : ErrWhiteIcon} alt="error" />
             </div>
             <div className="mr-auto">Wrong password. Give it another go!</div>
           </div>

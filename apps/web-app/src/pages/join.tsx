@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { signIn } from 'next-auth/react';
+import { signIn, getSession, GetSessionParams } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { z } from 'zod';
@@ -9,6 +9,7 @@ import SocialLogin from '../components/SocialLogin';
 import Input from '../components/radix/Input';
 
 import { trpc } from '../utils/trpc';
+import { prisma } from '../server/db/client';
 
 import CheckIcon from '../assets/icon/check.svg';
 
@@ -106,5 +107,31 @@ const Join = () => {
 };
 
 Join.layout = 'Auth';
+
+export async function getServerSideProps(context: GetSessionParams | undefined) {
+  const session = await getSession(context);
+  const email = session?.user?.email;
+  if (email) {
+    const user = await prisma.user.findFirst({ where: { email }, include: { accounts: true } });
+    if (user) {
+      if (user?.emailVerified || user.accounts[0]?.provider) {
+        return {
+          redirect: {
+            destination: '/auth/enter-password',
+            permanent: false,
+          },
+        };
+      } else {
+        return {
+          redirect: {
+            destination: '/auth/create-password',
+            permanent: false,
+          },
+        };
+      }
+    }
+  }
+  return { props: {} };
+}
 
 export default Join;

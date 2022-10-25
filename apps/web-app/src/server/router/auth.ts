@@ -2,6 +2,17 @@ import { createRouter } from './context';
 import { z } from 'zod';
 
 export const authRouter = createRouter()
+  .mutation('exists', {
+    input: z.object({
+      email: z.string().email(),
+    }),
+    async resolve({ input, ctx }) {
+      const { email } = input;
+      const user = await ctx.prisma.user.findFirst({ where: { email } });
+
+      return !!user;
+    },
+  })
   .mutation('isWaitlist', {
     input: z.object({
       email: z.string().email(),
