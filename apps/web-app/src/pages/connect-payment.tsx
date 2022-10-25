@@ -1,9 +1,10 @@
+import { useEffect } from 'react';
 import Image from 'next/image';
+import { getSession, GetSessionParams } from 'next-auth/react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-
 import CheckoutForm from '../components/CheckoutForm';
-
+import { trpc } from '../utils/trpc';
 import LockIcon from '../assets/icon/lock.svg';
 import TargetIcon from '../assets/icon/target.svg';
 import NoNetworkIcon from '../assets/icon/no-network.svg';
@@ -12,7 +13,13 @@ import UnlockIcon from '../assets/icon/unlock.svg';
 import EncryptIcon from '../assets/icon/encrypt.svg';
 
 const ConnectPayment = () => {
-  if (!process.env.stripeKey)
+  const { mutate, isLoading, data } = trpc.useMutation('payment.plan');
+  useEffect(() => {
+    mutate({ name: 'start', amount: 5 });
+  }, []);
+
+  if (isLoading) return <></>;
+  if (!process.env.stripeKey || !data?.id)
     return <div className="text-3xl mx-auto">Payment is not connected!</div>;
 
   const stripePromise = loadStripe(process.env.stripeKey || '');
@@ -66,7 +73,7 @@ const ConnectPayment = () => {
         </div>
         <div>
           <Elements stripe={stripePromise}>
-            <CheckoutForm />
+            <CheckoutForm plan={data.id} />
           </Elements>
           <div className="bg-gray-100 dark:bg-gray-100-dark text-gray-500 dark:text-gray-500-dark py-3 px-4 rounded-lg text-sm flex mt-3 px-3">
             <div className="w-6 h-6 mr-2">
@@ -121,5 +128,18 @@ const ConnectPayment = () => {
 };
 
 ConnectPayment.layout = 'Auth';
+
+export async function getServerSideProps(context: GetSessionParams | undefined) {
+  const session = await getSession(context);
+  if (!session?.user) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
+  return { props: {} };
+}
 
 export default ConnectPayment;

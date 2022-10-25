@@ -21,7 +21,7 @@ type InputProps = {
   icon?: any;
   onIconClick?: () => void;
 };
-
+('bg-transparent border border-solid  border-[#e8e8eb] dark:border-[#2c2c2c] rounded min-h-[42px]');
 export const inputBaseClass =
   'flex form-control bg-transparent block w-full px-3.5 py-3 font-normal text-gray-700 dark:text-white bg-clip-padding border border-solid  border-gray-200 dark:border-gray-200-dark rounded-lg transition ease-in-out m-0 focus:border-blue-600 focus:outline-none min-h-[42px] placeholder-gray-400';
 
