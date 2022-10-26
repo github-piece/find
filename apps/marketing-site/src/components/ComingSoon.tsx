@@ -6,9 +6,9 @@ const ComingSoon = () => {
   const { resolvedTheme: theme } = useTheme();
 
   return (
-    <div className='text-center'>
+    <div className='text-center pb-9'>
       <div className='mt-80'>
-        <div className='mb-10'>
+        <div className='mb-10 flex justify-center'>
           <Image
             src={theme === 'light' ? '/assets/coming-soon-light.svg' : '/assets/coming-soon-dark.svg'}
             width={960}
@@ -27,11 +27,11 @@ const ComingSoon = () => {
             Get notified when we launch
           </h2>
           <form method='post'>
-            <div className='flex flex-row justify-center mt-7'>
+            <div className='flex flex-row justify-center mt-4'>
               <input type='text' id='email'
-                     className='w-96 h-16 text-lg pl-6 border border-solid border-[#e8e8eb] dark:border-[#2c2c2c] rounded'
+                     className='w-96 h-16 text-lg pl-6 mt-3 border border-solid border-[#e8e8eb] dark:border-[#2c2c2c] rounded'
                      placeholder='Please enter the email address' />
-              <button type='submit' className=''>
+              <button type='submit' className='ml-5'>
                 <Image
                   src='/assets/notify-me.svg'
                   width={188}
@@ -42,7 +42,7 @@ const ComingSoon = () => {
             </div>
           </form>
         </div>
-        <div className='flex justify-center pb-20'>
+        <div className='flex justify-center'>
           <Link href={'https://github.com'}>
             <div className='flex cursor-pointer block'>
               <Image

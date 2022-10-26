@@ -17,7 +17,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   else
     return (
       <div className={clx(theme)}>
-        <div className="-mt-3 bg-no-repeat bg-cover bg-[url('/assets/coming-soon-light-bg.svg')] dark:bg-[url('/assets/coming-soon-dark-bg.svg')]">
+        <div className="-mt-3 bg-cover bg-[url('/assets/coming-soon-light-bg.svg')] dark:bg-[url('/assets/coming-soon-dark-bg.svg')]">
           <Navbar />
           <div>{children}</div>
         </div>

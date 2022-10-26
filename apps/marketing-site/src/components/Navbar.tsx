@@ -56,18 +56,18 @@ const Navbar = () => {
     );
   else
     return (
-      <nav className={classNames('flex justify-between relative h-12 w-full top-10 right-5', theme)}>
-        <Link href={'/'}>
-          <div className="flex mx-auto cursor-pointer sm:flex hidden">
+      <nav className={classNames('relative top-12', theme)}>
+        <div className="flex justify-center cursor-pointer sm:flex hidden">
+          <Link href={'/'}>
             <Image
               src={theme === 'light' ? '/find-logo.svg' : '/find-logo-white.svg'}
               width={96}
               height={40}
               alt="logo"
             />
-          </div>
-        </Link>
-        <div className="flex pr-5">
+          </Link>
+        </div>
+        <div className="flex justify-end -mt-10 mr-8">
           <button
             onClick={handleAuth}
             className="bg-white dark:bg-gray-200-dark hover:bg-gray-400 dark:text-gray-700-dark font-semibold px-4 py-2.5 rounded-xl my-auto"
