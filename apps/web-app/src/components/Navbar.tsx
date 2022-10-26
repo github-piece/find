@@ -25,10 +25,10 @@ const Navbar = () => {
         </div>
       </Link>
       <div className="flex ml-auto sm:ml-0 my-auto">
-        <Link href={'https://findlabs.org'}>
+        <Link href={'https://find.world'}>
           <div className="mr-4 cursor-pointer dark:text-gray-100">Learn more</div>
         </Link>
-        <Link href={'https://findlabs.org/docs'}>
+        <Link href={'https://find.world/docs'}>
           <div className="mr-4 cursor-pointer dark:text-gray-100">Help</div>
         </Link>
       </div>
