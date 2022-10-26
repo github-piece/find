@@ -1,6 +1,7 @@
 import React from 'react';
-import cls from 'classnames';
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
+import cls from 'classnames';
 
 type ButtonProps = {
   text?: string | undefined;
@@ -21,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   text = 'Button',
   className = '',
   onClick = () => {},
-  size = 'sm',
+  size = 'md',
   solid = false,
   rounded = '',
   full = false,
@@ -31,21 +32,25 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   primary,
 }) => {
+  const { resolvedTheme: theme } = useTheme();
   return (
     <button
       type={type}
       onClick={onClick}
       className={cls(
         'font-semibold border mx-1 flex text-center',
-        size === 'sm' ? 'py-2 px-4' : size === 'md' ? 'p-3' : 'p-4',
+        theme,
+        size === 'sm' ? 'py-2 px-4' : size === 'md' ? 'p-3.5' : 'p-4',
         primary
           ? 'bg-primary hover:bg-blue-700 text-white border-primary hover:border-blue-700'
           : solid
           ? 'bg-gray-600 hover:bg-gray-700 text-white border-gray-600 hover:border-gray-700'
-          : 'bg-transparent border-2 text-gray-700 hover:text-white border-[#e8e8eb] dark:border-[#2c2c2c] hover:border-gray-300',
-        rounded === 'right' ? 'rounded-r' : rounded === 'left' ? 'rounded-l' : 'rounded',
+          : 'bg-transparent border-[1px] text-gray-700 hover:text-white border-gray-200 dark:border-gray-200-dark hover:border-gray-300',
+        rounded === 'right' ? 'rounded-r' : rounded === 'left' ? 'rounded-l' : 'rounded-lg',
         full ? 'w-full' : '',
-        loading || disabled ? 'text-gray-300 dark:text-gray-500-dark' : '',
+        loading || disabled
+          ? 'text-gray-500 dark:text-gray-500-dark bg-gray-200 dark:bg-gray-200-dark border-gray-200 dark:border-gray-200-dark hover:bg-gray-200 dark:hover:bg-gray-200-dark hover:border-gray-200 dark:hover:border-gray-200-dark'
+          : '',
         className
       )}
       disabled={disabled || loading}
