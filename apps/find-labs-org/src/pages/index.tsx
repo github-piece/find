@@ -23,7 +23,7 @@ export default function Web() {
               <button className="rounded-2xl bg-primary hover:bg-blue-700 text-xl px-10 py-4 text-white mt-10">
                 Join
               </button>
-              <div>
+              <div className="flex justify-center">
                 <Image src={theme === 'light' ? '/assets/figma.svg' : '/assets/figma-dark.svg'} width={1440} height={935.5} alt="figma" />
               </div>
             </div>
