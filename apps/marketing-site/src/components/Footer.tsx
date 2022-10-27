@@ -42,8 +42,8 @@ const Footer = () => {
           <Link href={'https://github.com'}>
             <Image
               src={theme === 'light' ? '/assets/github-light.svg' : '/assets/github-dark.svg'}
-              width={21}
-              height={21}
+              width={24}
+              height={24}
               alt='Github'
               className='cursor-pointer'
             />
@@ -51,8 +51,8 @@ const Footer = () => {
           <Link href={'https://discord.com'}>
             <Image
               src={theme === 'light' ? '/assets/discord-light.svg' : '/assets/discord-dark.svg'}
-              width={21}
-              height={21}
+              width={24}
+              height={24}
               alt='Discord'
               className='cursor-pointer'
             />
@@ -60,8 +60,8 @@ const Footer = () => {
           <Link href={'https://twitter.com'}>
             <Image
               src={theme === 'light' ? '/assets/twitter-light.svg' : '/assets/twitter-dark.svg'}
-              width={21}
-              height={21}
+              width={24}
+              height={24}
               alt='Twitter'
               className='cursor-pointer'
             />
@@ -70,8 +70,8 @@ const Footer = () => {
         <Link href={'/'}>
           <div className="flex cursor-pointer sm:flex hidden">
             <Image
-              src={theme === 'light' ? '/find-logo.svg' : '/find-logo-white.svg'}
-              width={96}
+              src={theme === 'light' ? '/findlabs-logo-black.svg' : '/findlabs-logo-white.svg'}
+              width={155}
               height={40}
               alt="logo"
             />

@@ -21,16 +21,11 @@ const Navbar = () => {
         <Link href={'/'}>
           <div className="flex cursor-pointer sm:flex hidden">
             <Image
-              src={theme === 'light' ? '/find-logo.svg' : '/find-logo-white.svg'}
+              src={theme === 'light' ? '/find-logo-black.svg' : '/find-logo-white.svg'}
               width={96}
               height={40}
               alt="logo"
             />
-          </div>
-        </Link>
-        <Link href={'/'}>
-          <div className="flex cursor-pointer sm:hidden block">
-            <Image src="/logo.svg" width={32} height={32} alt="logo" />
           </div>
         </Link>
         <div className="flex ml-auto sm:ml-0 my-auto">
@@ -59,12 +54,7 @@ const Navbar = () => {
       <nav className={classNames('relative top-12', theme)}>
         <div className="flex justify-center cursor-pointer sm:flex hidden">
           <Link href={'/'}>
-            <Image
-              src={theme === 'light' ? '/find-logo-white.svg' : '/find-logo.svg'}
-              width={96}
-              height={40}
-              alt="logo"
-            />
+            <Image src='/find-logo.svg' width={96} height={40} alt="logo"/>
           </Link>
         </div>
         <Link href='https://find.new/login' className="flex justify-end -mt-10 mr-16">
