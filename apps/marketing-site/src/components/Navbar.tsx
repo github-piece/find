@@ -8,7 +8,7 @@ const Navbar = () => {
   const router = useRouter();
   const { resolvedTheme: theme } = useTheme();
   const isWaitlist = process.env.waitlist && process.env.waitlist !== 'false';
-  let auth = 'Join';
+  let auth = 'Log in';
   if (['/join', '/waitlist'].includes(router.pathname)) auth = 'Log in';
 
   const handleAuth = () => {
