@@ -1,43 +1,13 @@
-// import { FormEvent, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-// import { useRouter } from 'next/router';
-// import { z } from 'zod';
 import { useTheme } from 'next-themes';
-// import { trpc } from 'web-app/src/utils/trpc';
 
 
 const ComingSoon = () => {
   const { resolvedTheme: theme } = useTheme();
 
-  // const mutation = trpc.useMutation('auth.waitlist');
-  // const router = useRouter();
-  // const [email, setEmail] = useState('');
-  // const [error, setError] = useState('');
-  // const [loading, setLoading] = useState(false);
-  //
-  // const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //
-  //   setLoading(true);
-  //   setError('');
-  //   try {
-  //     if (z.string().email().parse(email)) {
-  //       const data = await mutation.mutateAsync({ email });
-  //       if (data?.success) router.push('/waitlist-success');
-  //       else {
-  //         setLoading(false);
-  //         setError('Something went wrong');
-  //       }
-  //     }
-  //   } catch (err) {
-  //     setError(email ? 'Email is  invalid' : 'Email is required');
-  //   }
-  //   setLoading(false);
-  // };
-
   return (
-    <div className='text-center pb-9'>
+    <div className='text-center pb-20'>
       <div className='mt-80'>
         <div className='mb-10 flex justify-center'>
           <Image
@@ -52,7 +22,7 @@ const ComingSoon = () => {
           through privacy-first, open-source, and ad-free tools.
         </p>
       </div>
-      <div className='mt-20 pb-2.5'>
+      <div className='mt-20'>
         <div className='mb-10'>
           <h2 className='text-2xl'>
             Get notified when we launch
