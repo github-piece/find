@@ -1,9 +1,40 @@
+// import { FormEvent, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+// import { useRouter } from 'next/router';
+// import { z } from 'zod';
 import { useTheme } from 'next-themes';
+// import { trpc } from 'web-app/src/utils/trpc';
+
 
 const ComingSoon = () => {
   const { resolvedTheme: theme } = useTheme();
+
+  // const mutation = trpc.useMutation('auth.waitlist');
+  // const router = useRouter();
+  // const [email, setEmail] = useState('');
+  // const [error, setError] = useState('');
+  // const [loading, setLoading] = useState(false);
+  //
+  // const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //
+  //   setLoading(true);
+  //   setError('');
+  //   try {
+  //     if (z.string().email().parse(email)) {
+  //       const data = await mutation.mutateAsync({ email });
+  //       if (data?.success) router.push('/waitlist-success');
+  //       else {
+  //         setLoading(false);
+  //         setError('Something went wrong');
+  //       }
+  //     }
+  //   } catch (err) {
+  //     setError(email ? 'Email is  invalid' : 'Email is required');
+  //   }
+  //   setLoading(false);
+  // };
 
   return (
     <div className='text-center pb-9'>
@@ -43,7 +74,7 @@ const ComingSoon = () => {
           </form>
         </div>
         <div className='flex justify-center'>
-          <Link href={'https://github.com'}>
+          <Link href={'https://github.com/find-labs'}>
             <div className='flex cursor-pointer block'>
               <Image
                 src={theme === 'light' ? '/assets/github-light.svg' : '/assets/github-dark.svg'}
@@ -53,7 +84,7 @@ const ComingSoon = () => {
               />
             </div>
           </Link>
-          <Link href={'https://discord.com'}>
+          <Link href={'https://discord.gg/2CYJAH8e29'}>
             <div className='flex cursor-pointer mx-10'>
               <Image
                 src={theme === 'light' ? '/assets/discord-light.svg' : '/assets/discord-dark.svg'}
@@ -63,7 +94,7 @@ const ComingSoon = () => {
               />
             </div>
           </Link>
-          <Link href={'https://twitter.com'}>
+          <Link href={'https://twitter.com/findlabs'}>
             <div className='flex cursor-pointer'>
               <Image
                 src={theme === 'light' ? '/assets/twitter-light.svg' : '/assets/twitter-dark.svg'}
