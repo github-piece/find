@@ -12,8 +12,23 @@ const ComingSoon = () => {
         <div className='mb-10 flex justify-center'>
           <Image
             src={theme === 'light' ? '/assets/coming-soon-light.svg' : '/assets/coming-soon-dark.svg'}
-            width={960}
-            height={140}
+            className="hidden lg:block"
+            width={876}
+            height={138}
+            alt='Coming Soon'
+          />
+          <Image
+            src={theme === 'light' ? '/assets/coming-soon-light.svg' : '/assets/coming-soon-dark-md.svg'}
+            className="hidden md:block lg:hidden"
+            width={751}
+            height={119}
+            alt='Coming Soon'
+          />
+          <Image
+            src={theme === 'light' ? '/assets/coming-soon-light.svg' : '/assets/coming-soon-dark-sm.svg'}
+            className="block md:hidden"
+            width={233}
+            height={152}
             alt='Coming Soon'
           />
         </div>
@@ -28,11 +43,11 @@ const ComingSoon = () => {
             Get notified when we launch
           </h2>
           <form method='post'>
-            <div className='flex flex-row justify-center mt-4'>
+            <div className='flex flex-col place-items-center md:flex-row justify-center mt-4'>
               <input type='text' id='email'
-                     className='w-96 h-16 text-lg pl-6 mt-3 border border-solid border-[#e8e8eb] dark:border-[#2c2c2c] rounded'
+                     className='w-96 h-16 text-lg pl-6 border border-solid border-[#e8e8eb] dark:border-[#2c2c2c] rounded'
                      placeholder='Please enter the email address' />
-              <button type='submit' className='ml-5'>
+              <button type='submit' className='ml-5 mt-4 md:mt-0'>
                 <Image
                   src='/assets/notify-me.svg'
                   width={188}
