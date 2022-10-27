@@ -36,3 +36,4 @@ dist/**
 .next/**
 
 .idea/
+apps/marketing-site/.env

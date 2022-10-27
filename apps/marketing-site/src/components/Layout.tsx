@@ -5,8 +5,9 @@ import Navbar from './Navbar';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const { resolvedTheme: theme } = useTheme();
+  const isWaitlist = process.env.waitlist && process.env.waitlist !== 'false';
 
-  if (process.env.NEXT_PUBLIC_IS_WAITLIST == 'false')
+  if (isWaitlist == false)
     return (
       <div className={clx(theme, 'mx-auto')} >
         <Navbar />

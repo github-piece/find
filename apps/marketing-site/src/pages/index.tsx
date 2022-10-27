@@ -4,8 +4,9 @@ import { useTheme } from 'next-themes';
 
 export default function Web() {
   const { resolvedTheme: theme } = useTheme();
+  const isWaitlist = process.env.waitlist && process.env.waitlist !== 'false';
 
-  if (process.env.NEXT_PUBLIC_IS_WAITLIST == 'true')
+  if (isWaitlist == true)
     return (<ComingSoon/>);
   else
     return (

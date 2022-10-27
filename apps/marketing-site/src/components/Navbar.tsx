@@ -15,7 +15,7 @@ const Navbar = () => {
     router.push(auth === 'Join' ? (isWaitlist ? '/waitlist' : '/join') : '/login');
   };
 
-  if (process.env.NEXT_PUBLIC_IS_WAITLIST == 'false')
+  if (isWaitlist === false)
     return (
       <nav className={classNames('flex justify-between max-w-[1368px] mx-auto relative h-12 w-full mt-4', theme)}>
         <Link href={'/'}>
