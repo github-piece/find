@@ -60,7 +60,7 @@ const Navbar = () => {
         <div className="flex justify-center cursor-pointer sm:flex hidden">
           <Link href={'/'}>
             <Image
-              src={theme === 'light' ? '/find-logo.svg' : '/find-logo-white.svg'}
+              src={theme === 'light' ? '/find-logo-white.svg' : '/find-logo.svg'}
               width={96}
               height={40}
               alt="logo"
