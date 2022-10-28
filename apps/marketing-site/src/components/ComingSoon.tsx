@@ -47,13 +47,10 @@ const ComingSoon = () => {
               <input type='text' id='email'
                      className='w-96 h-16 text-lg pl-6 border border-solid border-[#e8e8eb] dark:border-[#2c2c2c] rounded'
                      placeholder='Please enter the email address' />
-              <button type='submit' className='ml-5 mt-4 md:mt-0'>
-                <Image
-                  src='/assets/notify-me.svg'
-                  width={188}
-                  height={64}
-                  alt='Notify me'
-                />
+              <button
+                type='submit'
+                className='ml-5 mt-4 md:mt-0 bg-primary text-white text-xl rounded-lg px-10 py-5 border-8 border-current hover:border-blue-200'>
+                Notify me
               </button>
             </div>
           </form>
