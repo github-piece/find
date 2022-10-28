@@ -49,7 +49,7 @@ const ComingSoon = () => {
                      placeholder='Please enter the email address' />
               <button
                 type='submit'
-                className='ml-5 mt-4 md:mt-0 bg-primary text-white text-xl rounded-lg px-10 py-5 border-8 border-current hover:border-blue-200'>
+                className='ml-5 mt-4 md:mt-0 bg-primary text-white text-xl rounded-3xl px-10 py-5 border-8 border-current hover:border-blue-200'>
                 Notify me
               </button>
             </div>
