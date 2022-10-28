@@ -78,7 +78,7 @@ const Footer = () => {
           </div>
         </Link>
         <div className="text-lg">
-          © 2022 Find Labs Inc. All rights reserved
+          © 2022 Find Labs Inc. All rights reserved.
         </div>
       </div>
     </div>
