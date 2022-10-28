@@ -1,19 +1,11 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 
 const Navbar = () => {
-  const router = useRouter();
   const { resolvedTheme: theme } = useTheme();
   const isWaitlist = process.env.waitlist && process.env.waitlist !== 'false';
-  let auth = 'Log in';
-  if (['/join', '/waitlist'].includes(router.pathname)) auth = 'Log in';
-
-  const handleAuth = () => {
-    router.push(auth === 'Join' ? (isWaitlist ? '/waitlist' : '/join') : '/login');
-  };
 
   if (isWaitlist === false)
     return (
@@ -39,14 +31,13 @@ const Navbar = () => {
             <div className="cursor-pointer dark:text-gray-100">Docs</div>
           </Link>
         </div>
-        <div className="flex">
+        <Link href='https://find.new/login' className="flex">
           <button
-            onClick={handleAuth}
             className="bg-gray-700 dark:bg-gray-200-dark hover:bg-gray-400 text-white dark:text-gray-700-dark font-semibold px-4 py-2.5 rounded-xl my-auto"
           >
-            {auth}
+            Log in
           </button>
-        </div>
+        </Link>
       </nav>
     );
   else
@@ -61,7 +52,7 @@ const Navbar = () => {
           <button
             className="bg-white dark:bg-gray-200-dark hover:bg-gray-400 dark:text-gray-700-dark font-semibold px-4 py-2.5 rounded-xl my-auto"
           >
-            {auth}
+            Log in
           </button>
         </Link>
       </nav>
