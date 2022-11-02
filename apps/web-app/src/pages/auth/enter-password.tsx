@@ -1,22 +1,19 @@
 import { FormEvent, useState, useEffect } from 'react';
-import Image from 'next/image';
-import { useTheme } from 'next-themes';
-import Button from '../../components/Button';
-import EyeIcon from '../../assets/icon/eye.svg';
-import ErrIcon from '../../assets/icon/error.svg';
-import ErrWhiteIcon from '../../assets/icon/error-white.svg';
-import { useSession } from 'next-auth/react';
+import { getSession, GetSessionParams } from 'next-auth/react';
 import { useRouter } from 'next/router';
+
 import Input from '../../components/radix/Input';
+import Button from '../../components/Button';
+import ErrorNotification from '../../components/notification/error';
+
+import EyeIcon from '../../assets/icon/eye.svg';
 
 const EnterPassword = () => {
-  const { status } = useSession();
   const router = useRouter();
-  const { resolvedTheme: theme } = useTheme();
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [type, setType] = useState('password');
-  const [err, setErr] = useState(false);
+  const [err, setErr] = useState('');
 
   const handleType = () => setType(type === 'text' ? 'password' : 'text');
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -27,12 +24,6 @@ const EnterPassword = () => {
     router.push('/');
   };
 
-  useEffect(() => {
-    if (status === 'unauthenticated') router.push('/login');
-  }, [status, router]);
-
-  if (status !== 'authenticated') return <></>;
-
   return (
     <div className="max-w-[600px] mx-auto w-full">
       <h1 className="font-semibold text-4xl mb-3 mx-auto">
@@ -40,7 +31,7 @@ const EnterPassword = () => {
         <br className="sm:hidden block" /> Find master password
       </h1>
       <div className="max-w-[480px] mx-auto">
-        <p className="text-gray-400 sm:text-lg text-sm mb-12 font-semibold mb-8">
+        <p className="text-gray-500 dark:text-gray-500-dark sm:text-lg text-sm mb-12 mb-8">
           Your private data in Find is end-to-end-encrypted. Enter the master password for your
           account to unlock.
         </p>
@@ -63,21 +54,28 @@ const EnterPassword = () => {
             full
             className="mx-0"
             loading={loading}
+            disabled={!password}
           />
         </form>
-        {!err && (
-          <div className="bg-red-100 dark:bg-red-500 text-red-500 dark:text-white py-3 px-4 text-center rounded text-sm flex mt-4">
-            <div className="w-6 h-6 mr-3 ml-auto">
-              <Image src={theme === 'light' ? ErrIcon : ErrWhiteIcon} alt="error" />
-            </div>
-            <div className="mr-auto">Wrong password. Give it another go!</div>
-          </div>
-        )}
+        <ErrorNotification message={err} />
       </div>
     </div>
   );
 };
 
 EnterPassword.layout = 'Auth';
+
+export async function getServerSideProps(context: GetSessionParams | undefined) {
+  const session = await getSession(context);
+  if (!session?.user)
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+
+  return { props: {} };
+}
 
 export default EnterPassword;

@@ -20,25 +20,33 @@ export async function getServerSideProps(context: GetSessionParams | undefined) 
   const email = session?.user?.email;
   if (email) {
     const user = await prisma.user.findFirst({ where: { email } });
-    if (user) {
-      if (user?.emailVerified) {
+    if (user?.emailVerified) {
+      if (!user.stripeCustomerId) {
         return {
           redirect: {
-            destination: '/auth/enter-password',
-            permanent: false,
-          },
-        };
-      } else {
-        return {
-          redirect: {
-            destination: '/auth/create-password',
+            destination: '/connect-payment',
             permanent: false,
           },
         };
       }
+
+      // check etebase if user has alreasy password
+      // return {
+      //   redirect: {
+      //     destination: '/auth/enter-password',
+      //     permanent: false,
+      //   },
+      // };
+
+      return {
+        redirect: {
+          destination: '/auth/create-password',
+          permanent: false,
+        },
+      };
     }
   }
-  return { props: null };
+  return { props: {} };
 }
 
 export default LoginPage;
