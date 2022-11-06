@@ -17,5 +17,6 @@ export default defineNextConfig({
   swcMinify: true,
   env: {
     waitlist: env.IS_WAITLIST,
+    production: env.IS_PRODUCTION
   },
 });

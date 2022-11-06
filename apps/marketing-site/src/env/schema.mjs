@@ -7,4 +7,5 @@ import { z } from "zod";
  */
 export const serverSchema = z.object({
   IS_WAITLIST: z.string().optional(),
+  IS_PRODUCTION: z.string().optional()
 });
