@@ -24,8 +24,6 @@ const ComingSoon = () => {
     setError('');
 
     const url = getBaseUrl()
-    console.log(url)
-
     try {
       if (z.string().email().parse(email)) {
         await fetch(`${url}/api/notified`, {
