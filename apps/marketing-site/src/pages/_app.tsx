@@ -20,7 +20,7 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
   return (
     <div>
       <Head>
-        <title>findlabs.org</title>
+        <title>Find</title>
       </Head>
       <ThemeProvider themes={['light', 'dark']}>
         <Layout>
