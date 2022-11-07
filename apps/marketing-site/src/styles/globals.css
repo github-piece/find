@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'sf-ui-font';
+  src: url('/assets/fonts/sf-ui-display-bold-58646a511e3d9.otf');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sf-ui-font';
+  src: url('/assets/fonts/sf-ui-display-semibold-58646eddcae92.otf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sf-ui-font';
+  src: url('/assets/fonts/sf-ui-display-black-58646a6b80d5a.otf');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sf-ui-font';
+  src: url('/assets/fonts/sf-ui-display-heavy-586470160b9e5.otf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sf-ui-font';
+  src: url('/assets/fonts/sf-ui-display-medium-58646be638f96.otf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sf-ui-font';
+  src: url('/assets/fonts/sf-ui-display-light-58646b33e0551.otf');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sf-ui-font';
+  src: url('/assets/fonts/sf-ui-display-thin-58646e9b26e8b.otf');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sf-ui-font';
+  src: url('/assets/fonts/sf-ui-display-ultralight-58646b19bf205.otf');
+  font-weight: 100;
+  font-style: normal;
+}
+
+body,
+html {
+  font-family: 'sf-ui-font';
+}
+
+.bg-radial-primary {
+  background: radial-gradient(circle, #01cdae66, #ffffff 54px) !important;
+}

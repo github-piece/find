@@ -34,3 +34,6 @@ yarn-error.log*
 build/**
 dist/**
 .next/**
+
+.idea/
+apps/marketing-site/.env
