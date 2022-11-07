@@ -50,7 +50,7 @@ const Navbar = () => {
         </div>
         <Link href='https://find.new/login' className="flex justify-end -mt-10 mr-16">
           <button
-            className="bg-white dark:bg-gray-200-dark hover:bg-gray-400 dark:text-gray-700-dark font-semibold px-4 py-2.5 rounded-xl my-auto"
+            className="bg-white dark:bg-gray-200-dark hover:bg-gray-400 dark:hover:bg-gray-600-dark dark:text-gray-700-dark font-semibold px-4 py-2.5 rounded-xl my-auto"
           >
             Log in
           </button>

@@ -12,6 +12,18 @@ const ComingSoon = () => {
   const [err, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const [isHoveringGithub, setIsHoveredGithub] = useState(false);
+  const onMouseEnterGithub = () => setIsHoveredGithub(true);
+  const onMouseLeaveGithub = () => setIsHoveredGithub(false);
+
+  const [isHoveringDiscord, setIsHoveredDiscord] = useState(false);
+  const onMouseEnterDiscord = () => setIsHoveredDiscord(true);
+  const onMouseLeaveDiscord = () => setIsHoveredDiscord(false);
+
+  const [isHoveringTwitter, setIsHoveredTwitter] = useState(false);
+  const onMouseEnterTwitter = () => setIsHoveredTwitter(true);
+  const onMouseLeaveTwitter = () => setIsHoveredTwitter(false);
+
   const getBaseUrl = () => {
     if (process.env.production && process.env.production !== 'false')
       return `https://find.new`; // SSR should use vercel url
@@ -92,33 +104,60 @@ const ComingSoon = () => {
         </div>
         <div className='flex justify-center'>
           <Link href={'https://github.com/find-labs'}>
-            <div className='flex cursor-pointer block'>
-              <Image
-                src={theme === 'light' ? '/assets/github-light.svg' : '/assets/github-dark.svg'}
-                width={21}
-                height={21}
-                alt='Github'
-              />
+            <div className='flex cursor-pointer block' onMouseEnter={onMouseEnterGithub} onMouseLeave={onMouseLeaveGithub}>
+              {isHoveringGithub ? (
+                <Image
+                  src={theme === 'light' ? '/assets/github-dark.svg' : '/assets/github-light.svg'}
+                  width={21}
+                  height={21}
+                  alt='Github'
+                />
+              ) : (
+                <Image
+                  src={theme === 'light' ? '/assets/github-light.svg' : '/assets/github-dark.svg'}
+                  width={21}
+                  height={21}
+                  alt='Github'
+                />
+              )}
             </div>
           </Link>
           <Link href={'https://discord.gg/2CYJAH8e29'}>
-            <div className='flex cursor-pointer mx-10'>
-              <Image
-                src={theme === 'light' ? '/assets/discord-light.svg' : '/assets/discord-dark.svg'}
-                width={21}
-                height={21}
-                alt='Discord'
-              />
+            <div className='flex cursor-pointer mx-10' onMouseEnter={onMouseEnterDiscord} onMouseLeave={onMouseLeaveDiscord}>
+              {isHoveringDiscord ? (
+                <Image
+                  src={theme === 'light' ? '/assets/discord-dark.svg' : '/assets/discord-light.svg'}
+                  width={21}
+                  height={21}
+                  alt='Discord'
+                />
+              ) : (
+                <Image
+                  src={theme === 'light' ? '/assets/discord-light.svg' : '/assets/discord-dark.svg'}
+                  width={21}
+                  height={21}
+                  alt='Discord'
+                />
+              )}
             </div>
           </Link>
           <Link href={'https://twitter.com/findlabs'}>
-            <div className='flex cursor-pointer'>
-              <Image
-                src={theme === 'light' ? '/assets/twitter-light.svg' : '/assets/twitter-dark.svg'}
-                width={21}
-                height={21}
-                alt='Twitter'
-              />
+            <div className='flex cursor-pointer' onMouseEnter={onMouseEnterTwitter} onMouseLeave={onMouseLeaveTwitter}>
+              {isHoveringTwitter ? (
+                <Image
+                  src={theme === 'light' ? '/assets/twitter-dark.svg' : '/assets/twitter-light.svg'}
+                  width={21}
+                  height={21}
+                  alt='Twitter'
+                />
+              ) : (
+                <Image
+                  src={theme === 'light' ? '/assets/twitter-light.svg' : '/assets/twitter-dark.svg'}
+                  width={21}
+                  height={21}
+                  alt='Twitter'
+                />
+              )}
             </div>
           </Link>
         </div>
