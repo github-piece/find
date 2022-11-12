@@ -92,7 +92,7 @@ const ComingSoon = () => {
             <input type='text' id='email'
                    value={email}
                    onChange={e => setEmail(e.target.value)}
-                   className='w-96 h-16 text-lg pl-6 border border-solid border-[#e8e8eb] dark:border-[#2c2c2c] rounded'
+                   className='w-3/5 sm:w-96 h-16 text-lg pl-6 border border-solid border-[#e8e8eb] dark:border-[#2c2c2c] rounded'
                    placeholder='Please enter the email address' />
             <button
               onClick={handleSubmit}
