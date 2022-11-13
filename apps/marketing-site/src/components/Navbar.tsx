@@ -9,7 +9,7 @@ const Navbar = () => {
 
   if (isWaitlist === false)
     return (
-      <nav className={classNames('flex justify-between max-w-[1368px] mx-auto relative h-12 w-full mt-4', theme)}>
+      <nav className={classNames('flex justify-between max-w-[1368px] mx-auto relative h-12 w-full pt-10', theme)}>
         <Link href={'/'}>
           <div className="flex cursor-pointer sm:flex hidden">
             <Image
@@ -42,13 +42,13 @@ const Navbar = () => {
     );
   else
     return (
-      <nav className={classNames('relative top-12', theme)}>
-        <div className="flex justify-center cursor-pointer sm:flex hidden">
+      <nav className={classNames('relative top-5 lg:top-8', theme)}>
+        <div className="flex lg:justify-center cursor-pointer ml-5">
           <Link href={'/'}>
             <Image src='/find-logo.svg' width={96} height={40} alt="logo"/>
           </Link>
         </div>
-        <Link href='https://find.new/login' className="flex justify-end -mt-10 mr-16">
+        <Link href='https://find.new/login' className="flex justify-end -mt-10 mr-5 lg:mr-8">
           <button
             className="bg-white dark:bg-gray-200-dark hover:bg-gray-400 dark:hover:bg-gray-600 dark:text-gray-700-dark font-semibold px-4 py-2.5 rounded-xl my-auto"
           >
