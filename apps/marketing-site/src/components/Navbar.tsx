@@ -9,7 +9,7 @@ const Navbar = () => {
 
   if (isWaitlist === false)
     return (
-      <nav className={classNames('flex justify-between max-w-[1368px] mx-auto relative h-12 w-full pt-10', theme)}>
+      <nav className={classNames('flex justify-around relative h-12 w-full pt-10 pb-20 sticky top-0 z-50 bg-white dark:bg-[#262626]', theme)}>
         <Link href={'/'}>
           <div className="flex cursor-pointer sm:flex hidden">
             <Image
