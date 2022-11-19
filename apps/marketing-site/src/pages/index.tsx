@@ -294,7 +294,7 @@ export default function Web() {
               </div>
             </div>
             <div className='pt-10 pb-40'>
-              <button className='btn btn-primary bg-primary text-white text-xl px-10 py-5 rounded-2xl'>
+              <button className='btn btn-primary bg-primary text-white text-xl px-10 pt-5 pb-12 rounded-2xl'>
                 Get started
               </button>
             </div>
