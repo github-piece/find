@@ -10,7 +10,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   if (isWaitlist == false)
     return (
       <div className={clx(theme, 'mx-auto')} >
-        <div className="dark:bg-[#262626] pb-10">
+        <div className='dark:bg-[#262626] pb-10'>
           <Navbar />
           <div >{children}</div>
           <Footer />

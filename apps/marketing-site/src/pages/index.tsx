@@ -9,16 +9,16 @@ import classNames from 'classnames';
 function Icon({id, open}) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns='http://www.w3.org/2000/svg'
       className={`${
-        id === open ? "rotate-90" : ""
+        id === open ? 'rotate-90' : ''
       } h-7 w-7 transition-transform`}
-      viewBox="0 0 24 24"
-      stroke={id === open ? "#2876f8" : "gray"}
+      viewBox='0 0 24 24'
+      stroke={id === open ? '#2876f8' : 'gray'}
       strokeWidth={2}
     >
-      <circle cx='12' cy='12' r='10' fill="none"/>
-      <polygon points='10 8 16 12 10 16 10 8' fill={id === open ? "#2876f8" : "gray"}/>
+      <circle cx='12' cy='12' r='10' fill='none'/>
+      <polygon points='10 8 16 12 10 16 10 8' fill={id === open ? '#2876f8' : 'gray'}/>
     </svg>
   );
 }
@@ -27,7 +27,7 @@ function Icon({id, open}) {
 function background({id, open}) {
   return (
       `${
-        id === open ? "bg-[#f8f9fd] dark:bg-[#2c2c2c]" : ""
+        id === open ? 'bg-[#f8f9fd] dark:bg-[#2c2c2c]' : ''
       }`
   );
 }
@@ -62,7 +62,7 @@ export default function Web() {
               </button>
               <div className='flex justify-center'>
                 <Image src={theme === 'light' ? '/assets/figma.svg' : '/assets/figma-dark.svg'} width={1440}
-                       height={935.5} alt='figma' />
+                       height={935.5} alt='' />
               </div>
             </div>
           </div>
@@ -81,7 +81,7 @@ export default function Web() {
           <div className='mt-1 grid grid-cols-3 gap-4 max-w-[1368px] mx-auto'>
             <div>
               <div className='p-5 w-fit bg-radial-primary'>
-                <Image src={'/assets/privacy.svg'} width={64} height={64} alt='privacy' />
+                <Image src={'/assets/privacy.svg'} width={64} height={64} alt='' />
               </div>
               <div className='text-gray-700 dark:text-gray-700-dark text-xl mb-4'>Privacy-first</div>
               <p className='text-gray-600 dark:text-gray-600-dark text-lg'>
@@ -90,7 +90,7 @@ export default function Web() {
             </div>
             <div>
               <div className='p-5 w-fit bg-radial-primary'>
-                <Image src={'/assets/ad-free.svg'} width={64} height={64} alt='privacy' />
+                <Image src={'/assets/ad-free.svg'} width={64} height={64} alt='' />
               </div>
               <div className='text-gray-700 dark:text-gray-700-dark text-xl mb-4'>Ad-free</div>
               <p className='text-gray-600 dark:text-gray-600-dark text-lg'>
@@ -100,7 +100,7 @@ export default function Web() {
             </div>
             <div>
               <div className='p-5 w-fit bg-radial-primary'>
-                <Image src={'/assets/customer.svg'} width={64} height={64} alt='privacy' />
+                <Image src={'/assets/customer.svg'} width={64} height={64} alt='' />
               </div>
               <div className='text-gray-700 dark:text-gray-700-dark text-xl mb-4'>
                 Our users are our only customers
@@ -112,7 +112,7 @@ export default function Web() {
             </div>
             <div>
               <div className='p-5 w-fit bg-radial-primary'>
-                <Image src={'/assets/design.svg'} width={64} height={64} alt='privacy' />
+                <Image src={'/assets/design.svg'} width={64} height={64} alt='' />
               </div>
               <div className='text-gray-700 dark:text-gray-700-dark text-xl mb-4'>Great design</div>
               <p className='text-gray-600 dark:text-gray-600-dark text-lg'>
@@ -122,7 +122,7 @@ export default function Web() {
             </div>
             <div>
               <div className='p-5 w-fit bg-radial-primary'>
-                <Image src={'/assets/unlock.svg'} width={64} height={64} alt='privacy' />
+                <Image src={'/assets/unlock.svg'} width={64} height={64} alt='' />
               </div>
               <div className='text-gray-700 dark:text-gray-700-dark text-xl mb-4'>
                 Trust-driven community building
@@ -134,7 +134,7 @@ export default function Web() {
             </div>
             <div>
               <div className='p-5 w-fit bg-radial-primary'>
-                <Image src={'/assets/braces.svg'} width={64} height={64} alt='privacy' />
+                <Image src={'/assets/braces.svg'} width={64} height={64} alt='' />
               </div>
               <div className='text-gray-700 dark:text-gray-700-dark text-xl mb-4'>Open-source</div>
               <p className='text-gray-600 dark:text-gray-600-dark text-lg'>
@@ -144,7 +144,7 @@ export default function Web() {
             </div>
             <div>
               <div className='p-5 w-fit bg-radial-primary'>
-                <Image src={'/assets/power.svg'} width={64} height={64} alt='privacy' />
+                <Image src={'/assets/power.svg'} width={64} height={64} alt='' />
               </div>
               <div className='text-gray-700 dark:text-gray-700-dark text-xl mb-4'>
                 Power users first
@@ -156,7 +156,7 @@ export default function Web() {
             </div>
             <div>
               <div className='p-5 w-fit bg-radial-primary'>
-                <Image src={'/assets/filter.svg'} width={64} height={64} alt='privacy' />
+                <Image src={'/assets/filter.svg'} width={64} height={64} alt='' />
               </div>
               <div className='text-gray-700 dark:text-gray-700-dark text-xl mb-4'>
                 Optimize for both filtering and discovery
@@ -169,7 +169,7 @@ export default function Web() {
             </div>
             <div>
               <div className='p-5 w-fit bg-radial-primary'>
-                <Image src={'/assets/target.svg'} width={64} height={64} alt='privacy' />
+                <Image src={'/assets/target.svg'} width={64} height={64} alt='' />
               </div>
               <div className='text-primary text-xl mb-4 flex'>
                 More about Find{' '}
@@ -203,7 +203,7 @@ export default function Web() {
           <div className='mt-48 flex justify-between'>
             <div className='max-w-[400px] mt-20'>
               <div className='flex flex-row'>
-                <Image src={'/assets/location.svg'} width={40} height={40} alt='location' />
+                <Image src={'/assets/location.svg'} width={40} height={40} alt='' />
                 <span className='text-primary text-base m-2.5'>FUTURE OF SEARCH</span>
               </div>
               <div className='text-gray-700 dark:text-gray-700-dark text-4xl mt-4'>
@@ -215,12 +215,12 @@ export default function Web() {
               </p>
             </div>
             <Image src={theme === 'light' ? '/assets/search.svg' : '/assets/search-dark.svg'} width={800} height={500}
-                   alt='figma search' />
+                   alt='' className='sticky top-20'/>
           </div>
           <div className='mt-48 flex justify-between'>
             <div className='max-w-[400px] mt-8'>
               <div className='mb-4 flex flex-row'>
-                <Image src={'/assets/extension.svg'} width={40} height={40} alt='extension search' />
+                <Image src={'/assets/extension.svg'} width={40} height={40} alt='' />
                 <span className='text-primary m-2.5'>CHROME EXTENSION</span>
               </div>
               <div className='text-gray-700 dark:text-gray-700-dark text-4xl mb-7'>
@@ -231,12 +231,12 @@ export default function Web() {
               </p>
             </div>
             <Image src={theme === 'light' ? '/assets/bes.svg' : '/assets/bes-dark.svg'} width={704} height={342}
-                   alt='extension search' />
+                   alt='' className='sticky top-20'/>
           </div>
           <div className='mt-48 flex justify-between'>
             <div className='max-w-[400px] mt-20'>
               <div className='mb-4 flex flex-row'>
-                <Image src={'/assets/star.svg'} width={40} height={40} alt='extension' />
+                <Image src={'/assets/star.svg'} width={40} height={40} alt='' />
                 <span className='text-primary m-2.5'>FILTER AND EXPLORE</span>
               </div>
               <div className='text-gray-700 dark:text-gray-700-dark text-4xl mb-7'>
@@ -248,12 +248,12 @@ export default function Web() {
               </p>
             </div>
             <Image src={theme === 'light' ? '/assets/perspective.svg' : '/assets/perspective-dark.svg'} width={800}
-                   height={520} alt='create perspective' />
+                   height={520} alt='' className='sticky top-20'/>
           </div>
           <div className='mt-48 flex justify-between'>
             <div className='max-w-[400px] mt-10'>
               <div className='mb-4 flex flex-row'>
-                <Image src={'/assets/star.svg'} width={40} height={40} alt='extension' />
+                <Image src={'/assets/star.svg'} width={40} height={40} alt='' />
                 <span className='text-primary m-2.5'>SEARCH YOUR APPS</span>
               </div>
               <div className='text-gray-700 dark:text-gray-700-dark text-4xl mb-7'>
@@ -265,7 +265,7 @@ export default function Web() {
               </p>
             </div>
             <Image src={theme === 'light' ? '/assets/time.svg' : '/assets/time-dark.svg'} width={833.5} height={468}
-                   alt='connect more apps' />
+                   alt='' className='sticky top-20'/>
           </div>
         </section>
         <section className='mt-48 text-center max-w-[1840px] mx-auto'>
@@ -277,19 +277,19 @@ export default function Web() {
             </h1>
             <div className='flex flex-row justify-center'>
               <div className='flex mx-5'>
-                <Image src={'/assets/check.svg'} width={20} height={20} alt='check' />
+                <Image src={'/assets/check.svg'} width={20} height={20} alt='' />
                 $5 a month
               </div>
               <div className='flex mx-5'>
-                <Image src={'/assets/check.svg'} width={20} height={20} alt='check' />
+                <Image src={'/assets/check.svg'} width={20} height={20} alt='' />
                 Cancel any time
               </div>
               <div className='flex mx-5'>
-                <Image src={'/assets/check.svg'} width={20} height={20} alt='check' />
+                <Image src={'/assets/check.svg'} width={20} height={20} alt='' />
                 Unlimited connected devices
               </div>
               <div className='flex mx-5'>
-                <Image src={'/assets/check.svg'} width={20} height={20} alt='check' />
+                <Image src={'/assets/check.svg'} width={20} height={20} alt='' />
                 Private data end-to-end encrypted
               </div>
             </div>
@@ -316,7 +316,7 @@ export default function Web() {
             </div>
           </div>
           <div className='max-w-[673px] text-gray-700 dark:text-gray-700-dark'>
-            <Accordion open={open === 1} icon={<Icon id={1} open={open} />} className={classNames(background({id:1, open}), "rounded-lg")}>
+            <Accordion open={open === 1} icon={<Icon id={1} open={open} />} className={classNames(background({id:1, open}), 'rounded-lg')}>
               <AccordionHeader className='flex justify-between p-8 text-2xl' onClick={() => handleOpen(1)}>
                 How does Find generate search results?
               </AccordionHeader>
@@ -324,7 +324,7 @@ export default function Web() {
 
               </AccordionBody>
             </Accordion>
-            <Accordion open={open === 2} icon={<Icon id={2} open={open} />} className={classNames(background({id:2, open}), "rounded-lg")}>
+            <Accordion open={open === 2} icon={<Icon id={2} open={open} />} className={classNames(background({id:2, open}), 'rounded-lg')}>
               <AccordionHeader className='flex justify-between p-8 text-2xl' onClick={() => handleOpen(2)}>
                 How do I know Find is secure?
               </AccordionHeader>
@@ -335,7 +335,7 @@ export default function Web() {
                 so your password is needed to access that data – not even Find Labs can see it.
               </AccordionBody>
             </Accordion>
-            <Accordion open={open === 3} icon={<Icon id={3} open={open} />} className={classNames(background({id:3, open}), "rounded-lg")}>
+            <Accordion open={open === 3} icon={<Icon id={3} open={open} />} className={classNames(background({id:3, open}), 'rounded-lg')}>
               <AccordionHeader className='flex justify-between p-8 text-2xl' onClick={() => handleOpen(3)}>
                 Can I delete my personal Find data?
               </AccordionHeader>
@@ -343,7 +343,7 @@ export default function Web() {
 
               </AccordionBody>
             </Accordion>
-            <Accordion open={open === 4} icon={<Icon id={4} open={open} />} className={classNames(background({id:4, open}), "rounded-lg")}>
+            <Accordion open={open === 4} icon={<Icon id={4} open={open} />} className={classNames(background({id:4, open}), 'rounded-lg')}>
               <AccordionHeader className='flex justify-between p-8 text-2xl' onClick={() => handleOpen(4)}>
                 Is Find open-source?
               </AccordionHeader>
@@ -351,7 +351,7 @@ export default function Web() {
 
               </AccordionBody>
             </Accordion>
-            <Accordion open={open === 5} icon={<Icon id={5} open={open} />} className={classNames(background({id:5, open}), "rounded-lg")}>
+            <Accordion open={open === 5} icon={<Icon id={5} open={open} />} className={classNames(background({id:5, open}), 'rounded-lg')}>
               <AccordionHeader className='flex justify-between p-8 text-2xl text-left' onClick={() => handleOpen(5)}>
                 If Find is open-source, why should I pay to be a member?
               </AccordionHeader>
@@ -359,7 +359,7 @@ export default function Web() {
 
               </AccordionBody>
             </Accordion>
-            <Accordion open={open === 6} icon={<Icon id={6} open={open} />} className={classNames(background({id:6, open}), "rounded-lg")}>
+            <Accordion open={open === 6} icon={<Icon id={6} open={open} />} className={classNames(background({id:6, open}), 'rounded-lg')}>
               <AccordionHeader className='flex justify-between p-8 text-2xl text-left' onClick={() => handleOpen(6)}>
                 Why should I use Find instead of other search services?
               </AccordionHeader>
@@ -367,7 +367,7 @@ export default function Web() {
 
               </AccordionBody>
             </Accordion>
-            <Accordion open={open === 7} icon={<Icon id={7} open={open} />} className={classNames(background({id:7, open}), "rounded-lg")}>
+            <Accordion open={open === 7} icon={<Icon id={7} open={open} />} className={classNames(background({id:7, open}), 'rounded-lg')}>
               <AccordionHeader className='flex justify-between p-8 text-2xl text-left' onClick={() => handleOpen(7)}>
                 What data is end-to-end encrypted? Do you track what I search?
               </AccordionHeader>
