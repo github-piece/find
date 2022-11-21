@@ -6,7 +6,7 @@ const Footer = () => {
   const { resolvedTheme: theme } = useTheme();
 
   return (
-    <div className="mt-40 mb-20 max-w-[1368px] mx-auto">
+    <div className="mt-40 mx-10 bg-[#f8f9fd] dark:bg-[#2c2c2c] rounded-2xl py-20 px-64">
       <div className="flex justify-between">
         <div className="text-3xl">
           <Link href="/">
@@ -19,7 +19,7 @@ const Footer = () => {
             <span className="cursor-pointer mx-4">Docs</span>
           </Link>
           <Link href="/">
-            <span className="cursor-pointer mx-4">Join ✌️</span>
+            <span className="cursor-pointer mx-4">Join ✌</span>
           </Link>
         </div>
         <div className="text-lg">
