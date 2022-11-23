@@ -53,8 +53,8 @@ const ComingSoon = () => {
   };
 
   return (
-    <div className='text-center pb-20'>
-      <div className='mt-40 sm:mt-80'>
+    <div className='text-center pb-[50%] md:pb-[40%] lg:pb-[20%]'>
+      <div className='mt-[35%] md:mt-[50%] lg:mt-[20%]'>
         <div className='mb-10 flex justify-center'>
           <Image
             src={theme === 'light' ? '/assets/coming-soon-light.svg' : '/assets/coming-soon-dark.svg'}
