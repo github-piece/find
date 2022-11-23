@@ -30,7 +30,7 @@ export async function getServerSideProps(context: GetSessionParams | undefined) 
         };
       }
 
-      // check etebase if user has alreasy password
+      // check database if user has already password
       // return {
       //   redirect: {
       //     destination: '/auth/enter-password',
