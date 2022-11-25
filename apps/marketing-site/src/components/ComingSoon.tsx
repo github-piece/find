@@ -97,7 +97,7 @@ const ComingSoon = () => {
             <button
               onClick={handleSubmit}
               className=
-                'md:ml-5 mt-4 md:mt-0 bg-primary text-white text-xl rounded-3xl px-10 py-5 border-8 border-current hover:border-blue-200 dark:border-neutral-800 dark:hover:border-[#263650] w-4/5 md:w-auto'>
+                'md:ml-5 mt-4 md:mt-0 bg-primary text-white text-xl rounded-3xl px-10 py-5 border-8 border-current hover:border-blue-200 dark:border-[#262626] dark:hover:border-[#263650] w-4/5 md:w-auto'>
               Notify me
             </button>
           </div>
