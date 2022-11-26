@@ -6,9 +6,9 @@ const Footer = () => {
   const { resolvedTheme: theme } = useTheme();
 
   return (
-    <div className='mt-40 mx-10 bg-[#f8f9fd] dark:bg-[#2c2c2c] rounded-2xl py-20 px-64'>
+    <div className='mt-40 mx-10 bg-[#f8f9fd] dark:bg-[#2c2c2c] rounded-2xl py-20 px-5 md:px-20 xl:px-64'>
       <div className='flex justify-between'>
-        <div className='text-3xl'>
+        <div className='text-3xl flex flex-col lg:flex-row'>
           <Link href='/'>
             <span className='cursor-pointer mx-4'>Mission</span>
           </Link>
@@ -22,14 +22,14 @@ const Footer = () => {
             <span className='cursor-pointer mx-4'>Join ✌</span>
           </Link>
         </div>
-        <div className='text-lg'>
+        <div className='text-lg flex flex-col lg:flex-row'>
           <Link href='/'>
             <span className='cursor-pointer mx-4'>Careers</span>
           </Link>
           <Link href='/'>
             <span className='cursor-pointer mx-4'>Login</span>
           </Link>
-          <Link href='/'>
+          <Link href='/privacy'>
             <span className='cursor-pointer mx-4'>Privacy</span>
           </Link>
           <Link href='/'>
