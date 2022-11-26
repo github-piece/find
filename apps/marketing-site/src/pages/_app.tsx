@@ -21,6 +21,11 @@ export default function MyApp({ Component, pageProps: { session, ...pageProps } 
     <div>
       <Head>
         <title>Find</title>
+        <meta
+          name='description'
+          content='Find is the next generation of search, discovery, and exploration on the internet.'
+        />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <ThemeProvider themes={['light', 'dark']}>
         <Layout>
