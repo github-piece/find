@@ -1,6 +1,6 @@
 export default function Privacy() {
   return (
-    <div className="max-w-5xl mx-auto text-gray-600-dark">
+    <div className="mx-[10%] text-gray-600-dark">
       <section className="mb-12">
         <h1 className="text-6xl text-white mb-12">
           Privacy Policy
