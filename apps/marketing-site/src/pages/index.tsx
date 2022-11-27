@@ -200,55 +200,52 @@ export default function Web() {
           </div>
         </section>
         <section className='max-w-[1368px] mx-auto'>
-          <div className='mt-48 flex justify-between'>
-            <div className='max-w-[400px] mt-20'>
-              <div className='flex flex-row'>
-                <Image src={'/assets/location.svg'} width={40} height={40} alt='' />
-                <span className='text-primary text-base m-2.5'>FUTURE OF SEARCH</span>
-              </div>
-              <div className='text-gray-700 dark:text-gray-700-dark text-4xl mt-4'>
-                Fast and accurate search results free of ads and SEO-bait.
-              </div>
-              <p className='text-gray-600 dark:text-gray-600-dark text-lg mt-7'>
-                No in-product ads, no integration with ad networks, and no building of customer profiles for advertising
-                purposes
-              </p>
-            </div>
-            <Image src={theme === 'light' ? '/assets/search.svg' : '/assets/search-dark.svg'} width={800} height={500}
-                   alt='' className='sticky top-20'/>
+          <div className='float-right sticky top-40'>
+            <Image src={theme === 'light' ? '/assets/search.svg' : '/assets/search-dark.svg'} width={800} height={500} alt=''/>
           </div>
-          <div className='mt-48 flex justify-between'>
-            <div className='max-w-[400px] mt-8'>
-              <div className='mb-4 flex flex-row'>
-                <Image src={'/assets/extension.svg'} width={40} height={40} alt='' />
-                <span className='text-primary m-2.5'>CHROME EXTENSION</span>
-              </div>
-              <div className='text-gray-700 dark:text-gray-700-dark text-4xl mb-7'>
-                Use the web privately across devices.
-              </div>
-              <p className='text-gray-600 dark:text-gray-600-dark text-lg'>
-                End-to-end encrypted search and browser history through our Chrome extension and unique Sessions feature
-              </p>
+          <div className='max-w-[400px] mt-48 pt-10'>
+            <div className='flex flex-row'>
+              <Image src={'/assets/location.svg'} width={40} height={40} alt='' />
+              <span className='text-primary text-base m-2.5'>FUTURE OF SEARCH</span>
             </div>
-            <Image src={theme === 'light' ? '/assets/bes.svg' : '/assets/bes-dark.svg'} width={704} height={342}
-                   alt='' className='sticky top-20'/>
+            <div className='text-gray-700 dark:text-gray-700-dark text-4xl mt-4'>
+              Fast and accurate search results free of ads and SEO-bait.
+            </div>
+            <p className='text-gray-600 dark:text-gray-600-dark text-lg mt-7'>
+              No in-product ads, no integration with ad networks, and no building of customer profiles for advertising
+              purposes
+            </p>
           </div>
-          <div className='mt-48 flex justify-between'>
-            <div className='max-w-[400px] mt-20'>
-              <div className='mb-4 flex flex-row'>
-                <Image src={'/assets/star.svg'} width={40} height={40} alt='' />
-                <span className='text-primary m-2.5'>FILTER AND EXPLORE</span>
-              </div>
-              <div className='text-gray-700 dark:text-gray-700-dark text-4xl mb-7'>
-                Customizable Perspectives and Briefings
-              </div>
-              <p className='text-gray-600 dark:text-gray-600-dark text-lg'>
-                You can customize how our algorithms find search, discovery, and exploration results.
-                Go back in time, travel around the world, and prioritize sources.
-              </p>
+          <div className='float-right sticky top-40'>
+            <Image src={theme === 'light' ? '/assets/bes.svg' : '/assets/bes-dark.svg'} width={704} height={342} alt=''/>
+          </div>
+          <div className='max-w-[400px] mt-48'>
+            <div className='mb-4 flex flex-row'>
+              <Image src={'/assets/extension.svg'} width={40} height={40} alt='' />
+              <span className='text-primary m-2.5'>CHROME EXTENSION</span>
             </div>
-            <Image src={theme === 'light' ? '/assets/perspective.svg' : '/assets/perspective-dark.svg'} width={800}
-                   height={520} alt='' className='sticky top-20'/>
+            <div className='text-gray-700 dark:text-gray-700-dark text-4xl mb-7'>
+              Use the web privately across devices.
+            </div>
+            <p className='text-gray-600 dark:text-gray-600-dark text-lg'>
+              End-to-end encrypted search and browser history through our Chrome extension and unique Sessions feature
+            </p>
+          </div>
+          <div className='float-right sticky top-40'>
+            <Image src={theme === 'light' ? '/assets/perspective.svg' : '/assets/perspective-dark.svg'} width={800} height={520} alt=''/>
+          </div>
+          <div className='max-w-[400px] mt-48'>
+            <div className='mb-4 flex flex-row'>
+              <Image src={'/assets/star.svg'} width={40} height={40} alt='' />
+              <span className='text-primary m-2.5'>FILTER AND EXPLORE</span>
+            </div>
+            <div className='text-gray-700 dark:text-gray-700-dark text-4xl mb-7'>
+              Customizable Perspectives and Briefings
+            </div>
+            <p className='text-gray-600 dark:text-gray-600-dark text-lg'>
+              You can customize how our algorithms find search, discovery, and exploration results.
+              Go back in time, travel around the world, and prioritize sources.
+            </p>
           </div>
           <div className='mt-48 flex justify-between'>
             <div className='max-w-[400px] mt-10'>
@@ -265,7 +262,7 @@ export default function Web() {
               </p>
             </div>
             <Image src={theme === 'light' ? '/assets/time.svg' : '/assets/time-dark.svg'} width={833.5} height={468}
-                   alt='' className='sticky top-20'/>
+                   alt='' className='sticky top-40'/>
           </div>
         </section>
         <section className='mt-48 text-center max-w-[1840px] mx-auto'>
