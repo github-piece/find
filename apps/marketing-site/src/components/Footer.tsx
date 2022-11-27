@@ -37,7 +37,7 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <div className='flex flex-col xl:flex-row items-center lg:justify-between mt-20'>
+      <div className='flex flex-col xl:flex-row lg:justify-between mt-20'>
         <div className='flex flex-row gap-x-10 mb-16 xl:mb-0'>
           <Link href={'https://github.com'}>
             <Image
