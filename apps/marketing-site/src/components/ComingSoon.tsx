@@ -61,21 +61,21 @@ const ComingSoon = () => {
             className='hidden lg:block'
             width={876}
             height={138}
-            alt='Coming Soon'
+            alt=''
           />
           <Image
             src={theme === 'light' ? '/assets/coming-soon-light.svg' : '/assets/coming-soon-dark-md.svg'}
             className='hidden md:block lg:hidden'
             width={751}
             height={119}
-            alt='Coming Soon'
+            alt=''
           />
           <Image
             src={theme === 'light' ? '/assets/coming-soon-light.svg' : '/assets/coming-soon-dark-sm.svg'}
             className='block md:hidden'
             width={233}
             height={152}
-            alt='Coming Soon'
+            alt=''
           />
         </div>
         <p className='text-gray-600 dark:text-gray-600-dark text-xl max-w-[800px] mx-auto px-12'>
@@ -97,7 +97,7 @@ const ComingSoon = () => {
             <button
               onClick={handleSubmit}
               className=
-                'md:ml-5 mt-4 md:mt-0 bg-primary text-white text-xl rounded-3xl px-10 py-5 border-8 border-current hover:border-blue-200 dark:border-neutral-800 dark:hover:border-[#263650] w-4/5 md:w-auto'>
+                'md:ml-5 mt-4 md:mt-0 bg-primary text-white text-xl rounded-3xl px-10 py-5 border-8 border-current hover:border-blue-200 dark:border-[#262626] dark:hover:border-[#263650] w-4/5 md:w-auto'>
               Notify me
             </button>
           </div>
@@ -110,14 +110,14 @@ const ComingSoon = () => {
                   src={theme === 'light' ? '/assets/github-dark.svg' : '/assets/github-light.svg'}
                   width={21}
                   height={21}
-                  alt='Github'
+                  alt=''
                 />
               ) : (
                 <Image
                   src={theme === 'light' ? '/assets/github-light.svg' : '/assets/github-dark.svg'}
                   width={21}
                   height={21}
-                  alt='Github'
+                  alt=''
                 />
               )}
             </div>
@@ -129,14 +129,14 @@ const ComingSoon = () => {
                   src={theme === 'light' ? '/assets/discord-dark.svg' : '/assets/discord-light.svg'}
                   width={21}
                   height={21}
-                  alt='Discord'
+                  alt=''
                 />
               ) : (
                 <Image
                   src={theme === 'light' ? '/assets/discord-light.svg' : '/assets/discord-dark.svg'}
                   width={21}
                   height={21}
-                  alt='Discord'
+                  alt=''
                 />
               )}
             </div>
@@ -148,14 +148,14 @@ const ComingSoon = () => {
                   src={theme === 'light' ? '/assets/twitter-dark.svg' : '/assets/twitter-light.svg'}
                   width={21}
                   height={21}
-                  alt='Twitter'
+                  alt=''
                 />
               ) : (
                 <Image
                   src={theme === 'light' ? '/assets/twitter-light.svg' : '/assets/twitter-dark.svg'}
                   width={21}
                   height={21}
-                  alt='Twitter'
+                  alt=''
                 />
               )}
             </div>
