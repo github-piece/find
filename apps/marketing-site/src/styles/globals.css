@@ -66,3 +66,11 @@ html {
 .bg-radial-primary {
   background: radial-gradient(circle, #01cdae66, #ffffff 54px) !important;
 }
+
+aside img {
+  transition: opacity 1s;
+}
+
+.visible {
+  opacity: 1;
+}
