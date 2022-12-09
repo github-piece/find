@@ -48,13 +48,11 @@ const Home = () => {
       let i = items.indexOf(e.target);
       if (e.isIntersecting) {
         requestAnimationFrame(ts => {
-          e.target.classList.add('visible');
           if (images) {
             images[i].classList.add('visible');
           }
         });
       } else {
-        e.target.classList.remove('visible');
         if (images) {
           images[i].classList.remove('visible');
         }
@@ -63,7 +61,7 @@ const Home = () => {
   }
 
   const options = {
-    threshold: 0.25
+    threshold: 0.5
   };
 
   const observer = new IntersectionObserver(
