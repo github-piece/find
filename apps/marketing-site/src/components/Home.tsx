@@ -235,7 +235,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className='max-w-[1368px] mx-auto grid grid-cols-2 mt-48'>
+      <section className='max-w-[1368px] mx-auto grid grid-cols-2 gap-20 mt-48'>
         <span className='overflow-auto h-96'>
           <div className='h-full mt-20'>
             <div className='flex flex-row'>

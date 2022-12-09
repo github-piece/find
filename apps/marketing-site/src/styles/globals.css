@@ -67,6 +67,9 @@ html {
   background: radial-gradient(circle, #01cdae66, #ffffff 54px) !important;
 }
 
+section span::-webkit-scrollbar {
+  display: none;
+}
 aside img {
   transition: opacity 1s;
 }
