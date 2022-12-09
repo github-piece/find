@@ -31,13 +31,13 @@ const Navbar = () => {
           <label htmlFor='modal' className='cursor-pointer dark:text-gray-100'>
             Docs
           </label>
-          <input type='checkbox' id='modal' className='modal-toggle'/>
+          <input type='checkbox' id='modal' className='modal-toggle' />
           <label htmlFor='modal' className='modal cursor-pointer'>
             <label className='modal-box w-11/12 max-w-7xl dark:bg-[#2C2C2C] -mt-60'>
               <div className='grid justify-items-start mb-8 grid-cols-4'>
                 <div className='pl-5 text-sm'>GUIDE TO FIND</div>
-                <div/>
-                <div/>
+                <div />
+                <div />
                 <div className='pl-5 text-sm'>DEVELOPERS</div>
               </div>
               <div className='grid grid-cols-4 gap-4'>
@@ -93,7 +93,8 @@ const Navbar = () => {
                 <div className='flex flex-row hover:bg-[#f8f9fd] dark:hover:bg-[#383838] pl-3 rounded-xl'>
                   <Image src={'/assets/enabling-your-app-for-find-search.svg'} width={24} height={24} alt='' />
                   <span className='m-3'>
-                    <div className='text-[#151515] dark:text-white cursor-pointer'>Enabling Your App for Find Search</div>
+                    <div
+                      className='text-[#151515] dark:text-white cursor-pointer'>Enabling Your App for Find Search</div>
                     <div className='text-xs text-[#757685] cursor-pointer'>Learn more about app</div>
                   </span>
                 </div>
