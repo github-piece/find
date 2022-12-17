@@ -118,7 +118,7 @@ function html(params: { url: string; host: string; join: boolean }) {
             <table width='100%' style='max-width: 600px' cellpadding='0' cellspacing='0' role='presentation'>
               <tr>
                 <td class='sm-py-8 sm-px-6' style='padding: 40px; text-align: center'>
-                  <a href='https://findlabs.org'>
+                  <a href='https://find.world'>
                     <img src='https://iili.io/PhUM8P.png' width='96' height='40' alt='find logo'>
                   </a>
                 </td>
@@ -278,7 +278,7 @@ export const authOptions: NextAuthOptions = {
     },
     jwt({ token, user, account, profile, isNewUser }) {
       if (user) {
-        const image = user.image // || profile?.avatar_url;
+        const image = user.image; // || profile?.avatar_url;
         token.user = {
           ...user,
           image

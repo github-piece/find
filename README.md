@@ -1,4 +1,3 @@
-
 ![icon (3)](https://user-images.githubusercontent.com/68179593/185813265-fc001e76-f1e8-42a9-aa1b-b88e99d8eb6f.png)
 
 This is the public monorepo for Find, a privacy-first, open-source, ad-free search service.
@@ -9,7 +8,7 @@ This turborepo uses [Yarn](https://classic.yarnpkg.com/lang/en/) as a package ma
 
 ### Apps and Packages
 
-- `find-labs-org`: a [Next.js](https://nextjs.org) website accessible at https://findlabs.org.
+- `find-labs-org`: a [Next.js](https://nextjs.org) website accessible at https://find.world.
 - `web-app`: a [Next.js](https://nextjs.org) app accessible at https://find.new.
 - `ui`: a stub React component library
 - `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
