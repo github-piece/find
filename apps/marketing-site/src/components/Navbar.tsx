@@ -7,7 +7,7 @@ const Navbar = () => {
   const { resolvedTheme: theme } = useTheme();
   const isWaitlist = process.env.waitlist && process.env.waitlist !== 'false';
 
-  let baseUrl = 'http://localhost:3000';
+  let baseUrl = 'http://localhost:3001';
   if (process.env.production && process.env.production !== 'false') baseUrl = 'https://find.world';
 
   if (isWaitlist === false)
