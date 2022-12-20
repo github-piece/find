@@ -1,8 +1,8 @@
 export default function Privacy() {
   return (
-    <div className="mx-[10%] text-gray-600-dark">
+    <div className="mx-[20%] text-gray-600-dark">
       <section className="mb-12">
-        <h1 className="text-6xl text-white mb-12">
+        <h1 className="text-6xl text-gray-700 dark:text-white mb-12">
           Privacy Policy
         </h1>
         <p className="mb-5">
@@ -21,7 +21,7 @@ export default function Privacy() {
         </p>
       </section>
       <section className="mb-12">
-        <h2 className="text-2xl text-white mb-5">
+        <h2 className="text-2xl text-gray-700 dark:text-white mb-5">
           Information We Collect:
         </h2>
         <p className="mb-5">
@@ -48,7 +48,7 @@ export default function Privacy() {
         </p>
       </section>
       <section className="mb-12">
-        <h2 className="text-2xl text-white mb-5">
+        <h2 className="text-2xl text-gray-700 dark:text-white mb-5">
           What We Do With Your Information:
         </h2>
         <p className="mb-5">
@@ -71,7 +71,7 @@ export default function Privacy() {
         </p>
       </section>
       <section className="mb-12">
-        <h2 className="text-2xl text-white mb-5">
+        <h2 className="text-2xl text-gray-700 dark:text-white mb-5">
           Personal Data That You Provide Through the Site:
         </h2>
         <p className="mb-5">
@@ -87,7 +87,7 @@ export default function Privacy() {
         </p>
       </section>
       <section className="mb-12">
-        <h2 className="text-2xl text-white mb-5">
+        <h2 className="text-2xl text-gray-700 dark:text-white mb-5">
           Non-Identifiable or Aggregated Data:
         </h2>
         <p className="mb-5">
@@ -110,7 +110,7 @@ export default function Privacy() {
         </p>
       </section>
       <section className="mb-12">
-        <h2 className="text-2xl text-white mb-5">
+        <h2 className="text-2xl text-gray-700 dark:text-white mb-5">
           Our Use of Your Personal Data and Other Information:
         </h2>
         <p className="mb-5">
@@ -136,7 +136,7 @@ export default function Privacy() {
         </p>
       </section>
       <section className="mb-12">
-        <h2 className="text-2xl text-white mb-5">
+        <h2 className="text-2xl text-gray-700 dark:text-white mb-5">
           Other Terms and Conditions:
         </h2>
         <p>
@@ -144,7 +144,7 @@ export default function Privacy() {
         </p>
       </section>
       <section className="mb-12">
-        <h2 className="text-2xl text-white mb-5">
+        <h2 className="text-2xl text-gray-700 dark:text-white mb-5">
           Changes to Privacy Policy:
         </h2>
         <p>
@@ -154,7 +154,7 @@ export default function Privacy() {
         </p>
       </section>
       <section>
-        <h2 className="text-2xl text-white mb-5">
+        <h2 className="text-2xl text-gray-700 dark:text-white mb-5">
           Access to Information; Contacting:
         </h2>
         <p className="mb-5">
