@@ -14,7 +14,7 @@ const GettingStarted = () => {
       </h1>
       <div className='grid grid-cols-2 gap-10'>
         <div>
-          <video src='https://www.youtube.com/' className='bg-gray-200-dark w-full rounded-xl mt-10'/>
+          <video src='https://www.youtube.com/' className='bg-[#f3f4f5] dark:bg-gray-200-dark w-full rounded-xl mt-10'/>
           <h2 className='text-xl text-gray-700 dark:text-white mt-7'>
             Proin sollicitudin eleifend urna, quis lacinia eros varius et.
           </h2>
@@ -29,7 +29,7 @@ const GettingStarted = () => {
           </div>
         </div>
         <div>
-          <video src='https://www.youtube.com/' className='bg-gray-200-dark w-full rounded-xl mt-10'/>
+          <video src='https://www.youtube.com/' className='bg-[#f3f4f5] dark:bg-gray-200-dark w-full rounded-xl mt-10'/>
           <h2 className='text-xl text-gray-700 dark:text-white mt-7'>
             Proin sollicitudin eleifend urna, quis lacinia eros varius et.
           </h2>
@@ -44,7 +44,7 @@ const GettingStarted = () => {
           </div>
         </div>
         <div>
-          <video src='https://www.youtube.com/' className='bg-gray-200-dark w-full rounded-xl mt-10'/>
+          <video src='https://www.youtube.com/' className='bg-[#f3f4f5] dark:bg-gray-200-dark w-full rounded-xl mt-10'/>
           <h2 className='text-xl text-gray-700 dark:text-white mt-7'>
             Proin sollicitudin eleifend urna, quis lacinia eros varius et.
           </h2>
@@ -59,7 +59,7 @@ const GettingStarted = () => {
           </div>
         </div>
         <div>
-          <video src='https://www.youtube.com/' className='bg-gray-200-dark w-full rounded-xl mt-10'/>
+          <video src='https://www.youtube.com/' className='bg-[#f3f4f5] dark:bg-gray-200-dark w-full rounded-xl mt-10'/>
           <h2 className='text-xl text-gray-700 dark:text-white mt-7'>
             Proin sollicitudin eleifend urna, quis lacinia eros varius et.
           </h2>

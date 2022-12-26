@@ -14,7 +14,7 @@ const Docs = () => {
         <h3 className='text-3xl text-gray-700 dark:text-white mt-12'>Getting Started</h3>
         <div className='grid grid-cols-2 gap-10'>
           <div>
-            <video className='bg-gray-200-dark w-full rounded-xl mt-10' src='https://www.youtube.com/'/>
+            <video className='bg-[#f3f4f5] dark:bg-gray-200-dark w-full rounded-xl mt-10' src='https://www.youtube.com/'/>
             <h2 className='text-xl text-gray-700 dark:text-white mt-7'>
               Proin sollicitudin eleifend urna, quis lacinia eros varius et.
             </h2>
@@ -29,7 +29,7 @@ const Docs = () => {
             </div>
           </div>
           <div>
-            <video className='bg-gray-200-dark w-full rounded-xl mt-10' src='https://www.youtube.com/'/>
+            <video className='bg-[#f3f4f5] dark:bg-gray-200-dark w-full rounded-xl mt-10' src='https://www.youtube.com/'/>
             <h2 className='text-xl text-gray-700 dark:text-white mt-7'>
               Proin sollicitudin eleifend urna, quis lacinia eros varius et.
             </h2>
@@ -47,7 +47,7 @@ const Docs = () => {
         <h3 className='text-gray-700 dark:text-white text-3xl mt-12'>Privacy and Security</h3>
         <div className='grid grid-cols-2 gap-10'>
           <div>
-            <video className='bg-gray-200-dark w-full rounded-xl mt-10' src='https://www.youtube.com/'/>
+            <video className='bg-[#f3f4f5] dark:bg-gray-200-dark w-full rounded-xl mt-10' src='https://www.youtube.com/'/>
             <h2 className='text-xl text-gray-700 dark:text-white mt-7'>
               Proin sollicitudin eleifend urna, quis lacinia eros varius et.
             </h2>
@@ -62,7 +62,7 @@ const Docs = () => {
             </div>
           </div>
           <div>
-            <video className='bg-gray-200-dark w-full rounded-xl mt-10' src='https://www.youtube.com/'/>
+            <video className='bg-[#f3f4f5] dark:bg-gray-200-dark w-full rounded-xl mt-10' src='https://www.youtube.com/'/>
             <h2 className='text-xl text-gray-700 dark:text-white mt-7'>
               Proin sollicitudin eleifend urna, quis lacinia eros varius et.
             </h2>
@@ -80,7 +80,7 @@ const Docs = () => {
         <h3 className='text-gray-700 dark:text-white text-3xl mt-12'>Billing and Subscriptions</h3>
         <div className='grid grid-cols-2 gap-10'>
           <div>
-            <video className='bg-gray-200-dark w-full rounded-xl mt-10' src='https://www.youtube.com/'/>
+            <video className='bg-[#f3f4f5] dark:bg-gray-200-dark w-full rounded-xl mt-10' src='https://www.youtube.com/'/>
             <h2 className='text-xl text-gray-700 dark:text-white mt-7'>
               Proin sollicitudin eleifend urna, quis lacinia eros varius et.
             </h2>
@@ -95,7 +95,7 @@ const Docs = () => {
             </div>
           </div>
           <div>
-            <video className='bg-gray-200-dark w-full rounded-xl mt-10' src='https://www.youtube.com/'/>
+            <video className='bg-[#f3f4f5] dark:bg-gray-200-dark w-full rounded-xl mt-10' src='https://www.youtube.com/'/>
             <h2 className='text-xl text-gray-700 dark:text-white mt-7'>
               Proin sollicitudin eleifend urna, quis lacinia eros varius et.
             </h2>
