@@ -1,37 +1,31 @@
-import { useState, useEffect } from 'react'
+import type { ReactElement, ReactNode } from 'react';
+import { useEffect, useState } from 'react';
 import type { AppProps } from 'next/app';
-import Head from 'next/head';
-import { ThemeProvider } from 'next-themes';
 import '../styles/globals.css';
+import type { NextPage } from 'next';
 
-import Layout from '../components/Layout';
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
 
-export default function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
-  const [mounted, setMounted] = useState(false)
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+export default function MyApp({ Component, pageProps: { session, ...pageProps } }: AppPropsWithLayout) {
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   if (!mounted) {
-    return null
+    return null;
   }
 
-  return (
-    <div>
-      <Head>
-        <title>Find</title>
-        <meta
-          name='description'
-          content='Find is the next generation of search, discovery, and exploration on the internet.'
-        />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-      <ThemeProvider themes={['light', 'dark']}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
-    </div>
+  const getLayout = Component.getLayout ?? ((page) => page);
+
+  return getLayout(
+    <Component {...pageProps} />
   );
 }
