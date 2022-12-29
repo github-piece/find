@@ -5,11 +5,11 @@ import Navbar from './Navbar';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const { resolvedTheme: theme } = useTheme();
-  const isWaitlist = process.env.waitlist && process.env.waitlist !== 'false';
+  const isWaitList = process.env.waitlist && process.env.waitlist !== 'false';
 
-  if (isWaitlist == false)
+  if (isWaitList == false)
     return (
-      <div className={clx(theme, 'mx-auto')} >
+      <div className={clx(theme, 'mx-auto')}>
         <div className='dark:bg-[#262626] pb-10'>
           <Navbar />
           <div>{children}</div>
@@ -20,16 +20,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   else
     return (
       <div className={clx(theme)}>
-        <div className="
-        md:m-10 md:rounded-2xl
-        bg-center bg-cover
-        bg-[url('/assets/coming-soon-light-mobile.svg')] dark:bg-[url('/assets/coming-soon-dark-mobile.svg')]
-        md:bg-[url('/assets/coming-soon-light-tablet.svg')] dark:md:bg-[url('/assets/coming-soon-dark-tablet.svg')]
-        lg:bg-[url('/assets/coming-soon-light-bg.svg')] lg:dark:bg-[url('/assets/coming-soon-dark-bg.svg')]
-        ">
-          <Navbar />
-          <div>{children}</div>
-        </div>
+        <div>{children}</div>
       </div>
     );
 };

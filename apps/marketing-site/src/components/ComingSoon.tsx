@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { useTheme } from 'next-themes';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Navbar from './Navbar';
 
 const ComingSoon = () => {
   const router = useRouter();
@@ -53,113 +54,122 @@ const ComingSoon = () => {
   };
 
   return (
-    <div className='text-center pb-[50%] md:pb-[40%] lg:pb-[20%]'>
-      <div className='mt-[35%] md:mt-[50%] lg:mt-[20%]'>
-        <div className='mb-10 flex justify-center'>
-          <Image
-            src={theme === 'light' ? '/assets/coming-soon-light.svg' : '/assets/coming-soon-dark.svg'}
-            className='hidden lg:block'
-            width={876}
-            height={138}
-            alt=''
-          />
-          <Image
-            src={theme === 'light' ? '/assets/coming-soon-light.svg' : '/assets/coming-soon-dark-md.svg'}
-            className='hidden md:block lg:hidden'
-            width={751}
-            height={119}
-            alt=''
-          />
-          <Image
-            src={theme === 'light' ? '/assets/coming-soon-light.svg' : '/assets/coming-soon-dark-sm.svg'}
-            className='block md:hidden'
-            width={233}
-            height={152}
-            alt=''
-          />
-        </div>
-        <p className='text-gray-600 dark:text-gray-600-dark text-xl max-w-[800px] mx-auto px-12'>
-          Our mission is to build the future of search, discovery, and exploration on the internet
-          through privacy-first, open-source, and ad-free tools.
-        </p>
-      </div>
-      <div className='mt-20'>
-        <div className='mb-10'>
-          <h2 className='text-2xl'>
-            Get notified when we launch
-          </h2>
-          <div className='flex flex-col place-items-center md:flex-row justify-center mt-4'>
-            <input type='text' id='email'
-                   value={email}
-                   onChange={e => setEmail(e.target.value)}
-                   className='w-4/5 md:w-96 h-16 text-lg pl-6 border border-solid border-[#e8e8eb] dark:border-[#2c2c2c] rounded-2xl'
-                   placeholder='Please enter the email address' />
-            <button
-              onClick={handleSubmit}
-              className=
-                'md:ml-5 mt-4 md:mt-0 bg-primary text-white text-xl rounded-3xl px-10 py-5 border-8 border-current hover:border-blue-200 dark:border-[#262626] dark:hover:border-[#263650] w-4/5 md:w-auto'>
-              Notify me
-            </button>
+    <div className="
+        md:m-10 md:rounded-2xl
+        bg-center bg-cover
+        bg-[url('/assets/coming-soon-light-mobile.svg')] dark:bg-[url('/assets/coming-soon-dark-mobile.svg')]
+        md:bg-[url('/assets/coming-soon-light-tablet.svg')] dark:md:bg-[url('/assets/coming-soon-dark-tablet.svg')]
+        lg:bg-[url('/assets/coming-soon-light-bg.svg')] lg:dark:bg-[url('/assets/coming-soon-dark-bg.svg')]
+        ">
+      <Navbar />
+      <div className='text-center pb-[50%] md:pb-[40%] lg:pb-[20%]'>
+        <div className='mt-[35%] md:mt-[50%] lg:mt-[20%]'>
+          <div className='mb-10 flex justify-center'>
+            <Image
+              src={theme === 'light' ? '/assets/coming-soon-light.svg' : '/assets/coming-soon-dark.svg'}
+              className='hidden lg:block'
+              width={876}
+              height={138}
+              alt=''
+            />
+            <Image
+              src={theme === 'light' ? '/assets/coming-soon-light.svg' : '/assets/coming-soon-dark-md.svg'}
+              className='hidden md:block lg:hidden'
+              width={751}
+              height={119}
+              alt=''
+            />
+            <Image
+              src={theme === 'light' ? '/assets/coming-soon-light.svg' : '/assets/coming-soon-dark-sm.svg'}
+              className='block md:hidden'
+              width={233}
+              height={152}
+              alt=''
+            />
           </div>
+          <p className='text-gray-600 dark:text-gray-600-dark text-xl max-w-[800px] mx-auto px-12'>
+            Our mission is to build the future of search, discovery, and exploration on the internet
+            through privacy-first, open-source, and ad-free tools.
+          </p>
         </div>
-        <div className='flex justify-center'>
-          <Link href={'https://github.com/find-labs'}>
-            <div className='flex cursor-pointer block' onMouseEnter={onMouseEnterGithub} onMouseLeave={onMouseLeaveGithub}>
-              {isHoveringGithub ? (
-                <Image
-                  src={theme === 'light' ? '/assets/github-dark.svg' : '/assets/github-light.svg'}
-                  width={21}
-                  height={21}
-                  alt=''
-                />
-              ) : (
-                <Image
-                  src={theme === 'light' ? '/assets/github-light.svg' : '/assets/github-dark.svg'}
-                  width={21}
-                  height={21}
-                  alt=''
-                />
-              )}
+        <div className='mt-20'>
+          <div className='mb-10'>
+            <h2 className='text-2xl'>
+              Get notified when we launch
+            </h2>
+            <div className='flex flex-col place-items-center md:flex-row justify-center mt-4'>
+              <input type='text' id='email'
+                     value={email}
+                     onChange={e => setEmail(e.target.value)}
+                     className='w-4/5 md:w-96 h-16 text-lg pl-6 border border-solid border-[#e8e8eb] dark:border-[#2c2c2c] rounded-2xl'
+                     placeholder='Please enter the email address' />
+              <button
+                onClick={handleSubmit}
+                className=
+                  'md:ml-5 mt-4 md:mt-0 bg-primary text-white text-xl rounded-3xl px-10 py-5 border-8 border-current hover:border-blue-200 dark:border-[#262626] dark:hover:border-[#263650] w-4/5 md:w-auto'>
+                Notify me
+              </button>
             </div>
-          </Link>
-          <Link href={'https://discord.gg/2CYJAH8e29'}>
-            <div className='flex cursor-pointer mx-10' onMouseEnter={onMouseEnterDiscord} onMouseLeave={onMouseLeaveDiscord}>
-              {isHoveringDiscord ? (
-                <Image
-                  src={theme === 'light' ? '/assets/discord-dark.svg' : '/assets/discord-light.svg'}
-                  width={21}
-                  height={21}
-                  alt=''
-                />
-              ) : (
-                <Image
-                  src={theme === 'light' ? '/assets/discord-light.svg' : '/assets/discord-dark.svg'}
-                  width={21}
-                  height={21}
-                  alt=''
-                />
-              )}
-            </div>
-          </Link>
-          <Link href={'https://twitter.com/findlabs'}>
-            <div className='flex cursor-pointer' onMouseEnter={onMouseEnterTwitter} onMouseLeave={onMouseLeaveTwitter}>
-              {isHoveringTwitter ? (
-                <Image
-                  src={theme === 'light' ? '/assets/twitter-dark.svg' : '/assets/twitter-light.svg'}
-                  width={21}
-                  height={21}
-                  alt=''
-                />
-              ) : (
-                <Image
-                  src={theme === 'light' ? '/assets/twitter-light.svg' : '/assets/twitter-dark.svg'}
-                  width={21}
-                  height={21}
-                  alt=''
-                />
-              )}
-            </div>
-          </Link>
+          </div>
+          <div className='flex justify-center'>
+            <Link href={'https://github.com/find-labs'}>
+              <div className='flex cursor-pointer block' onMouseEnter={onMouseEnterGithub} onMouseLeave={onMouseLeaveGithub}>
+                {isHoveringGithub ? (
+                  <Image
+                    src={theme === 'light' ? '/assets/github-dark.svg' : '/assets/github-light.svg'}
+                    width={21}
+                    height={21}
+                    alt=''
+                  />
+                ) : (
+                  <Image
+                    src={theme === 'light' ? '/assets/github-light.svg' : '/assets/github-dark.svg'}
+                    width={21}
+                    height={21}
+                    alt=''
+                  />
+                )}
+              </div>
+            </Link>
+            <Link href={'https://discord.gg/2CYJAH8e29'}>
+              <div className='flex cursor-pointer mx-10' onMouseEnter={onMouseEnterDiscord} onMouseLeave={onMouseLeaveDiscord}>
+                {isHoveringDiscord ? (
+                  <Image
+                    src={theme === 'light' ? '/assets/discord-dark.svg' : '/assets/discord-light.svg'}
+                    width={21}
+                    height={21}
+                    alt=''
+                  />
+                ) : (
+                  <Image
+                    src={theme === 'light' ? '/assets/discord-light.svg' : '/assets/discord-dark.svg'}
+                    width={21}
+                    height={21}
+                    alt=''
+                  />
+                )}
+              </div>
+            </Link>
+            <Link href={'https://twitter.com/findlabs'}>
+              <div className='flex cursor-pointer' onMouseEnter={onMouseEnterTwitter} onMouseLeave={onMouseLeaveTwitter}>
+                {isHoveringTwitter ? (
+                  <Image
+                    src={theme === 'light' ? '/assets/twitter-dark.svg' : '/assets/twitter-light.svg'}
+                    width={21}
+                    height={21}
+                    alt=''
+                  />
+                ) : (
+                  <Image
+                    src={theme === 'light' ? '/assets/twitter-light.svg' : '/assets/twitter-dark.svg'}
+                    width={21}
+                    height={21}
+                    alt=''
+                  />
+                )}
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
