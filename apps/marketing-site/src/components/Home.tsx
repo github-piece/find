@@ -313,25 +313,28 @@ const Home = () => {
       </section>
       <section className='mt-48 text-center max-w-[1840px] mx-auto'>
         <div
-          className="bg-no-repeat bg-cover bg-[url('/assets/light/coming-soon-bg-lg.svg')] dark:bg-[url('/assets/dark/coming-soon-bg-lg.svg')]">
+          className="md:m-10 rounded-2xl bg-cover bg-center
+                     bg-[url('/assets/light/coming-soon-bg.svg')] dark:bg-[url('/assets/dark/coming-soon-bg.svg')]
+                     md:bg-[url('/assets/light/coming-soon-bg-md.svg')] dark:md:bg-[url('/assets/dark/coming-soon-bg-md.svg')]
+                     lg:bg-[url('/assets/light/coming-soon-bg-lg.svg')] lg:dark:bg-[url('/assets/dark/coming-soon-bg-lg.svg')]">
           <h1 className='text-8xl pt-80 pb-10'>
             Ready <br />
             to Explore?
           </h1>
-          <div className='flex flex-row justify-center'>
-            <div className='flex mx-5'>
+          <div className='flex flex-col items-center gap-5 lg:flex-row lg:justify-center lg:gap-10'>
+            <div className='flex'>
               <Image src={'/assets/check.svg'} width={20} height={20} alt='' />
               $5 a month
             </div>
-            <div className='flex mx-5'>
+            <div className='flex'>
               <Image src={'/assets/check.svg'} width={20} height={20} alt='' />
               Cancel any time
             </div>
-            <div className='flex mx-5'>
+            <div className='flex'>
               <Image src={'/assets/check.svg'} width={20} height={20} alt='' />
               Unlimited connected devices
             </div>
-            <div className='flex mx-5'>
+            <div className='flex'>
               <Image src={'/assets/check.svg'} width={20} height={20} alt='' />
               Private data end-to-end encrypted
             </div>
@@ -343,9 +346,9 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className='mt-48 flex justify-between max-w-[1368px] mx-auto'>
-        <div className='max-w-[500px]'>
-          <div className='text-gray-700 dark:text-gray-700-dark text-6xl mb-5'>
+      <section className='mt-48 flex flex-col lg:flex-row max-w-[1368px] mx-auto'>
+        <div className='max-w-[500px] mx-auto'>
+          <div className='text-gray-700 dark:text-gray-700-dark text-6xl mb-5 text-center lg:text-left'>
             Frequently Asked
             Questions
           </div>
@@ -353,13 +356,12 @@ const Home = () => {
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             Can't find the answer you're looking for? <a href='/' className='text-blue-500'>Docs </a>
           </p>
-          <div className='mt-56'>
+          <div className='mt-56 hidden lg:block'>
             <Image src={theme === 'light' ? '/assets/light/vector.svg' : '/assets/dark/vector.svg'} width={486}
-                   height={486}
-                   alt={'vector'} />
+                   height={486} alt='' />
           </div>
         </div>
-        <div className='max-w-[673px] text-gray-700 dark:text-gray-700-dark'>
+        <div className='max-w-[673px] text-gray-700 dark:text-gray-700-dark mx-auto'>
           <Accordion open={open === 1} icon={<Icon id={1} open={open} />}
                      className={classNames(background({ id: 1, open }), 'rounded-lg')}>
             <AccordionHeader className='flex justify-between p-8 text-2xl' onClick={() => handleOpen(1)}>
