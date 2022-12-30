@@ -114,7 +114,7 @@ const Home = () => {
           </p>
           <div className='text-primary text-lg mb-16'>&#123; Core Principles &#125;</div>
         </div>
-        <div className='mt-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-[1368px] mx-auto'>
+        <div className='mt-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-[1368px] mx-20 lg:mx-auto'>
           <div>
             <Image
               src={theme === 'light' ? '/assets/light/privacy.svg' : '/assets/dark/privacy.svg'}
@@ -244,7 +244,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className='max-w-[1368px] mx-auto grid grid-cols-2 gap-20 mt-48'>
+      <section className='max-w-[1368px] mx-20 lg:mx-auto grid grid-cols-2 gap-20 mt-48'>
         <span className='overflow-auto h-96'>
           <div className='h-full mt-20'>
             <div className='flex flex-row'>
