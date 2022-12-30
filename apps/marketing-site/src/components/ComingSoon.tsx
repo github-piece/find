@@ -36,7 +36,7 @@ const ComingSoon = () => {
     setLoading(true);
     setError('');
 
-    const url = getBaseUrl()
+    const url = getBaseUrl();
     try {
       if (z.string().email().parse(email)) {
         await fetch(`${url}/api/notified`, {
@@ -57,30 +57,30 @@ const ComingSoon = () => {
     <div className="
         md:m-10 md:rounded-2xl
         bg-center bg-cover
-        bg-[url('/assets/coming-soon-light-mobile.svg')] dark:bg-[url('/assets/coming-soon-dark-mobile.svg')]
-        md:bg-[url('/assets/coming-soon-light-tablet.svg')] dark:md:bg-[url('/assets/coming-soon-dark-tablet.svg')]
-        lg:bg-[url('/assets/coming-soon-light-bg.svg')] lg:dark:bg-[url('/assets/coming-soon-dark-bg.svg')]
+        bg-[url('/assets/light/coming-soon-bg.svg')] dark:bg-[url('/assets/dark/coming-soon-bg.svg')]
+        md:bg-[url('/assets/light/coming-soon-bg-md.svg')] dark:md:bg-[url('/assets/dark/coming-soon-bg-md.svg')]
+        lg:bg-[url('/assets/light/coming-soon-bg-lg.svg')] lg:dark:bg-[url('/assets/dark/coming-soon-bg-lg.svg')]
         ">
       <Navbar />
       <div className='text-center pb-[50%] md:pb-[40%] lg:pb-[20%]'>
         <div className='mt-[35%] md:mt-[50%] lg:mt-[20%]'>
           <div className='mb-10 flex justify-center'>
             <Image
-              src={theme === 'light' ? '/assets/coming-soon-light.svg' : '/assets/coming-soon-dark.svg'}
+              src={theme === 'light' ? '/assets/light/coming-soon-lg.svg' : '/assets/dark/coming-soon-lg.svg'}
               className='hidden lg:block'
               width={876}
               height={138}
               alt=''
             />
             <Image
-              src={theme === 'light' ? '/assets/coming-soon-light.svg' : '/assets/coming-soon-dark-md.svg'}
+              src={theme === 'light' ? '/assets/light/coming-soon-md.svg' : '/assets/dark/coming-soon-md.svg'}
               className='hidden md:block lg:hidden'
               width={751}
               height={119}
               alt=''
             />
             <Image
-              src={theme === 'light' ? '/assets/coming-soon-light.svg' : '/assets/coming-soon-dark-sm.svg'}
+              src={theme === 'light' ? '/assets/light/coming-soon.svg' : '/assets/dark/coming-soon.svg'}
               className='block md:hidden'
               width={233}
               height={152}
@@ -113,17 +113,18 @@ const ComingSoon = () => {
           </div>
           <div className='flex justify-center'>
             <Link href={'https://github.com/find-labs'}>
-              <div className='flex cursor-pointer block' onMouseEnter={onMouseEnterGithub} onMouseLeave={onMouseLeaveGithub}>
+              <div className='flex cursor-pointer block' onMouseEnter={onMouseEnterGithub}
+                   onMouseLeave={onMouseLeaveGithub}>
                 {isHoveringGithub ? (
                   <Image
-                    src={theme === 'light' ? '/assets/github-dark.svg' : '/assets/github-light.svg'}
+                    src={theme === 'light' ? '/assets/dark/github.svg' : '/assets/light/github.svg'}
                     width={21}
                     height={21}
                     alt=''
                   />
                 ) : (
                   <Image
-                    src={theme === 'light' ? '/assets/github-light.svg' : '/assets/github-dark.svg'}
+                    src={theme === 'light' ? '/assets/light/github.svg' : '/assets/dark/github.svg'}
                     width={21}
                     height={21}
                     alt=''
@@ -132,17 +133,18 @@ const ComingSoon = () => {
               </div>
             </Link>
             <Link href={'https://discord.gg/2CYJAH8e29'}>
-              <div className='flex cursor-pointer mx-10' onMouseEnter={onMouseEnterDiscord} onMouseLeave={onMouseLeaveDiscord}>
+              <div className='flex cursor-pointer mx-10' onMouseEnter={onMouseEnterDiscord}
+                   onMouseLeave={onMouseLeaveDiscord}>
                 {isHoveringDiscord ? (
                   <Image
-                    src={theme === 'light' ? '/assets/discord-dark.svg' : '/assets/discord-light.svg'}
+                    src={theme === 'light' ? '/assets/dark/discord.svg' : '/assets/light/discord.svg'}
                     width={21}
                     height={21}
                     alt=''
                   />
                 ) : (
                   <Image
-                    src={theme === 'light' ? '/assets/discord-light.svg' : '/assets/discord-dark.svg'}
+                    src={theme === 'light' ? '/assets/light/discord.svg' : '/assets/dark/discord.svg'}
                     width={21}
                     height={21}
                     alt=''
@@ -151,17 +153,18 @@ const ComingSoon = () => {
               </div>
             </Link>
             <Link href={'https://twitter.com/findlabs'}>
-              <div className='flex cursor-pointer' onMouseEnter={onMouseEnterTwitter} onMouseLeave={onMouseLeaveTwitter}>
+              <div className='flex cursor-pointer' onMouseEnter={onMouseEnterTwitter}
+                   onMouseLeave={onMouseLeaveTwitter}>
                 {isHoveringTwitter ? (
                   <Image
-                    src={theme === 'light' ? '/assets/twitter-dark.svg' : '/assets/twitter-light.svg'}
+                    src={theme === 'light' ? '/assets/dark/twitter.svg' : '/assets/light/twitter.svg'}
                     width={21}
                     height={21}
                     alt=''
                   />
                 ) : (
                   <Image
-                    src={theme === 'light' ? '/assets/twitter-light.svg' : '/assets/twitter-dark.svg'}
+                    src={theme === 'light' ? '/assets/light/twitter.svg' : '/assets/dark/twitter.svg'}
                     width={21}
                     height={21}
                     alt=''

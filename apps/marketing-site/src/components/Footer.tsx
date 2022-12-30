@@ -41,7 +41,7 @@ const Footer = () => {
         <div className='flex flex-row gap-x-10 mb-16 xl:mb-0'>
           <Link href={'https://github.com'}>
             <Image
-              src={theme === 'light' ? '/assets/github-light.svg' : '/assets/github-dark.svg'}
+              src={theme === 'light' ? '/assets/light/github.svg' : '/assets/dark/github.svg'}
               width={24}
               height={24}
               alt=''
@@ -50,7 +50,7 @@ const Footer = () => {
           </Link>
           <Link href={'https://discord.com'}>
             <Image
-              src={theme === 'light' ? '/assets/discord-light.svg' : '/assets/discord-dark.svg'}
+              src={theme === 'light' ? '/assets/light/discord.svg' : '/assets/dark/discord.svg'}
               width={24}
               height={24}
               alt=''
@@ -59,7 +59,7 @@ const Footer = () => {
           </Link>
           <Link href={'https://twitter.com'}>
             <Image
-              src={theme === 'light' ? '/assets/twitter-light.svg' : '/assets/twitter-dark.svg'}
+              src={theme === 'light' ? '/assets/light/twitter.svg' : '/assets/dark/twitter.svg'}
               width={24}
               height={24}
               alt=''

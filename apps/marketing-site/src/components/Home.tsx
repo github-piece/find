@@ -74,12 +74,12 @@ const Home = () => {
   useEffect(() => {
     const items = Array.from(document.querySelectorAll('section > span > div'));
     setItems(items);
-  }, [])
+  }, []);
 
   useEffect(() => {
     const images = document.querySelectorAll('section > aside > img');
     setImages(images);
-  }, [])
+  }, []);
 
   return (
     <main>
@@ -97,8 +97,8 @@ const Home = () => {
               Join
             </button>
             <div className='flex justify-center'>
-              <Image src={theme === 'light' ? '/assets/figma.svg' : '/assets/figma-dark.svg'} width={1440}
-                     height={935.5} alt=''/>
+              <Image src={theme === 'light' ? '/assets/light/figma.svg' : '/assets/dark/figma.svg'} width={1440}
+                     height={935.5} alt='' />
             </div>
           </div>
         </div>
@@ -114,20 +114,22 @@ const Home = () => {
           </p>
           <div className='text-primary text-lg mb-16'>&#123; Core Principles &#125;</div>
         </div>
-        <div className='mt-1 grid grid-cols-3 gap-4 max-w-[1368px] mx-auto'>
+        <div className='mt-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-[1368px] mx-auto'>
           <div>
-            <div className='p-5 w-fit bg-radial-primary'>
-              <Image src={'/assets/privacy.svg'} width={64} height={64} alt='' />
-            </div>
+            <Image
+              src={theme === 'light' ? '/assets/light/privacy.svg' : '/assets/dark/privacy.svg'}
+              width={92} height={92} alt=''
+            />
             <div className='text-gray-700 dark:text-gray-700-dark text-xl mb-4'>Privacy-first</div>
             <p className='text-gray-600 dark:text-gray-600-dark text-lg'>
               No ad tracking, no unnecessary data collection, and end-to-end encryption of sensitive data
             </p>
           </div>
           <div>
-            <div className='p-5 w-fit bg-radial-primary'>
-              <Image src={'/assets/ad-free.svg'} width={64} height={64} alt='' />
-            </div>
+            <Image
+              src={theme === 'light' ? '/assets/light/ad-free.svg' : '/assets/dark/ad-free.svg'}
+              width={92} height={92} alt=''
+            />
             <div className='text-gray-700 dark:text-gray-700-dark text-xl mb-4'>Ad-free</div>
             <p className='text-gray-600 dark:text-gray-600-dark text-lg'>
               No in-product ads, no integration with ad networks, and no building of customer
@@ -135,9 +137,10 @@ const Home = () => {
             </p>
           </div>
           <div>
-            <div className='p-5 w-fit bg-radial-primary'>
-              <Image src={'/assets/customer.svg'} width={64} height={64} alt='' />
-            </div>
+            <Image
+              src={theme === 'light' ? '/assets/light/customer.svg' : '/assets/dark/customer.svg'}
+              width={92} height={92} alt=''
+            />
             <div className='text-gray-700 dark:text-gray-700-dark text-xl mb-4'>
               Our users are our only customers
             </div>
@@ -147,9 +150,10 @@ const Home = () => {
             </p>
           </div>
           <div>
-            <div className='p-5 w-fit bg-radial-primary'>
-              <Image src={'/assets/design.svg'} width={64} height={64} alt='' />
-            </div>
+            <Image
+              src={theme === 'light' ? '/assets/light/design.svg' : '/assets/dark/design.svg'}
+              width={92} height={92} alt=''
+            />
             <div className='text-gray-700 dark:text-gray-700-dark text-xl mb-4'>Great design</div>
             <p className='text-gray-600 dark:text-gray-600-dark text-lg'>
               Software you use every day should be beautiful, minimalist, intuitive, and highly
@@ -157,9 +161,10 @@ const Home = () => {
             </p>
           </div>
           <div>
-            <div className='p-5 w-fit bg-radial-primary'>
-              <Image src={'/assets/unlock.svg'} width={64} height={64} alt='' />
-            </div>
+            <Image
+              src={theme === 'light' ? '/assets/light/unlock.svg' : '/assets/dark/unlock.svg'}
+              width={92} height={92} alt=''
+            />
             <div className='text-gray-700 dark:text-gray-700-dark text-xl mb-4'>
               Trust-driven community building
             </div>
@@ -169,9 +174,10 @@ const Home = () => {
             </p>
           </div>
           <div>
-            <div className='p-5 w-fit bg-radial-primary'>
-              <Image src={'/assets/braces.svg'} width={64} height={64} alt='' />
-            </div>
+            <Image
+              src={theme === 'light' ? '/assets/light/braces.svg' : '/assets/dark/braces.svg'}
+              width={92} height={92} alt=''
+            />
             <div className='text-gray-700 dark:text-gray-700-dark text-xl mb-4'>Open-source</div>
             <p className='text-gray-600 dark:text-gray-600-dark text-lg'>
               All our product code is open-source, so developers can run it themselves and the
@@ -179,9 +185,10 @@ const Home = () => {
             </p>
           </div>
           <div>
-            <div className='p-5 w-fit bg-radial-primary'>
-              <Image src={'/assets/power.svg'} width={64} height={64} alt='' />
-            </div>
+            <Image
+              src={theme === 'light' ? '/assets/light/power.svg' : '/assets/dark/power.svg'}
+              width={92} height={92} alt=''
+            />
             <div className='text-gray-700 dark:text-gray-700-dark text-xl mb-4'>
               Power users first
             </div>
@@ -191,9 +198,10 @@ const Home = () => {
             </p>
           </div>
           <div>
-            <div className='p-5 w-fit bg-radial-primary'>
-              <Image src={'/assets/filter.svg'} width={64} height={64} alt='' />
-            </div>
+            <Image
+              src={theme === 'light' ? '/assets/light/filter.svg' : '/assets/dark/filter.svg'}
+              width={92} height={92} alt=''
+            />
             <div className='text-gray-700 dark:text-gray-700-dark text-xl mb-4'>
               Optimize for both filtering and discovery
             </div>
@@ -204,9 +212,10 @@ const Home = () => {
             </p>
           </div>
           <div>
-            <div className='p-5 w-fit bg-radial-primary'>
-              <Image src={'/assets/target.svg'} width={64} height={64} alt='' />
-            </div>
+            <Image
+              src={theme === 'light' ? '/assets/light/target.svg' : '/assets/dark/target.svg'}
+              width={92} height={92} alt=''
+            />
             <div className='text-primary text-xl mb-4 flex'>
               More about Find{' '}
               <svg
@@ -290,19 +299,21 @@ const Home = () => {
           </div>
         </span>
         <aside className='relative'>
-          <Image src={theme === 'light' ? '/assets/search.svg' : '/assets/search-dark.svg'} width={800} height={500}
-                 alt='' className='absolute top-0 opacity-0'/>
-          <Image src={theme === 'light' ? '/assets/bes.svg' : '/assets/bes-dark.svg'} width={704} height={342} alt=''
-                 className='absolute top-0 opacity-0'/>
-          <Image src={theme === 'light' ? '/assets/perspective.svg' : '/assets/perspective-dark.svg'} width={800}
-                 height={520} alt='' className='absolute top-0 opacity-0'/>
-          <Image src={theme === 'light' ? '/assets/time.svg' : '/assets/time-dark.svg'} width={833.5} height={468}
-                 alt='' className='absolute top-0 opacity-0'/>
+          <Image src={theme === 'light' ? '/assets/light/search.svg' : '/assets/dark/search.svg'} width={800}
+                 height={500}
+                 alt='' className='absolute top-0 opacity-0' />
+          <Image src={theme === 'light' ? '/assets/light/bes.svg' : '/assets/dark/bes.svg'} width={704} height={342}
+                 alt=''
+                 className='absolute top-0 opacity-0' />
+          <Image src={theme === 'light' ? '/assets/light/perspective.svg' : '/assets/dark/perspective.svg'} width={800}
+                 height={520} alt='' className='absolute top-0 opacity-0' />
+          <Image src={theme === 'light' ? '/assets/light/time.svg' : '/assets/dark/time.svg'} width={833.5} height={468}
+                 alt='' className='absolute top-0 opacity-0' />
         </aside>
       </section>
       <section className='mt-48 text-center max-w-[1840px] mx-auto'>
         <div
-          className="bg-no-repeat bg-cover bg-[url('/assets/coming-soon-light-bg.svg')] dark:bg-[url('/assets/coming-soon-dark-bg.svg')]">
+          className="bg-no-repeat bg-cover bg-[url('/assets/light/coming-soon-bg-lg.svg')] dark:bg-[url('/assets/dark/coming-soon-bg-lg.svg')]">
           <h1 className='text-8xl pt-80 pb-10'>
             Ready <br />
             to Explore?
@@ -343,7 +354,8 @@ const Home = () => {
             Can't find the answer you're looking for? <a href='/' className='text-blue-500'>Docs </a>
           </p>
           <div className='mt-56'>
-            <Image src={theme === 'light' ? '/assets/vector.svg' : '/assets/vector-dark.svg'} width={486} height={486}
+            <Image src={theme === 'light' ? '/assets/light/vector.svg' : '/assets/dark/vector.svg'} width={486}
+                   height={486}
                    alt={'vector'} />
           </div>
         </div>
