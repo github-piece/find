@@ -2,6 +2,7 @@ import Link from 'next/link';
 import classNames from 'classnames';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
+import { stack as Menu } from 'react-burger-menu';
 
 const Navbar = () => {
   const { resolvedTheme: theme } = useTheme();
@@ -19,7 +20,7 @@ const Navbar = () => {
         )}
       >
         <Link href={'/'}>
-          <div className='flex cursor-pointer sm:flex hidden'>
+          <div className='cursor-pointer hidden sm:flex hidden'>
             <Image
               src={theme === 'light' ? '/find-logo-black.svg' : '/find-logo-white.svg'}
               width={96}
@@ -27,8 +28,16 @@ const Navbar = () => {
               alt=''
             />
           </div>
+          <div className='flex sm:hidden'>
+            <Image
+              src={theme === 'light' ? '/findlabs-logo-black.svg' : '/findlabs-logo-white.svg'}
+              width={128}
+              height={32}
+              alt=''
+            />
+          </div>
         </Link>
-        <div className='flex ml-auto sm:ml-0 my-auto'>
+        <div className='hidden sm:flex ml-auto sm:ml-0 my-auto '>
           <Link href={`${baseUrl}`}>
             <div className='mr-10 cursor-pointer dark:text-gray-100'>Mission</div>
           </Link>
@@ -40,11 +49,12 @@ const Navbar = () => {
           </label>
           <input type='checkbox' id='modal' className='modal-toggle' />
           <label htmlFor='modal' className='modal cursor-pointer'>
-            <label className='modal-box w-11/12 max-w-7xl dark:bg-[#2C2C2C] md:-mt-16 lg:-mt-60 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+            <label
+              className='modal-box w-11/12 max-w-7xl dark:bg-[#2C2C2C] md:-mt-16 lg:-mt-60 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4'>
               <div className='grid grid-cols-1 md:grid-cols-2 md:col-span-2 lg:grid-cols-3 lg:col-span-3 gap-4'>
                 <div className='pl-5 text-sm'>GUIDE TO FIND</div>
-                <div className='hidden lg:block'/>
-                <div className='hidden md:block'/>
+                <div className='hidden lg:block' />
+                <div className='hidden md:block' />
                 <div className='flex flex-row hover:bg-[#f8f9fd] dark:hover:bg-[#383838] pl-3 rounded-xl'>
                   <Image src={'/assets/getting-started.svg'} width={24} height={24} alt='' />
                   <span className='m-3'>
@@ -206,12 +216,57 @@ const Navbar = () => {
             </label>
           </label>
         </div>
-        <Link href='https://find.new/login' className='flex'>
+        <Link href='https://find.new/login' className='hidden sm:flex'>
           <button
             className='bg-gray-700 dark:bg-gray-200-dark hover:bg-gray-400 text-white dark:text-gray-700-dark font-semibold px-4 py-2.5 rounded-xl my-auto'>
             Log in
           </button>
         </Link>
+        <div className='flex sm:hidden'>
+          <Menu
+            customBurgerIcon={<div>
+              <Image src={theme === 'light' ? '/assets/light/hamburger.svg' : '/assets/dark/hamburger.svg'} width={96}
+                     height={96} alt='' />
+            </div>}
+            customCrossIcon={<div>
+              <Image src={theme === 'light' ? '/assets/light/cross.svg' : '/assets/dark/cross.svg'} width={96} height={96}
+                     alt='' />
+            </div>}
+            className='left-0 top-0' width={'100%'}
+          >
+            <Image
+              src={theme === 'light' ? '/findlabs-logo-black.svg' : '/findlabs-logo-white.svg'}
+              width={128}
+              height={32}
+              alt=''
+            />
+            <Link href='/'>
+              <div className='p-4'>
+                Mission
+              </div>
+            </Link>
+            <Link href='/product'>
+              <div className='p-4'>Product</div>
+            </Link>
+            <Link href='/docs'>
+              <div className='p-4'>Docs</div>
+            </Link>
+            <div className='absolute bottom-4 flex justify-around'>
+              <Link href='https://find.new/waitlist'>
+                <button
+                  className='bg-primary text-white dark:text-gray-700-dark font-semibold px-14 py-4 rounded-xl'>
+                  Join
+                </button>
+              </Link>
+              <Link href='https://find.new/login'>
+                <button
+                  className='bg-gray-700 dark:bg-gray-200-dark text-white dark:text-gray-700-dark font-semibold px-14 py-4 rounded-xl'>
+                  Log in
+                </button>
+              </Link>
+            </div>
+          </Menu>
+        </div>
       </nav>
     );
   else

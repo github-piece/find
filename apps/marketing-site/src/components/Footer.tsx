@@ -36,7 +36,7 @@ const Footer = () => {
             <span className='cursor-pointer'>Terms of Use</span>
           </Link>
         </div>
-        <div className='flex flex-row gap-10 lg:hidden'>
+        <div className='hidden md:flex lg:hidden flex-row gap-10 '>
           <Link href={'https://github.com'}>
             <Image
               src={theme === 'light' ? '/assets/light/github.svg' : '/assets/dark/github.svg'}
@@ -66,8 +66,8 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <div className='flex flex-col md:flex-row justify-between mt-12 lg:mt-20'>
-        <div className='hidden lg:flex flex-row gap-10'>
+      <div className='flex flex-col md:flex-row justify-between mt-12 lg:mt-20 gap-16'>
+        <div className='flex md:hidden lg:flex flex-row gap-10'>
           <Link href={'https://github.com'}>
             <Image
               src={theme === 'light' ? '/assets/light/github.svg' : '/assets/dark/github.svg'}
