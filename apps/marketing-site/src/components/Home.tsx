@@ -93,7 +93,7 @@ const Home = () => {
               Our mission is to build the future of search, discovery, and exploration on the internet
               through privacy-first, open-source, and ad-free tools.
             </p>
-            <button className='rounded-2xl bg-primary hover:bg-blue-700 text-xl px-10 py-4 text-white mt-10'>
+            <button className='rounded-3xl bg-primary hover:bg-blue-700 text-xl px-10 py-4 text-white mt-10 border-8 border-current hover:border-blue-200 dark:border-[#262626] dark:hover:border-[#263650]'>
               Join
             </button>
             <div className='flex justify-center'>
