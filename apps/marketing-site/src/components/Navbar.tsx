@@ -40,14 +40,11 @@ const Navbar = () => {
           </label>
           <input type='checkbox' id='modal' className='modal-toggle' />
           <label htmlFor='modal' className='modal cursor-pointer'>
-            <label className='modal-box w-11/12 max-w-7xl dark:bg-[#2C2C2C] -mt-60'>
-              <div className='grid justify-items-start mb-8 grid-cols-4'>
+            <label className='modal-box w-11/12 max-w-7xl dark:bg-[#2C2C2C] md:-mt-16 lg:-mt-60 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+              <div className='grid grid-cols-1 md:grid-cols-2 md:col-span-2 lg:grid-cols-3 lg:col-span-3 gap-4'>
                 <div className='pl-5 text-sm'>GUIDE TO FIND</div>
-                <div />
-                <div />
-                <div className='pl-5 text-sm'>DEVELOPERS</div>
-              </div>
-              <div className='grid grid-cols-4 gap-4'>
+                <div className='hidden lg:block'/>
+                <div className='hidden md:block'/>
                 <div className='flex flex-row hover:bg-[#f8f9fd] dark:hover:bg-[#383838] pl-3 rounded-xl'>
                   <Image src={'/assets/getting-started.svg'} width={24} height={24} alt='' />
                   <span className='m-3'>
@@ -82,17 +79,6 @@ const Navbar = () => {
                   </span>
                 </div>
                 <div className='flex flex-row hover:bg-[#f8f9fd] dark:hover:bg-[#383838] pl-3 rounded-xl'>
-                  <Image src={'/assets/api-reference.svg'} width={24} height={24} alt='' />
-                  <span className='m-3'>
-                    <div className='text-[#151515] dark:text-white cursor-pointer'>
-                      API Reference
-                    </div>
-                    <div className='text-xs text-[#757685] cursor-pointer'>
-                      Learn more about app
-                    </div>
-                  </span>
-                </div>
-                <div className='flex flex-row hover:bg-[#f8f9fd] dark:hover:bg-[#383838] pl-3 rounded-xl'>
                   <Image src={'/assets/privacy-and-security.svg'} width={24} height={24} alt='' />
                   <span className='m-3'>
                     <div className='text-[#151515] dark:text-white cursor-pointer'>
@@ -118,22 +104,6 @@ const Navbar = () => {
                   <Image src={'/assets/sessions.svg'} width={24} height={24} alt='' />
                   <span className='m-3'>
                     <div className='text-[#151515] dark:text-white cursor-pointer'>Sessions</div>
-                    <div className='text-xs text-[#757685] cursor-pointer'>
-                      Learn more about app
-                    </div>
-                  </span>
-                </div>
-                <div className='flex flex-row hover:bg-[#f8f9fd] dark:hover:bg-[#383838] pl-3 rounded-xl'>
-                  <Image
-                    src={'/assets/enabling-your-app-for-find-search.svg'}
-                    width={24}
-                    height={24}
-                    alt=''
-                  />
-                  <span className='m-3'>
-                    <div className='text-[#151515] dark:text-white cursor-pointer'>
-                      Enabling Your App for Find Search
-                    </div>
                     <div className='text-xs text-[#757685] cursor-pointer'>
                       Learn more about app
                     </div>
@@ -183,10 +153,22 @@ const Navbar = () => {
                   </span>
                 </div>
                 <div className='flex flex-row hover:bg-[#f8f9fd] dark:hover:bg-[#383838] pl-3 rounded-xl'>
-                  <Image src={'/assets/contributing-to-find.svg'} width={24} height={24} alt='' />
+                  <Image src={'/assets/searching.svg'} width={24} height={24} alt='' />
+                  <span className='m-3'>
+                    <div className='text-[#151515] dark:text-white cursor-pointer'>Searching</div>
+                    <div className='text-xs text-[#757685]  cursor-pointer'>
+                      Learn more about app
+                    </div>
+                  </span>
+                </div>
+              </div>
+              <div className='flex flex-col gap-4'>
+                <div className='pl-5 text-sm'>DEVELOPERS</div>
+                <div className='flex flex-row hover:bg-[#f8f9fd] dark:hover:bg-[#383838] pl-3 rounded-xl'>
+                  <Image src={'/assets/api-reference.svg'} width={24} height={24} alt='' />
                   <span className='m-3'>
                     <div className='text-[#151515] dark:text-white cursor-pointer'>
-                      Contributing to Find
+                      API Reference
                     </div>
                     <div className='text-xs text-[#757685] cursor-pointer'>
                       Learn more about app
@@ -194,10 +176,28 @@ const Navbar = () => {
                   </span>
                 </div>
                 <div className='flex flex-row hover:bg-[#f8f9fd] dark:hover:bg-[#383838] pl-3 rounded-xl'>
-                  <Image src={'/assets/searching.svg'} width={24} height={24} alt='' />
+                  <Image
+                    src={'/assets/enabling-your-app-for-find-search.svg'}
+                    width={24}
+                    height={24}
+                    alt=''
+                  />
                   <span className='m-3'>
-                    <div className='text-[#151515] dark:text-white cursor-pointer'>Searching</div>
-                    <div className='text-xs text-[#757685]  cursor-pointer'>
+                    <div className='text-[#151515] dark:text-white cursor-pointer'>
+                      Enabling Your App for Find Search
+                    </div>
+                    <div className='text-xs text-[#757685] cursor-pointer'>
+                      Learn more about app
+                    </div>
+                  </span>
+                </div>
+                <div className='flex flex-row hover:bg-[#f8f9fd] dark:hover:bg-[#383838] pl-3 rounded-xl'>
+                  <Image src={'/assets/contributing-to-find.svg'} width={24} height={24} alt='' />
+                  <span className='m-3'>
+                    <div className='text-[#151515] dark:text-white cursor-pointer'>
+                      Contributing to Find
+                    </div>
+                    <div className='text-xs text-[#757685] cursor-pointer'>
                       Learn more about app
                     </div>
                   </span>
