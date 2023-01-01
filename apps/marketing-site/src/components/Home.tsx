@@ -283,11 +283,9 @@ const Home = () => {
               </p>
             </div>
             <Image src={theme === 'light' ? '/assets/light/search.svg' : '/assets/dark/search.svg'} width={456}
-                   height={293}
-                   alt='' className='hidden md:flex lg:hidden' />
-            <Image src={theme === 'light' ? '/assets/light/search-mobile.svg' : '/assets/dark/search-mobile.svg'} width={249}
-                   height={489}
-                   alt='' className='flex md:hidden self-center mt-10' />
+                   height={293} alt='' className='hidden md:flex lg:hidden' />
+            <Image src={theme === 'light' ? '/assets/light/search-mobile.svg' : '/assets/dark/search-mobile.svg'}
+                   width={249} height={489} alt='' className='flex md:hidden self-center mt-10' />
           </div>
           <div className='lg:h-full flex flex-col md:flex-row mt-32'>
             <div>
@@ -323,9 +321,11 @@ const Home = () => {
             <Image src={theme === 'light' ? '/assets/light/perspective.svg' : '/assets/dark/perspective.svg'}
                    width={661}
                    height={430} alt='' className='hidden md:flex lg:hidden' />
-            <Image src={theme === 'light' ? '/assets/light/perspective-mobile.svg' : '/assets/dark/perspective-mobile.svg'} width={335}
-                   height={489}
-                   alt='' className='flex md:hidden self-center mt-10' />
+            <Image
+              src={theme === 'light' ? '/assets/light/perspective-mobile.svg' : '/assets/dark/perspective-mobile.svg'}
+              width={335}
+              height={489}
+              alt='' className='flex md:hidden self-center mt-10' />
           </div>
           <div className='lg:h-72 flex flex-col md:flex-row mt-32'>
             <div>
@@ -342,11 +342,9 @@ const Home = () => {
               </p>
             </div>
             <Image src={theme === 'light' ? '/assets/light/time.svg' : '/assets/dark/time.svg'} width={689}
-                   height={387}
-                   alt='' className='hidden md:flex lg:hidden' />
-            <Image src={theme === 'light' ? '/assets/light/time-mobile.svg' : '/assets/dark/time-mobile.svg'} width={335}
-                   height={489}
-                   alt='' className='flex md:hidden self-center mt-10' />
+                   height={387} alt='' className='hidden md:flex lg:hidden' />
+            <Image src={theme === 'light' ? '/assets/light/time-mobile.svg' : '/assets/dark/time-mobile.svg'}
+                   width={335} height={489} alt='' className='flex md:hidden self-center mt-10' />
           </div>
         </span>
         <aside className='hidden lg:block lg:relative'>
