@@ -3,6 +3,8 @@ import classNames from 'classnames';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import { stack as Menu } from 'react-burger-menu';
+import { Accordion, AccordionBody, AccordionHeader } from '@material-tailwind/react';
+import { SetStateAction, useState } from 'react';
 
 const Navbar = () => {
   const { resolvedTheme: theme } = useTheme();
@@ -10,6 +12,38 @@ const Navbar = () => {
 
   let baseUrl = 'http://localhost:3001';
   if (process.env.production && process.env.production !== 'false') baseUrl = 'https://find.world';
+
+  const [open, setOpen] = useState(1);
+
+  const handleOpen = (value: SetStateAction<number>) => {
+    setOpen(open === value ? 0 : value);
+  };
+
+  // @ts-ignore
+  function Icon({ id, open }) {
+    return (
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        className={`${
+          id === open ? 'rotate-90' : ''
+        } h-7 w-7 transition-transform`}
+        viewBox='0 0 24 24'
+        stroke={'currentColor'}
+        strokeWidth={2}
+      >
+        <polyline points='10,6 16,12 10,18' fill='none'/>
+      </svg>
+    );
+  }
+
+  // @ts-ignore
+  function background({ id, open }) {
+    return (
+      `${
+        id === open ? 'bg-[#f8f9fd] dark:bg-[#2c2c2c]' : ''
+      }`
+    );
+  }
 
   if (isWaitlist === false)
     return (
@@ -229,10 +263,12 @@ const Navbar = () => {
                      height={96} alt='' />
             </div>}
             customCrossIcon={<div>
-              <Image src={theme === 'light' ? '/assets/light/cross.svg' : '/assets/dark/cross.svg'} width={96} height={96}
+              <Image src={theme === 'light' ? '/assets/light/cross.svg' : '/assets/dark/cross.svg'} width={96}
+                     height={96}
                      alt='' />
             </div>}
             className='left-0 top-0' width={'100%'}
+            menuClassName={'bg-white dark:bg-[#212121]'}
           >
             <Image
               src={theme === 'light' ? '/findlabs-logo-black.svg' : '/findlabs-logo-white.svg'}
@@ -240,17 +276,39 @@ const Navbar = () => {
               height={32}
               alt=''
             />
-            <Link href='/'>
-              <div className='p-4'>
+            <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
+              <AccordionHeader className={classNames(background({
+                id: 1,
+                open
+              }), 'mt-9 px-4 py-3 text-2xl dark:text-white rounded-lg')} onClick={() => handleOpen(1)}>
                 Mission
-              </div>
-            </Link>
-            <Link href='/product'>
-              <div className='p-4'>Product</div>
-            </Link>
-            <Link href='/docs'>
-              <div className='p-4'>Docs</div>
-            </Link>
+              </AccordionHeader>
+              <AccordionBody className='text-gray-600 dark:text-gray-600-dark text-lg px-8'>
+
+              </AccordionBody>
+            </Accordion>
+            <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
+              <AccordionHeader className={classNames(background({
+                id: 2,
+                open
+              }), 'mt-3 px-4 py-3 text-2xl dark:text-white rounded-lg')} onClick={() => handleOpen(2)}>
+                Products
+              </AccordionHeader>
+              <AccordionBody className='text-gray-600 dark:text-gray-600-dark text-lg px-8'>
+              </AccordionBody>
+            </Accordion>
+            <Accordion open={open === 3} icon={<Icon id={3} open={open} />}>
+              <AccordionHeader className={classNames(background({
+                id: 3,
+                open
+              }), 'mt-3 px-4 py-3 text-2xl dark:text-white rounded-lg')} onClick={() => handleOpen(3)}>
+                Docs
+              </AccordionHeader>
+              <AccordionBody className='text-gray-600 dark:text-gray-600-dark text-lg px-8'>
+
+              </AccordionBody>
+            </Accordion>
+
             <div className='absolute bottom-4 flex justify-around'>
               <Link href='https://find.new/waitlist'>
                 <button
