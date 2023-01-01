@@ -84,7 +84,7 @@ const Home = () => {
   return (
     <main>
       <section className='text-center'>
-        <h1 className='mt-24 text-gray-700 dark:text-gray-700-dark mb-5 text-3xl md:text-6xl'>
+        <h1 className='mt-24 text-gray-700 dark:text-gray-700-dark mb-5 text-3xl md:text-6xl font-semibold'>
           A new era for search
         </h1>
         <div className="bg-no-repeat bg-right-bottom bg-[url('/assets/vector2.svg')]">
@@ -405,7 +405,7 @@ const Home = () => {
           </div>
           <p className='text-gray-600 dark:text-gray-600-dark text-xl text-center lg:text-left'>
             {/* eslint-disable-next-line react/no-unescaped-entities */}
-            Can't find the answer you're looking for? <a href='/' className='text-blue-500'>Docs </a>
+            Can't find the answer you're looking for? <a href='/docs' className='text-blue-500'>Docs </a>
           </p>
           <div className='mt-56 hidden lg:block'>
             <Image src={theme === 'light' ? '/assets/light/vector.svg' : '/assets/dark/vector.svg'} width={486}
