@@ -262,11 +262,12 @@ const Navbar = () => {
             <Image
               src={theme === 'light' ? '/findlabs-logo-black.svg' : '/findlabs-logo-white.svg'}
               width={128} height={32} alt='' className='absolute top-10' />
+            <span className='w-full mt-16 p-0.5 bg-[#E8E8EB] lg:w-1/3'/>
             <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
               <AccordionHeader className={classNames(background({
                 id: 1,
                 open
-              }), 'mt-14 pl-8 pr-11 py-3 text-2xl dark:text-white rounded-lg')} onClick={() => handleOpen(1)}>
+              }), 'mt-3 pl-8 pr-11 py-3 text-2xl dark:text-white rounded-lg')} onClick={() => handleOpen(1)}>
                 Mission
               </AccordionHeader>
               <AccordionBody className='text-gray-600 dark:text-gray-600-dark text-lg px-8'>
