@@ -13,7 +13,7 @@ const Navbar = () => {
   let baseUrl = 'http://localhost:3001';
   if (process.env.production && process.env.production !== 'false') baseUrl = 'https://find.world';
 
-  const [open, setOpen] = useState(1);
+  const [open, setOpen] = useState(0);
 
   const handleOpen = (value: SetStateAction<number>) => {
     setOpen(open === value ? 0 : value);
@@ -31,7 +31,7 @@ const Navbar = () => {
         stroke={'currentColor'}
         strokeWidth={2}
       >
-        <polyline points='10,6 16,12 10,18' fill='none'/>
+        <polyline points='10,6 16,12 10,18' fill='none' />
       </svg>
     );
   }
@@ -170,12 +170,7 @@ const Navbar = () => {
                   </span>
                 </div>
                 <div className='flex flex-row hover:bg-[#f8f9fd] dark:hover:bg-[#383838] pl-3 rounded-xl'>
-                  <Image
-                    src={'/assets/searching-connected-apps.svg'}
-                    width={24}
-                    height={24}
-                    alt=''
-                  />
+                  <Image src={'/assets/searching-connected-apps.svg'} width={24} height={24} alt='' />
                   <span className='m-3'>
                     <div className='text-[#151515] dark:text-white cursor-pointer'>
                       Searching Connected Apps
@@ -220,12 +215,7 @@ const Navbar = () => {
                   </span>
                 </div>
                 <div className='flex flex-row hover:bg-[#f8f9fd] dark:hover:bg-[#383838] pl-3 rounded-xl'>
-                  <Image
-                    src={'/assets/enabling-your-app-for-find-search.svg'}
-                    width={24}
-                    height={24}
-                    alt=''
-                  />
+                  <Image src={'/assets/enabling-your-app-for-find-search.svg'} width={24} height={24} alt='' />
                   <span className='m-3'>
                     <div className='text-[#151515] dark:text-white cursor-pointer'>
                       Enabling Your App for Find Search
@@ -264,65 +254,195 @@ const Navbar = () => {
             </div>}
             customCrossIcon={<div>
               <Image src={theme === 'light' ? '/assets/light/cross.svg' : '/assets/dark/cross.svg'} width={96}
-                     height={96}
-                     alt='' />
+                     height={96} alt='' />
             </div>}
             className='left-0 top-0' width={'100%'}
             menuClassName={'bg-white dark:bg-[#212121]'}
           >
             <Image
               src={theme === 'light' ? '/findlabs-logo-black.svg' : '/findlabs-logo-white.svg'}
-              width={128}
-              height={32}
-              alt=''
-            />
+              width={128} height={32} alt='' className='absolute top-10' />
             <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
               <AccordionHeader className={classNames(background({
                 id: 1,
                 open
-              }), 'mt-9 px-4 py-3 text-2xl dark:text-white rounded-lg')} onClick={() => handleOpen(1)}>
+              }), 'mt-14 pl-8 pr-11 py-3 text-2xl dark:text-white rounded-lg')} onClick={() => handleOpen(1)}>
                 Mission
               </AccordionHeader>
               <AccordionBody className='text-gray-600 dark:text-gray-600-dark text-lg px-8'>
-
+                <div className='pl-5 text-sm'>GUIDE TO FIND</div>
+                <div className='flex flex-row pl-3'>
+                  <Image src={'/assets/getting-started.svg'} width={24} height={24} alt='' />
+                  <span className='m-3'>
+            <div className='text-[#151515] dark:text-white'>
+              Getting Started
+            </div>
+            <div className='text-xs text-[#757685]'>
+              Learn more about app
+            </div>
+          </span>
+                </div>
+                <div className='flex flex-row pl-3'>
+                  <Image src={'/assets/privacy-and-security.svg'} width={24} height={24} alt='' />
+                  <span className='m-3'>
+            <div className='text-[#151515] dark:text-white'>
+              Privacy and Security
+            </div>
+            <div className='text-xs text-[#757685]'>
+              Learn more about app
+            </div>
+          </span>
+                </div>
+                <div className='flex flex-row pl-3'>
+                  <Image src={'/assets/billing-and-subscriptions.svg'} width={24} height={24} alt='' />
+                  <span className='m-3'>
+            <div className='text-[#151515] dark:text-white'>
+              Billing and Subscriptions
+            </div>
+            <div className='text-xs text-[#757685]'>
+              Learn more about app
+            </div>
+          </span>
+                </div>
+                <div className='flex flex-row pl-3'>
+                  <Image src={'/assets/searching-connected-apps.svg'} width={24} height={24} alt='' />
+                  <span className='m-3'>
+            <div className='text-[#151515] dark:text-white'>
+              Searching
+            </div>
+            <div className='text-xs text-[#757685]'>
+              Learn more about app
+            </div>
+          </span>
+                </div>
+                <div className='flex flex-row pl-3'>
+                  <Image src={'/assets/browser-extension.svg'} width={24} height={24} alt='' />
+                  <span className='m-3'>
+            <div className='text-[#151515] dark:text-white'>
+              Browser Extension
+            </div>
+            <div className='text-xs text-[#757685]'>
+              Learn more about app
+            </div>
+          </span>
+                </div>
+                <div className='flex flex-row pl-3'>
+                  <Image src={'/assets/perspectives.svg'} width={24} height={24} alt='' />
+                  <span className='m-3'>
+            <div className='text-[#151515] dark:text-white'>
+              Perspectives
+            </div>
+            <div className='text-xs text-[#757685]'>
+              Learn more about app
+            </div>
+          </span>
+                </div>
+                <div className='flex flex-row pl-3'>
+                  <Image src={'/assets/searching.svg'} width={24} height={24} alt='' />
+                  <span className='m-3'>
+            <div className='text-[#151515] dark:text-white'>Searching Connected Apps</div>
+            <div className='text-xs text-[#757685]'>
+              Learn more about app
+            </div>
+          </span>
+                </div>
+                <div className='flex flex-row pl-3'>
+                  <Image src={'/assets/generated-results.svg'} width={24} height={24} alt='' />
+                  <span className='m-3'>
+            <div className='text-[#151515] dark:text-white'>
+              Generated Results
+            </div>
+            <div className='text-xs text-[#757685]'>
+              Learn more about app
+            </div>
+          </span>
+                </div>
+                <div className='flex flex-row pl-3'>
+                  <Image src={'/assets/sessions.svg'} width={24} height={24} alt='' />
+                  <span className='m-3'>
+            <div className='text-[#151515] dark:text-white'>Sessions</div>
+            <div className='text-xs text-[#757685]'>
+              Learn more about app
+            </div>
+          </span>
+                </div>
+                <div className='flex flex-row pl-3'>
+                  <Image src={'/assets/briefings-and-alerts.svg'} width={24} height={24} alt='' />
+                  <span className='m-3'>
+            <div className='text-[#151515] dark:text-white'>
+              Briefings and Alerts
+            </div>
+            <div className='text-xs text-[#757685]'>
+              Learn more about app
+            </div>
+          </span>
+                </div>
+                <div className='pl-5 text-sm'>DEVELOPERS</div>
+                <div className='flex flex-row pl-3'>
+                  <Image src={'/assets/api-reference.svg'} width={24} height={24} alt='' />
+                  <span className='m-3'>
+            <div className='text-[#151515] dark:text-white'>
+              API Reference
+            </div>
+            <div className='text-xs text-[#757685]'>
+              Learn more about app
+            </div>
+          </span>
+                </div>
+                <div className='flex flex-row pl-3'>
+                  <Image src={'/assets/enabling-your-app-for-find-search.svg'} width={24} height={24} alt='' />
+                  <span className='m-3'>
+            <div className='text-[#151515] dark:text-white'>
+              Enabling Your App for Find Search
+            </div>
+            <div className='text-xs text-[#757685]'>
+              Learn more about app
+            </div>
+          </span>
+                </div>
+                <div className='flex flex-row pl-3'>
+                  <Image src={'/assets/contributing-to-find.svg'} width={24} height={24} alt='' />
+                  <span className='m-3'>
+            <div className='text-[#151515] dark:text-white'>
+              Contributing to Find
+            </div>
+            <div className='text-xs text-[#757685]'>
+              Learn more about app
+            </div>
+          </span>
+                </div>
               </AccordionBody>
             </Accordion>
             <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
               <AccordionHeader className={classNames(background({
                 id: 2,
                 open
-              }), 'mt-3 px-4 py-3 text-2xl dark:text-white rounded-lg')} onClick={() => handleOpen(2)}>
+              }), 'mt-3 pl-8 pr-11 py-3 text-2xl dark:text-white rounded-lg')} onClick={() => handleOpen(2)}>
                 Products
               </AccordionHeader>
               <AccordionBody className='text-gray-600 dark:text-gray-600-dark text-lg px-8'>
+
               </AccordionBody>
             </Accordion>
             <Accordion open={open === 3} icon={<Icon id={3} open={open} />}>
               <AccordionHeader className={classNames(background({
                 id: 3,
                 open
-              }), 'mt-3 px-4 py-3 text-2xl dark:text-white rounded-lg')} onClick={() => handleOpen(3)}>
+              }), 'mt-3 pl-8 pr-11 py-3 text-2xl dark:text-white rounded-lg')} onClick={() => handleOpen(3)}>
                 Docs
               </AccordionHeader>
               <AccordionBody className='text-gray-600 dark:text-gray-600-dark text-lg px-8'>
 
               </AccordionBody>
             </Accordion>
-
-            <div className='absolute bottom-4 flex justify-around'>
-              <Link href='https://find.new/waitlist'>
-                <button
-                  className='bg-primary text-white dark:text-gray-700-dark font-semibold px-14 py-4 rounded-xl'>
-                  Join
-                </button>
-              </Link>
-              <Link href='https://find.new/login'>
-                <button
-                  className='bg-gray-700 dark:bg-gray-200-dark text-white dark:text-gray-700-dark font-semibold px-14 py-4 rounded-xl'>
-                  Log in
-                </button>
-              </Link>
-            </div>
+            <Link href='https://find.new/waitlist'
+                  className='absolute bg-primary text-white dark:text-gray-700-dark font-semibold bottom-4 left-4 px-4 py-2 rounded-xl w-40 text-center'>
+              Join
+            </Link>
+            <Link href='https://find.new/login'
+                  className='absolute bg-gray-700 dark:bg-gray-200-dark text-white dark:text-gray-700-dark font-semibold px-4 py-2 bottom-4 w-40 right-4 text-center rounded-xl'>
+              Log in
+            </Link>
           </Menu>
         </div>
       </nav>
