@@ -49,7 +49,7 @@ const Navbar = () => {
     return (
       <nav
         className={classNames(
-          'flex justify-around relative h-12 w-full pt-10 pb-20 sticky top-0 z-50 bg-white dark:bg-[#262626]',
+          'flex justify-around h-12 w-full pt-10 pb-20 sticky top-0 z-50 bg-white dark:bg-[#262626]',
           theme
         )}
       >
@@ -262,8 +262,8 @@ const Navbar = () => {
             <Image
               src={theme === 'light' ? '/findlabs-logo-black.svg' : '/findlabs-logo-white.svg'}
               width={128} height={32} alt='' className='absolute top-10' />
-            <span className='w-full mt-16 p-0.5 bg-[#E8E8EB] dark:bg-[#383838] lg:w-1/3' />
-            <div>
+            <span className='w-5/6 p-0.5 bg-[#E8E8EB] dark:bg-[#383838] absolute top-24' />
+            <div className='mt-20 h-5/6 overflow-scroll'>
               <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
                 <AccordionHeader className={classNames(background({
                   id: 1,
@@ -438,16 +438,14 @@ const Navbar = () => {
                 </AccordionBody>
               </Accordion>
             </div>
-            <div className='text-white dark:text-gray-700-dark text-center'>
-              <Link href='https://find.new/waitlist font-semibold'
-                    className='absolute bg-primary bottom-4 left-4 py-2 w-2/5 rounded-xl'>
-                Join
-              </Link>
-              <Link href='https://find.new/login'
-                    className='absolute bg-gray-700 dark:bg-gray-200-dark right-4 py-2 bottom-4 w-2/5 rounded-xl'>
-                Log in
-              </Link>
-            </div>
+            <Link href='https://find.new/waitlist'
+                  className='absolute bg-primary bottom-4 left-4 py-2 w-2/5 rounded-xl text-white dark:text-gray-700-dark text-center'>
+              Join
+            </Link>
+            <Link href='https://find.new/login'
+                  className='absolute bg-gray-700 dark:bg-gray-200-dark right-4 py-2 bottom-4 w-2/5 rounded-xl text-white dark:text-gray-700-dark text-center'>
+              Log in
+            </Link>
           </Menu>
         </div>
       </nav>
